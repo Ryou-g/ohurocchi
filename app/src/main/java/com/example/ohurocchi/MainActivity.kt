@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             val intent = Intent(this,SecondActivity::class.java)
             startActivity(intent)
+            //めちゃめちゃなコメント
 
         }
     }
