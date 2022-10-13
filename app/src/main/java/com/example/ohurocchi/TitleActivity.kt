@@ -17,6 +17,7 @@ class TitleActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
+            //めちゃめちゃなコメント
 
         }
     }
