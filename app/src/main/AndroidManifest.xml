@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Ohurocchi"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".TitleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +26,9 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecondActivity"
+            android:name=".HomeActivity"
             android:exported="true">
-        </activity>>
+        </activity>
     </application>
 
 </manifest>
