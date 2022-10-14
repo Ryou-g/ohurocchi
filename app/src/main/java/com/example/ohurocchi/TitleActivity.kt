@@ -15,7 +15,7 @@ class TitleActivity : AppCompatActivity() {
 
         //２）ボタンを押したら次の画面へ
         btnStart.setOnClickListener {
-            val intent = Intent(this,HomeActivity::class.java)
+            val intent = Intent(this,CharaActivity::class.java)
             startActivity(intent)
             //めちゃめちゃなコメント
 
