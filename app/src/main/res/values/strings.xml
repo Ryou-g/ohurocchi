@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ohurocchi</string>
+    <string name="start">START</string>
+    <string name="welcome">ようこそ新しい画面へ</string>
+    <string name="back">戻る</string>
+    <string name="woman">woman</string>
+    <string name="bathbtn">お風呂に入った</string>
+    <string name="ohurobtn">お風呂に入った</string>
 </resources>
