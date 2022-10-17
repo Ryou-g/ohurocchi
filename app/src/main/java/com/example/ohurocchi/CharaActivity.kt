@@ -1,12 +1,7 @@
 package com.example.ohurocchi
 
-import android.media.AudioAttributes
-import android.media.AudioManager
 import android.media.MediaPlayer
-import android.media.SoundPool
-import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class CharaActivity : AppCompatActivity(){
