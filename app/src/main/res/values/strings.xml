@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">ohurocchi</string>
+    <string name="start">START</string>
+    <string name="welcome">ようこそ新しい画面へ</string>
+    <string name="back">戻る</string>
+    <string name="woman">woman</string>
+    <string name="bathbtn">お風呂に入った</string>
+    <string name="ohurobtn">お風呂に入った</string>
+    <string name="age">年齢：</string>
+    <string name="name">名前：</string>
+    <string name="favorability">好感度：</string>
+    <string name="Logo">おふろっち</string>
+    <string name="todo">TODO</string>
+    <string name="today">2022/10/14</string>
+    <string name="td">TODO</string>
+    <string name="Todo">TODO</string>
+    <string name="toDo">TODO</string>
+    <string name="chara">キャラ</string>
+    <string name="shop">衣装購入</string>
+    <string name="home">ホーム</string>
+    <string name="setting">設定</string>
+    <string name="tooo">TODO</string>
 </resources>
