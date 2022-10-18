@@ -20,4 +20,9 @@
     <string name="home">ホーム</string>
     <string name="setting">設定</string>
     <string name="tooo">TODO</string>
+    <string name="mypage">マイページ</string>
+    <string name="sound">サウンド</string>
+    <string name="background">背景変更</string>
+    <string name="bathlog">入浴ログ</string>
+    <string name="dressup">着せ替え</string>
 </resources>

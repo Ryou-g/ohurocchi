@@ -9,12 +9,13 @@
 
     <include
         layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="743dp"
+        android:layout_width="394dp"
+        android:layout_height="722dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,8 +28,9 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
-        app:srcCompat="@drawable/woman" />
+        app:layout_constraintVertical_bias="0.78"
+        app:srcCompat="@drawable/woman"
+        tools:ignore="ImageContrastCheck" />
 
     <Button
         android:id="@+id/button1"

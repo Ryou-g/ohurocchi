@@ -51,6 +51,14 @@
             android:name=".CharaActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".DressbuyActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CommonActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
