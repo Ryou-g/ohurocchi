@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".HomeActivity" >
+    tools:context=".HomeActivity">
 
     <include
         layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="743dp"
+        android:layout_width="414sp"
+        android:layout_height="743sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +18,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="333dp"
-        android:layout_height="396dp"
+        android:layout_width="333sp"
+        android:layout_height="396sp"
         android:contentDescription="@string/woman"
         android:rotationY="-180"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +32,8 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="148dp"
-        android:layout_height="61dp"
+        android:layout_width="148sp"
+        android:layout_height="61sp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:contentDescription="@string/bathbtn"
         android:onClick="onA"
