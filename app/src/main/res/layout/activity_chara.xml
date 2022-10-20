@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.141" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView6"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="@string/favorability"

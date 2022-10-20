@@ -9,11 +9,11 @@ class DressupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup)
 
-        val btnBack : Button = findViewById(R.id.btnBack)
-
-        btnBack.setOnClickListener {
-            finish()
-
-        }
+//        val btnBack : Button = findViewById(R.id.btnBack)
+//
+//        btnBack.setOnClickListener {
+//            finish()
+//
+//        }
     }
 }
