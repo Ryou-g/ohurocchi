@@ -15,14 +15,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.76"
-        app:srcCompat="@drawable/adult" />
+        app:srcCompat="@drawable/adult"
+        android:contentDescription="@string/image" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:text="風呂メイド"
+        android:text="@string/huro"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
@@ -35,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="120円"
+        android:text="@string/yen"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
@@ -49,8 +50,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:shadowColor="#A14C4C"
-        android:text="アンロック"
-        android:textColor="#3098D3"
+        android:text="@string/unrock"
+        android:textColor="#0277BD"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.522"
@@ -62,7 +63,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="152dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="335dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +76,7 @@
             android:layout_weight="1"
 
             android:background="@drawable/border"
+            android:contentDescription="@string/dress1"
             app:srcCompat="@drawable/adult" />
 
         <ImageView
@@ -83,7 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/sexy" />
+            android:contentDescription="@string/dress2"
+            app:srcCompat="@drawable/sexy"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
@@ -102,7 +106,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/neautral" />
+            app:srcCompat="@drawable/neautral"
+            android:contentDescription="@string/dress3" />
 
         <ImageView
             android:id="@+id/imageView17"
@@ -110,17 +115,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/sick" />
+            app:srcCompat="@drawable/sick"
+            android:contentDescription="@string/dress4" />
 
     </LinearLayout>
 
     <include
+        android:id="@+id/include2"
         layout="@layout/activity_common"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

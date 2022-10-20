@@ -1,12 +1,18 @@
 package com.example.ohurocchi
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class DressbuyActivity : AppCompatActivity() {
+
+    // ① 準備（コンポを部屋に置く・コピペOK）
+
+    private lateinit var mp: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressbuy)
@@ -51,5 +57,27 @@ class DressbuyActivity : AppCompatActivity() {
             startActivity(intent)
             //ここまで
         }
+
+        mp = MediaPlayer.create(this,R.raw.dress_buy)
+        mp.isLooping = true
+        mp.start()
+    }     // ③ 読込処理(CDを入れる)
+
+    //６）再開
+    override fun onResume() {
+        super.onResume()
+        mp.start()
+    }
+    //５）一時停止
+    override fun onPause() {
+        super.onPause()
+        mp.pause()
+    }
+
+    //７）終了・メモリの解放
+    override fun onDestroy() {
+        super.onDestroy()
+        mp.stop() //終了・停止
+        mp.release() //解放
     }
 }
