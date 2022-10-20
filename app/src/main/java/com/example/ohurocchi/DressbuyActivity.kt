@@ -3,12 +3,13 @@ package com.example.ohurocchi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class DressbuyActivity :AppCompatActivity() {
+class DressbuyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chara)
+        setContentView(R.layout.activity_dressbuy)
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
