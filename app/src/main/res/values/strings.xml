@@ -25,4 +25,14 @@
     <string name="background">背景変更</string>
     <string name="bathlog">入浴ログ</string>
     <string name="dressup">着せ替え</string>
+    <string name="huro">風呂メイド</string>
+    <string name="yen">120円</string>
+    <string name="unrock">アンロック</string>
+    <string name="image">TODO</string>
+    <string name="dress1">TODO</string>
+    <string name="dress2">TODO</string>
+    <string name="dress3">TODO</string>
+    <string name="dress4">TODO</string>
+    <string name="ohurocchi">おふろっち</string>
+    <string name="Today">2022/10/14</string>
 </resources>
