@@ -9,11 +9,11 @@ class BackgroundActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
 
-        val btnBack : Button = findViewById(R.id.btnBack)
-
-        btnBack.setOnClickListener {
-            finish()
-
-        }
+//        val btnBack : Button = findViewById(R.id.btnBack)
+//
+//        btnBack.setOnClickListener {
+//            finish()
+//
+//        }
     }
 }
