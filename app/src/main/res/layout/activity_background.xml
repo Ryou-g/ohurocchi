@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background_1">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:text="露天風呂"
+        android:text="@string/huroname"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:shadowColor="#A14C4C"
-        android:text="適用"
+        android:text="@string/tekiyou"
         android:textColor="#0277BD"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,8 @@
 
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
-            app:srcCompat="@drawable/japanese" />
+            app:srcCompat="@drawable/japanese"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView15"
@@ -83,8 +84,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
+            android:contentDescription="@string/dress3"
             app:srcCompat="@drawable/apart"
-            android:contentDescription="@string/dress3" />
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView17"
@@ -92,21 +94,30 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
+            android:contentDescription="@string/dress4"
             app:srcCompat="@drawable/telmare"
-            android:contentDescription="@string/dress4" />
+            tools:ignore="ImageContrastCheck" />
+
 
     </LinearLayout>
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/activity_common"
+    <Button
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/backbtn3"
+        android:textColor="#212121"
+        app:backgroundTint="#ffff4444"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

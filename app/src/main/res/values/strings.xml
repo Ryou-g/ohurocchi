@@ -43,4 +43,6 @@
     <string name="dressup1">着せ替え</string>
     <string name="backbtn3">戻る</string>
     <string name="namechenge">名前変更</string>
+    <string name="huroname">露天風呂</string>
+    <string name="tekiyou">適用</string>
 </resources>
