@@ -17,13 +17,13 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
 
-        val mypage : Button = findViewById(R.id.mypage)
+        val namechange : Button = findViewById(R.id.namechange)
         val sound : Button = findViewById(R.id.sound)
         val bathlog : Button = findViewById(R.id.bathlog)
         val dressup : Button = findViewById(R.id.dressup)
         val background : Button = findViewById(R.id.background)
 
-        mypage.setOnClickListener {
+        namechange.setOnClickListener {
             val intent = Intent(applicationContext,MypageActivity::class.java)
             startActivity(intent)
         }

@@ -40,4 +40,7 @@
     <string name="nameframe">Name</string>
     <string name="change">変更する</string>
     <string name="modoru">戻る</string>
+    <string name="dressup1">着せ替え</string>
+    <string name="backbtn3">戻る</string>
+    <string name="namechenge">名前変更</string>
 </resources>

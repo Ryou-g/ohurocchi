@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:shadowColor="#A14C4C"
-        android:text="着せ替え"
+        android:text="@string/dressup1"
         android:textColor="#0277BD"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
@@ -77,7 +77,8 @@
 
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
-            app:srcCompat="@drawable/adult" />
+            app:srcCompat="@drawable/adult"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView15"
@@ -120,13 +121,19 @@
 
     </LinearLayout>
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/activity_common"
+    <Button
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="155dp"
+        android:text="@string/backbtn3"
+        android:textColor="#212121"
+        app:backgroundTint="#ffff4444"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
