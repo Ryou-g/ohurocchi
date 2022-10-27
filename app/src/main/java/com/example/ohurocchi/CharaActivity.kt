@@ -56,11 +56,11 @@ class CharaActivity : AppCompatActivity(){
             //ここまで
         }
 
-        // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.chara)
         mp.isLooping = true
         mp.start()
-    }
+    }     // ③ 読込処理(CDを入れる)
+
     //６）再開
     override fun onResume() {
         super.onResume()

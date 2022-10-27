@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_1">
+
+    <Spinner
+        android:id="@+id/spinner"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="386dp"
+        android:background="@color/black"
+        android:contentDescription="@string/pulldown"
+        android:minHeight="48dp"
+        app:backgroundTint="#FF5722"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
-        android:layout_marginEnd="160dp"
-        android:text="@string/back"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="502dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="181dp"
+        android:text="@string/modoru"
         app:backgroundTint="#ffff4444"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="293dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="1dp"
-        android:background="@android:color/holo_blue_light"
-        android:entries="@array/month"
-        android:minHeight="48dp"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

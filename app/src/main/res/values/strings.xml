@@ -25,4 +25,40 @@
     <string name="background">背景変更</string>
     <string name="bathlog">入浴ログ</string>
     <string name="dressup">着せ替え</string>
+
+    <string-array name="month_array">
+    <item>1月</item>
+    <item>2月</item>
+    <item>3月</item>
+    <item>4月</item>
+    <item>5月</item>
+    <item>6月</item>
+    <item>7月</item>
+    <item>8月</item>
+    <item>9月</item>
+    <item>10月</item>
+    <item>11月</item>
+    <item>12月</item>
+    </string-array>
+    <string name="huro">風呂メイド</string>
+    <string name="yen">120円</string>
+    <string name="unrock">アンロック</string>
+    <string name="image">TODO</string>
+    <string name="dress1">TODO</string>
+    <string name="dress2">TODO</string>
+    <string name="dress3">TODO</string>
+    <string name="dress4">TODO</string>
+    <string name="ohurocchi">おふろっち</string>
+    <string name="Today">2022/10/14</string>
+    <string name="nickname">ニックネーム</string>
+    <string name="backbtn">戻る</string>
+    <string name="nameframe">Name</string>
+    <string name="change">変更する</string>
+    <string name="modoru">戻る</string>
+    <string name="dressup1">着せ替え</string>
+    <string name="backbtn3">戻る</string>
+    <string name="namechenge">名前変更</string>
+    <string name="huroname">露天風呂</string>
+    <string name="tekiyou">適用</string>
+    <string name="pulldown">月を選択</string>
 </resources>
