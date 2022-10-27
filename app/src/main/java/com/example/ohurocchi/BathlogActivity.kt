@@ -4,36 +4,31 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
+import android.widget.Toast
 
 class BathlogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bathlog)
-        val spinner: Spinner = findViewById(R.id.spinner)
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.month_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
-        class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                // An item was selected. You can retrieve the selected item using
-                // parent.getItemAtPosition(pos)
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        // OnItemSelectedListenerの実装
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            // 項目が選択された時に呼ばれる
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val text = parent?.selectedItem as String
+                Toast.makeText(this@BathlogActivity, text, Toast.LENGTH_SHORT).show()
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Another interface callback
+            // 基本的には呼ばれないが、何らかの理由で選択されることなく項目が閉じられたら呼ばれる
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
             }
         }
 
