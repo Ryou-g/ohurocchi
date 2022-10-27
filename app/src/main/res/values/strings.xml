@@ -25,18 +25,4 @@
     <string name="background">背景変更</string>
     <string name="bathlog">入浴ログ</string>
     <string name="dressup">着せ替え</string>
-    <string-array name="month_array">
-    <item>1月</item>
-    <item>2月</item>
-    <item>3月</item>
-    <item>4月</item>
-    <item>5月</item>
-    <item>6月</item>
-    <item>7月</item>
-    <item>8月</item>
-    <item>9月</item>
-    <item>10月</item>
-    <item>11月</item>
-    <item>12月</item>
-    </string-array>
 </resources>
