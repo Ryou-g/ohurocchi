@@ -24,7 +24,7 @@ class SettingActivity : AppCompatActivity() {
         val background : Button = findViewById(R.id.background)
 
         namechange.setOnClickListener {
-            val intent = Intent(applicationContext,MypageActivity::class.java)
+            val intent = Intent(applicationContext,NameActivity::class.java)
             startActivity(intent)
         }
 

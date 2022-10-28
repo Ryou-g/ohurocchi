@@ -25,6 +25,7 @@
     <string name="background">背景変更</string>
     <string name="bathlog">入浴ログ</string>
     <string name="dressup">着せ替え</string>
+
     <string-array name="month_array">
     <item>1月</item>
     <item>2月</item>
