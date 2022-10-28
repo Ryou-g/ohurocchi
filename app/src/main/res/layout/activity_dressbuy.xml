@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:shadowColor="#A14C4C"
-        android:text="@string/unrock"
+        android:text="購入"
         android:textColor="#0277BD"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
@@ -69,25 +69,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView14"
+        <ImageButton
+            android:id="@+id/adult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
-            app:srcCompat="@drawable/adult" />
+            app:srcCompat="@drawable/adult"
+            android:scaleType="fitCenter"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
-        <ImageView
-            android:id="@+id/imageView15"
+        <ImageButton
+            android:id="@+id/sexy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress2"
             app:srcCompat="@drawable/sexy"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            android:scaleType="fitCenter"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
     </LinearLayout>
 
@@ -100,23 +103,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <ImageView
-            android:id="@+id/imageView16"
+        <ImageButton
+            android:id="@+id/neautral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
             app:srcCompat="@drawable/neautral"
-            android:contentDescription="@string/dress3" />
+            android:contentDescription="@string/dress3"
+            android:scaleType="fitCenter"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
 
-        <ImageView
-            android:id="@+id/imageView17"
+            />
+
+        <ImageButton
+            android:id="@+id/sick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
             app:srcCompat="@drawable/sick"
-            android:contentDescription="@string/dress4" />
+            android:contentDescription="@string/dress4"
+            android:scaleType="fitCenter"
+            android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
     </LinearLayout>
 
