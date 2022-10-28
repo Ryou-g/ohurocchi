@@ -30,7 +30,7 @@
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MypageActivity"
+            android:name=".NameActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
