@@ -5,6 +5,8 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class DressbuyActivity : AppCompatActivity() {
@@ -61,6 +63,43 @@ class DressbuyActivity : AppCompatActivity() {
         mp = MediaPlayer.create(this,R.raw.dress_buy)
         mp.isLooping = true
         mp.start()
+
+
+        val imageView = findViewById<ImageView>(R.id.imageView18)
+        val textView = findViewById<TextView>(R.id.textView4)
+        val adult = findViewById<ImageButton>(R.id.adult)
+
+        adult.setOnClickListener {
+
+            imageView.setImageResource(R.drawable.adult)
+            textView.setText("風呂メイド1");
+
+        }
+
+        val sexy = findViewById<ImageButton>(R.id.sexy)
+
+        sexy.setOnClickListener {
+
+            imageView.setImageResource(R.drawable.sexy)
+            textView.setText("風呂メイド2");
+        }
+
+        val neautral = findViewById<ImageButton>(R.id.neautral)
+
+        neautral.setOnClickListener {
+
+            imageView.setImageResource(R.drawable.neautral)
+            textView.setText("風呂メイド3");
+        }
+
+        val sick = findViewById<ImageButton>(R.id.sick)
+
+        sick.setOnClickListener {
+
+            imageView.setImageResource(R.drawable.sick)
+            textView.setText("風呂メイド4");
+        }
+
     }     // ③ 読込処理(CDを入れる)
 
     //６）再開
@@ -80,4 +119,6 @@ class DressbuyActivity : AppCompatActivity() {
         mp.stop() //終了・停止
         mp.release() //解放
     }
+
+
 }
