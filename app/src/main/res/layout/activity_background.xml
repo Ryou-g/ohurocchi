@@ -3,8 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_1">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="550dp"
+        android:layout_height="880dp"
+        android:contentDescription="@string/bg1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background_1" />
 
     <TextView
         android:id="@+id/textView4"
@@ -46,8 +56,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView14"
+        <ImageButton
+            android:id="@+id/imageButton14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,16 +65,16 @@
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
             app:srcCompat="@drawable/japanese"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
-        <ImageView
-            android:id="@+id/imageView15"
+        <ImageButton
+            android:id="@+id/imageButton15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress2"
-            app:srcCompat="@drawable/background_change_bg"
+            app:srcCompat="@drawable/background"
             tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
@@ -78,8 +88,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <ImageView
-            android:id="@+id/imageView16"
+        <ImageButton
+            android:id="@+id/imageButton16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,8 +98,8 @@
             app:srcCompat="@drawable/apart"
             tools:ignore="ImageContrastCheck" />
 
-        <ImageView
-            android:id="@+id/imageView17"
+        <ImageButton
+            android:id="@+id/imageButton17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
