@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "59985799187",
+    "project_id": "ohurocchi",
+    "storage_bucket": "ohurocchi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59985799187:android:68c33dee9ed53a14c777e6",
+        "android_client_info": {
+          "package_name": "com.example.ohurocchi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE0wHSTpLux8M97d7EKE4WiceF4TNt7jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
