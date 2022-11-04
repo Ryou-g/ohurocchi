@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_1">
 
+    <View
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:backgroundTint="#45FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -14,11 +27,13 @@
         android:layout_marginTop="502dp"
         android:layout_marginEnd="155dp"
         android:layout_marginBottom="181dp"
-        android:text="戻る"
+        android:text="@string/modoruyo"
+        android:textColor="#212121"
         app:backgroundTint="#ffff4444"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

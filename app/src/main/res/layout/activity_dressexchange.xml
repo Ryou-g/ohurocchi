@@ -24,12 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
         android:text="@string/huro"
-        android:textColor="#000000"
+        android:textColor="#039BE5"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/textView5"
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:shadowColor="#A14C4C"
-        android:text="購入"
+        android:text="@string/exchange"
         android:textColor="#0277BD"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
@@ -76,9 +77,10 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
-            app:srcCompat="@drawable/adult"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            app:srcCompat="@drawable/adult"
+            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/sexy"

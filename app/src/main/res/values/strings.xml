@@ -6,9 +6,9 @@
     <string name="woman">woman</string>
     <string name="bathbtn">お風呂に入った</string>
     <string name="ohurobtn">お風呂に入った</string>
-    <string name="age">年齢：</string>
-    <string name="name">名前：</string>
-    <string name="favorability">好感度：</string>
+    <string name="age">年齢：22才</string>
+    <string name="name">名前：のぶ子</string>
+    <string name="favorability">好感度：普通</string>
     <string name="Logo">おふろっち</string>
     <string name="todo">TODO</string>
     <string name="today">2022/10/14</string>
@@ -41,7 +41,7 @@
     <item>12月</item>
     </string-array>
     <string name="huro">風呂メイド</string>
-    <string name="yen">120円</string>
+    <string name="yen">25Pt</string>
     <string name="unrock">アンロック</string>
     <string name="image">TODO</string>
     <string name="dress1">TODO</string>
@@ -62,4 +62,7 @@
     <string name="tekiyou">適用</string>
     <string name="pulldown">月を選択</string>
     <string name="bg1">background1</string>
+    <string name="modoruyo">戻る</string>
+    <string name="bariusu">TODO</string>
+    <string name="exchange">交換</string>
 </resources>
