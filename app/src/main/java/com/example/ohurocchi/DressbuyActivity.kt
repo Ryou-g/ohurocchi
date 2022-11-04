@@ -4,7 +4,6 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,7 @@ class DressbuyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dressbuy)
+        setContentView(R.layout.activity_dressexchange)
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
@@ -67,13 +66,16 @@ class DressbuyActivity : AppCompatActivity() {
 
         val imageView = findViewById<ImageView>(R.id.imageView18)
         val textView = findViewById<TextView>(R.id.textView4)
+        val textView1 = findViewById<TextView>(R.id.textView5)
+
+
         val adult = findViewById<ImageButton>(R.id.adult)
 
         adult.setOnClickListener {
 
             imageView.setImageResource(R.drawable.adult)
             textView.setText("風呂メイド1");
-
+            textView1.setText("25pt");
         }
 
         val sexy = findViewById<ImageButton>(R.id.sexy)
@@ -82,6 +84,7 @@ class DressbuyActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.sexy)
             textView.setText("風呂メイド2");
+            textView1.setText("30pt");
         }
 
         val neautral = findViewById<ImageButton>(R.id.neautral)
@@ -90,6 +93,7 @@ class DressbuyActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.neautral)
             textView.setText("風呂メイド3");
+            textView1.setText("45pt");
         }
 
         val sick = findViewById<ImageButton>(R.id.sick)
@@ -98,6 +102,7 @@ class DressbuyActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.sick)
             textView.setText("風呂メイド4");
+            textView1.setText("300pt");
         }
 
     }     // ③ 読込処理(CDを入れる)
