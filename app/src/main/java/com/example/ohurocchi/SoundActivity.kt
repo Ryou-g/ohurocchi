@@ -15,6 +15,7 @@ class SoundActivity : AppCompatActivity() {
         finish()
 
     }
+
     }
 
 }
