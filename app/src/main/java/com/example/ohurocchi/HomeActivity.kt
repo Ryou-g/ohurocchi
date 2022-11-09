@@ -7,9 +7,22 @@ import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.URL
 
 
 class HomeActivity : AppCompatActivity() {
@@ -84,6 +97,67 @@ class HomeActivity : AppCompatActivity() {
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
         mp.start()
+
+
+        //APIのURL
+        val mainURL = "http://192.168.134.55/huro_API/DB.php" //IPアドレスには現在の自分に割り振られているアドレスを指定する
+        //ボタンの取得
+        //val button1: Button = findViewById(R.id.button1)
+        val tvUserName:TextView = findViewById(R.id.tvUserName)
+        //ぼたんが押されたら
+//        button1.setOnClickListener{
+//            userNameTask(mainURL)
+//        }
+        //userNameTask(mainURL)
+    }
+
+    private fun userNameTask(mainURL:String){
+        //コルーチンスコープの用意
+        lifecycleScope.launch{
+            val result = userNameBackgroundTask(mainURL)
+
+            userNameJsonTask(result)
+        }
+    }
+
+    private suspend fun userNameBackgroundTask(mainURL:String):String{
+        val response = withContext(Dispatchers.IO){
+            // 天気情報サービスから取得した結果情報（JSON文字列）を後で入れるための変数（いったん空っぽ）を用意。
+            var httpResult = ""
+
+            //  try{エラーがあるかもしれない処理を実行}catch{実際エラーがあった場合}
+            try{
+                //ただのURL文字列をURLオブジェクトに変換（文字列にリンクを付けるイメージ）
+                val urlObj = URL(mainURL)
+
+                // アクセスしたAPIから情報を取得
+                //テキストファイルを読み込むクラス(文字コードを読めるようにする準備(URLオブジェクト))
+                val br = BufferedReader(InputStreamReader(urlObj.openStream()))
+
+                //読み込んだデータを文字列に変換して代入
+                //httpResult =br.toString()
+                httpResult = br.readText()
+            }catch (e: IOException){//IOExceptionとは例外管理するクラス
+                e.printStackTrace() //エラーが発生したよって言う
+            }catch (e: JSONException){ //JSONデータ構造に問題が発生した場合の例外
+                e.printStackTrace()
+            }
+            //HTTP接続の結果、取得したJSON文字列httpResultを戻り値とする
+            return@withContext httpResult
+        }
+        return response
+    }
+
+    private fun userNameJsonTask(result: String){
+        //val button1:Button = findViewById(R.id.button1)
+        val tvUserName:TextView = findViewById(R.id.tvUserName)
+        val JsonObj = JSONObject(result)
+        Log.d("MyApp","aaa $JsonObj")
+        //val array = JsonObj.getJSONArray("test0")
+        //Log.d("MyApp","bbb $array")
+        val nameObj = JsonObj.getJSONObject("test0")
+        val text = nameObj.getString("user_name")
+        tvUserName.text = text
     }
 
     fun onA(v: View?) {
