@@ -108,7 +108,7 @@ class HomeActivity : AppCompatActivity() {
 //        button1.setOnClickListener{
 //            userNameTask(mainURL)
 //        }
-        //userNameTask(mainURL)
+        userNameTask(mainURL)
     }
 
     private fun userNameTask(mainURL:String){
