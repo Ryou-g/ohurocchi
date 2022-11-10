@@ -49,9 +49,10 @@ class NameActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun changeuserNameBackgroundTask(mainURL:String){
+    private suspend fun changeuserNameBackgroundTask(mainURL:String):String{
         val URL = "http://172.22.113.55/huro_API/DBupdate.php?name="
         val response = withContext(Dispatchers.IO){
+            var httpResult = ""
             try{
                 val newURL = "$URL$mainURL"
                 Log.d("MyApp","URL $newURL")
@@ -59,6 +60,7 @@ class NameActivity : AppCompatActivity() {
 
                 val br = BufferedReader(InputStreamReader(urlObj.openStream()))
 
+                httpResult = br.readText()
             }catch (e: IOException){//IOExceptionとは例外管理するクラス
                 Log.d("MyApp","例外発生")
                 e.printStackTrace() //エラーが発生したよって言う
@@ -66,6 +68,8 @@ class NameActivity : AppCompatActivity() {
                 Log.d("MyApp","Json error")
                 e.printStackTrace()
             }
+            return@withContext httpResult
         }
+        return response
     }
 }
