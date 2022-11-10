@@ -100,7 +100,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         //APIのURL
-        val mainURL = "http://192.168.134.55/huro_API/DB.php" //IPアドレスには現在の自分に割り振られているアドレスを指定する
+        val mainURL = "http://10.0.2.2/huro_API/DB.php" //IPアドレスには現在の自分に割り振られているアドレスを指定する
         //ボタンの取得
         //val button1: Button = findViewById(R.id.button1)
         val tvUserName:TextView = findViewById(R.id.tvUserName)

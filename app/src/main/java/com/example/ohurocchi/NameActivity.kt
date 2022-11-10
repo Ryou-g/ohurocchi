@@ -13,7 +13,7 @@ class NameActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
-
+        }
             val btnBack: Button = findViewById(R.id.btnBack)
 
             btnBack.setOnClickListener {
@@ -22,4 +22,3 @@ class NameActivity : AppCompatActivity() {
             }
         }
     }
-}

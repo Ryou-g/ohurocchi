@@ -1,0 +1,88 @@
+Index: app/src/main/java/com/example/ohurocchi/HomeActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ohurocchi\r\n\r\nimport android.content.Intent\r\nimport android.media.AudioAttributes\r\nimport android.media.AudioManager\r\nimport android.media.MediaPlayer\r\nimport android.media.SoundPool\r\nimport android.os.Build\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.View\r\nimport android.widget.Button\r\nimport android.widget.ImageButton\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.lifecycle.lifecycleScope\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\nimport kotlinx.coroutines.withContext\r\nimport org.json.JSONException\r\nimport org.json.JSONObject\r\nimport java.io.BufferedReader\r\nimport java.io.IOException\r\nimport java.io.InputStreamReader\r\nimport java.net.URL\r\n\r\n\r\nclass HomeActivity : AppCompatActivity() {\r\n    private lateinit var mp: MediaPlayer\r\n\r\n    // ① 準備（コンポを部屋に置く・コピペOK）\r\n    private var soundPool // 効果音を鳴らす本体（コンポ）\r\n            : SoundPool? = null\r\n    private var mp3a // 効果音データ（mp3）\r\n            = 0\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_home)\r\n\r\n        //ここからホーム画面遷移のコード\r\n        val imageButton3: ImageButton = findViewById(R.id.imageButton3)\r\n        imageButton3.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent =\r\n                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここから衣装配布画面遷移のコード\r\n        val imageButton2: ImageButton = findViewById(R.id.imageButton2)\r\n        imageButton2.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent = Intent(\r\n                this,\r\n                DressbuyActivity::class.java\r\n            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここからキャラ画面遷移のコード\r\n        val imageButton: ImageButton = findViewById(R.id.imageButton)\r\n        imageButton.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent = Intent(\r\n                this,\r\n                CharaActivity::class.java\r\n            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここから設定画面遷移のコード\r\n        val imageButton4: ImageButton = findViewById(R.id.imageButton4)\r\n        imageButton4.setOnClickListener{\r\n            //ここから遷移用のコード\r\n            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n\r\n        // ② 初期化（電源を入れる・コピペOK）\r\n        soundPool = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {\r\n            SoundPool(5, AudioManager.STREAM_MUSIC, 0)\r\n        } else {\r\n            val attr = AudioAttributes.Builder()\r\n                .setUsage(AudioAttributes.USAGE_MEDIA)\r\n                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)\r\n                .build()\r\n            SoundPool.Builder()\r\n                .setAudioAttributes(attr)\r\n                .setMaxStreams(5)\r\n                .build()\r\n        }\r\n\r\n        // ③ 読込処理(CDを入れる)\r\n        mp3a = soundPool!!.load(this, R.raw.voice1, 1)\r\n        mp = MediaPlayer.create(this,R.raw.bath)\r\n        mp.isLooping = true\r\n        mp.start()\r\n\r\n        //APIのURL\r\n        val mainURL = \"http://192.168.11.5/huro_API/DB.php\" //IPアドレスには現在の自分に割り振られているアドレスを指定する\r\n        //ボタンの取得\r\n        val button1:Button = findViewById(R.id.button1)\r\n\r\n        //ぼたんが押されたら\r\n        button1.setOnClickListener{\r\n            userNameTask(mainURL)\r\n        }\r\n    }\r\n\r\n    private fun userNameTask(mainURL:String){\r\n        //コルーチンスコープの用意\r\n        lifecycleScope.launch{\r\n            val result = userNameBackgroundTask(mainURL)\r\n\r\n            userNameJsonTask(result)\r\n        }\r\n    }\r\n\r\n    private suspend fun userNameBackgroundTask(mainURL:String):String{\r\n        val response = withContext(Dispatchers.IO){\r\n            // 天気情報サービスから取得した結果情報（JSON文字列）を後で入れるための変数（いったん空っぽ）を用意。\r\n            var httpResult = \"\"\r\n\r\n            //  try{エラーがあるかもしれない処理を実行}catch{実際エラーがあった場合}\r\n            try{\r\n                //ただのURL文字列をURLオブジェクトに変換（文字列にリンクを付けるイメージ）\r\n                val urlObj = URL(mainURL)\r\n\r\n                // アクセスしたAPIから情報を取得\r\n                //テキストファイルを読み込むクラス(文字コードを読めるようにする準備(URLオブジェクト))\r\n                val br = BufferedReader(InputStreamReader(urlObj.openStream()))\r\n\r\n                //読み込んだデータを文字列に変換して代入\r\n                //httpResult =br.toString()\r\n                httpResult = br.readText()\r\n            }catch (e: IOException){//IOExceptionとは例外管理するクラス\r\n                e.printStackTrace() //エラーが発生したよって言う\r\n            }catch (e: JSONException){ //JSONデータ構造に問題が発生した場合の例外\r\n                e.printStackTrace()\r\n            }\r\n            //HTTP接続の結果、取得したJSON文字列httpResultを戻り値とする\r\n            return@withContext httpResult\r\n        }\r\n        return response\r\n    }\r\n\r\n    private fun userNameJsonTask(result: String){\r\n        val button1:Button = findViewById(R.id.button1)\r\n\r\n        val JsonObj = JSONObject(result)\r\n        Log.d(\"MyApp\",\"aaa $JsonObj\")\r\n        //val array = JsonObj.getJSONArray(\"test0\")\r\n        //Log.d(\"MyApp\",\"bbb $array\")\r\n        val nameObj = JsonObj.getJSONObject(\"test0\")\r\n        val text = nameObj.getString(\"user_name\")\r\n        button1.text = text\r\n    }\r\n\r\n    fun onA(v: View?) {\r\n        // ④ 再生処理(再生ボタン)\r\n        soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)\r\n    }\r\n    //６）再開\r\n    override fun onResume() {\r\n        super.onResume()\r\n        mp.start()\r\n    }\r\n    //５）一時停止\r\n    override fun onPause() {\r\n        super.onPause()\r\n        mp.pause()\r\n    }\r\n\r\n    //７）終了・メモリの解放\r\n    override fun onDestroy() {\r\n        super.onDestroy()\r\n        mp.stop() //終了・停止\r\n        mp.release() //解放\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/HomeActivity.kt b/app/src/main/java/com/example/ohurocchi/HomeActivity.kt
+--- a/app/src/main/java/com/example/ohurocchi/HomeActivity.kt	
++++ b/app/src/main/java/com/example/ohurocchi/HomeActivity.kt	
+@@ -98,7 +98,7 @@
+         mp.start()
+ 
+         //APIのURL
+-        val mainURL = "http://192.168.11.5/huro_API/DB.php" //IPアドレスには現在の自分に割り振られているアドレスを指定する
++        val mainURL = "http://10.0.2.2/huro_API/DB.php" //IPアドレスには現在の自分に割り振られているアドレスを指定する
+         //ボタンの取得
+         val button1:Button = findViewById(R.id.button1)
+ 
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"project_info\": {\r\n    \"project_number\": \"59985799187\",\r\n    \"project_id\": \"ohurocchi\",\r\n    \"storage_bucket\": \"ohurocchi.appspot.com\"\r\n  },\r\n  \"client\": [\r\n    {\r\n      \"client_info\": {\r\n        \"mobilesdk_app_id\": \"1:59985799187:android:68c33dee9ed53a14c777e6\",\r\n        \"android_client_info\": {\r\n          \"package_name\": \"com.example.ohurocchi\"\r\n        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\": \"59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com\",\r\n          \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n        {\r\n          \"current_key\": \"AIzaSyCE0wHSTpLux8M97d7EKE4WiceF4TNt7jo\"\r\n        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\": {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n              \"client_id\": \"59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com\",\r\n              \"client_type\": 3\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"configuration_version\": \"1\"\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+--- a/app/google-services.json	
++++ b/app/google-services.json	
+@@ -1,33 +1,33 @@
+ {
+   "project_info": {
+-    "project_number": "59985799187",
+-    "project_id": "ohurocchi",
+-    "storage_bucket": "ohurocchi.appspot.com"
++    "project_number": "795312432339",
++    "project_id": "ohurocchi-ab220",
++    "storage_bucket": "ohurocchi-ab220.appspot.com"
+   },
+   "client": [
+     {
+       "client_info": {
+-        "mobilesdk_app_id": "1:59985799187:android:68c33dee9ed53a14c777e6",
++        "mobilesdk_app_id": "1:795312432339:android:56dc886295766d107e6026",
+         "android_client_info": {
+           "package_name": "com.example.ohurocchi"
+         }
+       },
+       "oauth_client": [
+         {
+-          "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++          "client_id": "795312432339-f0kui7vra1gr7r1br4rmdbat00eakmgt.apps.googleusercontent.com",
+           "client_type": 3
+         }
+       ],
+       "api_key": [
+         {
+-          "current_key": "AIzaSyCE0wHSTpLux8M97d7EKE4WiceF4TNt7jo"
++          "current_key": "AIzaSyDGBaXUZ8y8Pp2B-Mi_qH3_hB2yBM4zuUU"
+         }
+       ],
+       "services": {
+         "appinvite_service": {
+           "other_platform_oauth_client": [
+             {
+-              "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++              "client_id": "795312432339-f0kui7vra1gr7r1br4rmdbat00eakmgt.apps.googleusercontent.com",
+               "client_type": 3
+             }
+           ]
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml\" value=\"0.16666666666666666\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml\" value=\"0.10326086956521739\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressup.xml\" value=\"0.10326086956521739\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml\" value=\"0.1331521739130435\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_mypage.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_setting.xml\" value=\"0.1331521739130435\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_sound.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_title.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/spinner_item.xml\" value=\"0.1\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/menu/month_menu.xml\" value=\"0.1796875\" />\r\n        <entry key=\"..\\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/xml/spinner_item.xml\" value=\"0.1\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -19,5 +19,5 @@
+     </option>
+   </component>
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
