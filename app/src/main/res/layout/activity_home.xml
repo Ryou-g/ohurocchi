@@ -11,6 +11,7 @@
         layout="@layout/activity_common"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +40,9 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:contentDescription="@string/bathbtn"
         android:onClick="onA"
-        android:text="@string/ohurobtn"
+        android:text="PUSH"
         android:textColor="#455A64"
-        android:textSize="15sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,5 +51,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306"
         tools:ignore="TextContrastCheck" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

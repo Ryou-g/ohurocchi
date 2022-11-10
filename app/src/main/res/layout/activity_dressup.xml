@@ -23,6 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#C9FFFFFF"
         android:text="@string/huro"
         android:textColor="#000000"
         android:textSize="30sp"
