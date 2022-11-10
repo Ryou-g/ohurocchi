@@ -11,21 +11,23 @@
         android:layout_width="178dp"
         android:layout_height="258dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.76"
-        app:srcCompat="@drawable/adult"
-        android:contentDescription="@string/image" />
+        app:srcCompat="@drawable/adult" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#C9FFFFFF"
         android:text="@string/huro"
-        android:textColor="#039BE5"
-        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +39,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#C9FFFFFF"
         android:text="@string/yen"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -101,10 +106,10 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress2"
-            app:srcCompat="@drawable/sexy"
-            tools:ignore="ImageContrastCheck"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            app:srcCompat="@drawable/sexy"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
@@ -123,10 +128,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/neautral"
             android:contentDescription="@string/dress3"
-            android:scaleType="fitCenter"
             android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/neautral"
 
             />
 
@@ -136,10 +141,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/sick"
             android:contentDescription="@string/dress4"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
 
