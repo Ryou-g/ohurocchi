@@ -27,7 +27,7 @@ class BackgroundActivity : AppCompatActivity() {
         imageButton14.setOnClickListener {
 
             imageView.setImageResource(R.drawable.japanese_1)
-            textView.setText("露天風呂");
+            textView.setText("バスルーム");
 
         }
 
@@ -36,7 +36,7 @@ class BackgroundActivity : AppCompatActivity() {
         imageButton15.setOnClickListener {
 
             imageView.setImageResource(R.drawable.background_1)
-            textView.setText("バスルーム");
+            textView.setText("露天風呂");
         }
 
         val imageButton16 = findViewById<ImageButton>(R.id.imageButton16)

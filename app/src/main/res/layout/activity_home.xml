@@ -35,9 +35,9 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="148dp"
-        android:layout_height="61dp"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_width="150dp"
+        android:layout_height="77dp"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/bathbtn"
         android:onClick="onA"
         android:text="PUSH"
@@ -49,9 +49,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306"
+        app:layout_constraintVertical_bias="0.3"
         tools:ignore="TextContrastCheck" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
