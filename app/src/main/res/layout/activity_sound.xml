@@ -6,19 +6,42 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_1">
 
-    <Button
-        android:id="@+id/btnBack"
+    <EditText
+        android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="502dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="181dp"
-        android:text="戻る"
-        app:backgroundTint="#ffff4444"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="109dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
+
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="158dp"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/ListViewNames"
+        android:layout_width="209dp"
+        android:layout_height="209dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="109dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
