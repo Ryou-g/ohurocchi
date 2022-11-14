@@ -26,23 +26,28 @@ class SettingActivity : AppCompatActivity() {
         namechange.setOnClickListener {
             val intent = Intent(applicationContext,NameActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         sound.setOnClickListener {
             val intent = Intent(applicationContext,SoundActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         bathlog.setOnClickListener {
             val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         dressup.setOnClickListener {
             val intent = Intent(applicationContext,DressupActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         background.setOnClickListener {
             val intent = Intent(applicationContext,BackgroundActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         //ここからホーム画面遷移のコード
@@ -53,6 +58,7 @@ class SettingActivity : AppCompatActivity() {
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここから衣装配布画面遷移のコード
         val imageButton2: ImageButton = findViewById(R.id.imageButton2)
@@ -64,6 +70,7 @@ class SettingActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここからキャラ画面遷移のコード
         val imageButton: ImageButton = findViewById(R.id.imageButton)
@@ -75,6 +82,7 @@ class SettingActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここから設定画面遷移のコード
         val imageButton4: ImageButton = findViewById(R.id.imageButton4)
@@ -83,6 +91,7 @@ class SettingActivity : AppCompatActivity() {
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.setting)
