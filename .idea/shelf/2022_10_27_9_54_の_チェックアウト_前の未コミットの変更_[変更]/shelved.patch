@@ -1,0 +1,143 @@
+Index: app/src/main/res/layout/activity_bathlog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <Spinner\r\n        android:id=\"@+id/spinner\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"50dp\"\r\n        android:layout_marginBottom=\"386dp\"\r\n        android:minHeight=\"48dp\"\r\n        app:backgroundTint=\"#FF5722\"\r\n        android:background=\"@color/black\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/btnBack\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.0\"\r\n        tools:ignore=\"SpeakableTextPresentCheck\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnBack\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"162dp\"\r\n        android:layout_marginTop=\"502dp\"\r\n        android:layout_marginEnd=\"155dp\"\r\n        android:layout_marginBottom=\"181dp\"\r\n        android:text=\"@string/modoru\"\r\n        app:backgroundTint=\"#ffff4444\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_bathlog.xml b/app/src/main/res/layout/activity_bathlog.xml
+--- a/app/src/main/res/layout/activity_bathlog.xml	
++++ b/app/src/main/res/layout/activity_bathlog.xml	
+@@ -3,6 +3,7 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:background="@drawable/background_1">
+ 
+     <Spinner
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"#JAVA_HOME\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	
++++ b/.idea/gradle.xml	
+@@ -7,7 +7,7 @@
+         <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="#JAVA_HOME" />
++        <option name="gradleJvm" value="Embedded JDK" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Fri Oct 14 10:27:52 JST 2022\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-7.4-bin.zip\r\ndistributionPath=wrapper/dists\r\nzipStorePath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+--- a/gradle/wrapper/gradle-wrapper.properties	
++++ b/gradle/wrapper/gradle-wrapper.properties	
+@@ -1,4 +1,4 @@
+-#Fri Oct 14 10:27:52 JST 2022
++#Fri Oct 21 14:45:31 JST 2022
+ distributionBase=GRADLE_USER_HOME
+ distributionUrl=https\://services.gradle.org/distributions/gradle-7.4-bin.zip
+ distributionPath=wrapper/dists
+Index: app/src/main/java/com/example/ohurocchi/User.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/User.kt b/app/src/main/java/com/example/ohurocchi/User.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/ohurocchi/User.kt	
+@@ -0,0 +1,17 @@
++package com.example.ohurocchi
++
++import androidx.room.ColumnInfo
++import androidx.room.Entity
++import androidx.room.PrimaryKey
++
++    @Entity(tableName = "user_table")
++    data class User(
++        @PrimaryKey(autoGenerate = true)
++        val id: Long = 0L,
++
++        @ColumnInfo(name = "name")
++        val name: String,
++
++        @ColumnInfo(name = "age")
++        val age: Int
++    )
+Index: app/src/main/java/com/example/ohurocchi/UserRoomDatebase.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/UserRoomDatebase.kt b/app/src/main/java/com/example/ohurocchi/UserRoomDatebase.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/ohurocchi/UserRoomDatebase.kt	
+@@ -0,0 +1,29 @@
++package com.example.ohurocchi
++
++import android.content.Context
++import androidx.room.Database
++import androidx.room.Room
++import androidx.room.RoomDatabase
++
++    @Database(entities = [User::class], version = 1, exportSchema = false)
++    abstract class UserRoomDatabase : RoomDatabase() {
++        abstract fun userDao(): UserDao
++
++        companion object {
++            @Volatile
++            private var INSTANCE: UserRoomDatabase? = null
++            fun getDatabase(context: Context): UserRoomDatabase {
++                return INSTANCE ?: synchronized(this) {
++                    val instance = Room.databaseBuilder(
++                        context.applicationContext,
++                        UserRoomDatabase::class.java,
++                        "user_database"
++                    )
++                        .fallbackToDestructiveMigration()
++                        .build()
++                    INSTANCE = instance
++                    return instance
++                }
++            }
++        }
++    }
+Index: app/src/main/java/com/example/ohurocchi/UserDao.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/UserDao.kt b/app/src/main/java/com/example/ohurocchi/UserDao.kt
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/ohurocchi/UserDao.kt	
+@@ -0,0 +1,22 @@
++package com.example.ohurocchi
++
++import androidx.room.Dao
++import androidx.room.Delete
++import androidx.room.Insert
++import androidx.room.Query
++
++
++    @Dao
++    interface UserDao {
++        @Insert
++        suspend fun insert(user: User)
++
++        @Delete
++        suspend fun delete(user: User)
++
++        @Query("DELETE FROM user_table")
++        suspend fun clear()
++
++        @Query("SELECT * FROM user_table WHERE id = :key")
++        suspend fun get(key: Long): User?
++    }
+\ No newline at end of file

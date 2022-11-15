@@ -1,0 +1,484 @@
+Index: app/src/main/java/com/example/ohurocchi/SoundActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ohurocchi\r\n\r\nimport android.content.Context\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport android.widget.ArrayAdapter\r\nimport android.widget.Button\r\nimport android.widget.EditText\r\nimport android.widget.ListView\r\nimport com.example.ohurocchi.AppDatabase.Companion.getDatabase\r\nimport com.example.ohurocchi.SoundActivity.Companion.buttonUpdate\r\nimport com.example.ohurocchi.SoundActivity.Companion.editTextName\r\nimport io.reactivex.Completable\r\nimport io.reactivex.android.schedulers.AndroidSchedulers\r\nimport io.reactivex.schedulers.Schedulers\r\n\r\nclass SoundActivity : AppCompatActivity() {\r\n    companion object {\r\n        lateinit var editTextName: EditText\r\n        lateinit var buttonUpdate: Button\r\n        lateinit var listViewNames: ListView\r\n        lateinit var db : AppDatabase\r\n        lateinit var dao : UserDao\r\n    }\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_sound)\r\n        //コンポーネント取得\r\n        editTextName = findViewById(R.id.editTextName)\r\n        buttonUpdate = findViewById(R.id.buttonUpdate)\r\n        //listViewNames = findViewById(R.id.ListViewNames)\r\n        //DB関連のインスタンス取得\r\n        db = getDatabase(this)\r\n        dao = db.userDao()\r\n\r\n        //リストの初期表示\r\n        getAllUser(this)\r\n\r\n        //ボタンのリスナーを設定\r\n        buttonUpdate.setOnClickListener {\r\n            //入力内容の登録\r\n            insUser(editTextName.text.toString())\r\n            editTextName.text.clear()\r\n            //リストの再取得\r\n            getAllUser(this)\r\n        }\r\n    }\r\n\r\n    //ListViewにデータを表示する\r\n    private fun getAllUser(context : Context) {\r\n        //ioスレッド：DBからデータ取得\r\n        //mainスレッド：取得結果をUIに表示\r\n        dao.getAll()\r\n            .subscribeOn(Schedulers.io())\r\n            .observeOn(AndroidSchedulers.mainThread())\r\n            .subscribe(\r\n                {\r\n                    //データ取得完了時の処理\r\n                    val data = ArrayList<User>()\r\n                    it.forEach { user -> data.add(user) }\r\n                    //リスト項目とListViewを対応付けるArrayAdapterを用意する\r\n                    //リストで使用するlayout（simple_list_item_1）を指定する\r\n                    val adapter = ArrayAdapter(\r\n                        context, android.R.layout.simple_list_item_1, data)\r\n                    listViewNames.adapter = adapter\r\n                }\r\n                , {\r\n                    //エラー処理\r\n                }\r\n            )\r\n    }\r\n\r\n    //入力内容をDBに登録する\r\n    private fun insUser(name : String) {\r\n        Completable.fromAction { dao.insert(User(0, name, money =0, apply_Face =1, apply_Background =1,\r\n            apply_Costume = 1, clean = 1, favorability = 100)) }\r\n            .subscribeOn(Schedulers.io())\r\n            .subscribe()\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/SoundActivity.kt b/app/src/main/java/com/example/ohurocchi/SoundActivity.kt
+--- a/app/src/main/java/com/example/ohurocchi/SoundActivity.kt	
++++ b/app/src/main/java/com/example/ohurocchi/SoundActivity.kt	
+@@ -1,86 +1,20 @@
+ package com.example.ohurocchi
+ 
+-import android.content.Context
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
+-import android.widget.ArrayAdapter
+ import android.widget.Button
+-import android.widget.EditText
+-import android.widget.ListView
+-import com.example.ohurocchi.AppDatabase.Companion.getDatabase
+-import com.example.ohurocchi.SoundActivity.Companion.buttonUpdate
+-import com.example.ohurocchi.SoundActivity.Companion.editTextName
+-import io.reactivex.Completable
+-import io.reactivex.android.schedulers.AndroidSchedulers
+-import io.reactivex.schedulers.Schedulers
+ 
+ class SoundActivity : AppCompatActivity() {
+-    companion object {
+-        lateinit var editTextName: EditText
+-        lateinit var buttonUpdate: Button
+-        lateinit var listViewNames: ListView
+-        lateinit var db : AppDatabase
+-        lateinit var dao : UserDao
+-    }
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_sound)
+-        //コンポーネント取得
+-        editTextName = findViewById(R.id.editTextName)
+-        buttonUpdate = findViewById(R.id.buttonUpdate)
+-        //listViewNames = findViewById(R.id.ListViewNames)
+-        //DB関連のインスタンス取得
+-        db = getDatabase(this)
+-        dao = db.userDao()
+-
+-        //リストの初期表示
+-        getAllUser(this)
+ 
+-        //ボタンのリスナーを設定
+-        buttonUpdate.setOnClickListener {
+-            //入力内容の登録
+-            insUser(editTextName.text.toString())
+-            editTextName.text.clear()
+-            //リストの再取得
+-            getAllUser(this)
+-        }
+-    }
++    val btnBack :Button = findViewById(R.id.btnBack)
+ 
+-    //ListViewにデータを表示する
+-    private fun getAllUser(context : Context) {
+-        //ioスレッド：DBからデータ取得
+-        //mainスレッド：取得結果をUIに表示
+-        dao.getAll()
+-            .subscribeOn(Schedulers.io())
+-            .observeOn(AndroidSchedulers.mainThread())
+-            .subscribe(
+-                {
+-                    //データ取得完了時の処理
+-                    val data = ArrayList<User>()
+-                    it.forEach { user -> data.add(user) }
+-                    //リスト項目とListViewを対応付けるArrayAdapterを用意する
+-                    //リストで使用するlayout（simple_list_item_1）を指定する
+-                    val adapter = ArrayAdapter(
+-                        context, android.R.layout.simple_list_item_1, data)
+-                    listViewNames.adapter = adapter
+-                }
+-                , {
+-                    //エラー処理
+-                }
+-            )
+-    }
++    btnBack.setOnClickListener {
++        finish()
+ 
+-    //入力内容をDBに登録する
+-    private fun insUser(name : String) {
+-        Completable.fromAction { dao.insert(User(0, name, money =0, apply_Face =1, apply_Background =1,
+-            apply_Costume = 1, clean = 1, favorability = 100)) }
+-            .subscribeOn(Schedulers.io())
+-            .subscribe()
+     }
+-}
++    }
+ 
+-
+-
+-
+-
+-
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_namechange.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:text=\"@string/nickname\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        app:autoSizeMaxTextSize=\"40sp\"\r\n        app:autoSizeMinTextSize=\"30sp\"\r\n        app:autoSizeTextType=\"uniform\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.161\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.277\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnBack\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"502dp\"\r\n        android:layout_marginEnd=\"155dp\"\r\n        android:layout_marginBottom=\"181dp\"\r\n        android:text=\"@string/backbtn\"\r\n        android:textColor=\"#212121\"\r\n        app:backgroundTint=\"#ffff4444\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.0\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/editTextTextPersonName\"\r\n        android:layout_width=\"322dp\"\r\n        android:layout_height=\"62dp\"\r\n        android:background=\"@color/material_dynamic_neutral80\"\r\n        android:backgroundTint=\"#D0D5D2D2\"\r\n        android:ems=\"10\"\r\n        android:inputType=\"textPersonName\"\r\n        android:text=\"@string/nameframe\"\r\n        android:textSize=\"35sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.707\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.362\"\r\n        android:autofillHints=\"\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/button\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:backgroundTint=\"@android:color/holo_green_light\"\r\n        android:text=\"@string/change\"\r\n        android:textColor=\"#616161\"\r\n        android:textSize=\"20sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.501\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.469\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_namechange.xml b/app/src/main/res/layout/activity_namechange.xml
+--- a/app/src/main/res/layout/activity_namechange.xml	
++++ b/app/src/main/res/layout/activity_namechange.xml	
+@@ -7,6 +7,18 @@
+     android:background="@drawable/background_1">
+ 
+ 
++    <View
++        android:id="@+id/view4"
++        android:layout_width="818dp"
++        android:layout_height="1626dp"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        android:contentDescription="@string/bariusu"
++        app:layout_constraintBottom_toTopOf="parent"
++        app:layout_constraintEnd_toStartOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <TextView
+         android:id="@+id/textView"
+         android:layout_width="200dp"
+@@ -39,12 +51,14 @@
+         app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.0" />
++        app:layout_constraintVertical_bias="0.0"
++        tools:ignore="TextContrastCheck" />
+ 
+     <EditText
+         android:id="@+id/editTextTextPersonName"
+         android:layout_width="322dp"
+         android:layout_height="62dp"
++        android:autofillHints=""
+         android:background="@color/material_dynamic_neutral80"
+         android:backgroundTint="#D0D5D2D2"
+         android:ems="10"
+@@ -56,8 +70,7 @@
+         app:layout_constraintHorizontal_bias="0.707"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.362"
+-        android:autofillHints="" />
++        app:layout_constraintVertical_bias="0.362" />
+ 
+     <Button
+         android:id="@+id/button"
+@@ -72,6 +85,7 @@
+         app:layout_constraintHorizontal_bias="0.501"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.469" />
++        app:layout_constraintVertical_bias="0.469"
++        tools:ignore="TextContrastCheck,TextContrastCheck" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ohurocchi\r\n\r\nimport android.content.Intent\r\nimport android.media.MediaPlayer\r\nimport android.os.Bundle\r\nimport android.widget.ImageButton\r\nimport android.widget.Button\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.appcompat.app.AppCompatActivity\r\n\r\nclass DressbuyActivity : AppCompatActivity() {\r\n\r\n    // ① 準備（コンポを部屋に置く・コピペOK）\r\n\r\n    private lateinit var mp: MediaPlayer\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_dressbuy)\r\n\r\n        //ここからホーム画面遷移のコード\r\n        val imageButton3: ImageButton = findViewById(R.id.imageButton3)\r\n        imageButton3.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent =\r\n                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここから衣装配布画面遷移のコード\r\n        val imageButton2: ImageButton = findViewById(R.id.imageButton2)\r\n        imageButton2.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent = Intent(\r\n                this,\r\n                DressbuyActivity::class.java\r\n            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここからキャラ画面遷移のコード\r\n        val imageButton: ImageButton = findViewById(R.id.imageButton)\r\n        imageButton.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent = Intent(\r\n                this,\r\n                CharaActivity::class.java\r\n            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n        //ここから設定画面遷移のコード\r\n        val imageButton4: ImageButton = findViewById(R.id.imageButton4)\r\n        imageButton4.setOnClickListener {\r\n            //ここから遷移用のコード\r\n            val intent =\r\n                Intent(this, SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)\r\n            startActivity(intent)\r\n            //ここまで\r\n        }\r\n\r\n        mp = MediaPlayer.create(this,R.raw.dress_buy)\r\n        mp.isLooping = true\r\n        mp.start()\r\n\r\n\r\n        val imageView = findViewById<ImageView>(R.id.imageView18)\r\n        val textView = findViewById<TextView>(R.id.textView4)\r\n        val adult = findViewById<ImageButton>(R.id.adult)\r\n\r\n        adult.setOnClickListener {\r\n\r\n            imageView.setImageResource(R.drawable.adult)\r\n            textView.setText(\"風呂メイド1\");\r\n\r\n        }\r\n\r\n        val sexy = findViewById<ImageButton>(R.id.sexy)\r\n\r\n        sexy.setOnClickListener {\r\n\r\n            imageView.setImageResource(R.drawable.sexy)\r\n            textView.setText(\"風呂メイド2\");\r\n        }\r\n\r\n        val neautral = findViewById<ImageButton>(R.id.neautral)\r\n\r\n        neautral.setOnClickListener {\r\n\r\n            imageView.setImageResource(R.drawable.neautral)\r\n            textView.setText(\"風呂メイド3\");\r\n        }\r\n\r\n        val sick = findViewById<ImageButton>(R.id.sick)\r\n\r\n        sick.setOnClickListener {\r\n\r\n            imageView.setImageResource(R.drawable.sick)\r\n            textView.setText(\"風呂メイド4\");\r\n        }\r\n\r\n    }     // ③ 読込処理(CDを入れる)\r\n\r\n    //６）再開\r\n    override fun onResume() {\r\n        super.onResume()\r\n        mp.start()\r\n    }\r\n    //５）一時停止\r\n    override fun onPause() {\r\n        super.onPause()\r\n        mp.pause()\r\n    }\r\n\r\n    //７）終了・メモリの解放\r\n    override fun onDestroy() {\r\n        super.onDestroy()\r\n        mp.stop() //終了・停止\r\n        mp.release() //解放\r\n    }\r\n\r\n\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt b/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt
+--- a/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt	
++++ b/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt	
+@@ -4,7 +4,6 @@
+ import android.media.MediaPlayer
+ import android.os.Bundle
+ import android.widget.ImageButton
+-import android.widget.Button
+ import android.widget.ImageView
+ import android.widget.TextView
+ import androidx.appcompat.app.AppCompatActivity
+@@ -17,7 +16,7 @@
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_dressbuy)
++        setContentView(R.layout.activity_dressexchange)
+ 
+         //ここからホーム画面遷移のコード
+         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
+@@ -67,13 +66,16 @@
+ 
+         val imageView = findViewById<ImageView>(R.id.imageView18)
+         val textView = findViewById<TextView>(R.id.textView4)
++        val textView1 = findViewById<TextView>(R.id.textView5)
++
++
+         val adult = findViewById<ImageButton>(R.id.adult)
+ 
+         adult.setOnClickListener {
+ 
+             imageView.setImageResource(R.drawable.adult)
+             textView.setText("風呂メイド1");
+-
++            textView1.setText("25pt");
+         }
+ 
+         val sexy = findViewById<ImageButton>(R.id.sexy)
+@@ -82,6 +84,7 @@
+ 
+             imageView.setImageResource(R.drawable.sexy)
+             textView.setText("風呂メイド2");
++            textView1.setText("30pt");
+         }
+ 
+         val neautral = findViewById<ImageButton>(R.id.neautral)
+@@ -90,6 +93,7 @@
+ 
+             imageView.setImageResource(R.drawable.neautral)
+             textView.setText("風呂メイド3");
++            textView1.setText("45pt");
+         }
+ 
+         val sick = findViewById<ImageButton>(R.id.sick)
+@@ -98,6 +102,7 @@
+ 
+             imageView.setImageResource(R.drawable.sick)
+             textView.setText("風呂メイド4");
++            textView1.setText("300pt");
+         }
+ 
+     }     // ③ 読込処理(CDを入れる)
+Index: app/src/main/res/layout/activity_bathlog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <Spinner\r\n        android:id=\"@+id/spinner\"\r\n        tools:ignore=\"SpeakableTextPresentCheck\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"50dp\"\r\n        android:layout_marginBottom=\"386dp\"\r\n        android:background=\"@color/black\"\r\n        android:contentDescription=\"@string/pulldown\"\r\n        android:minHeight=\"48dp\"\r\n        app:backgroundTint=\"#FF5722\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/btnBack\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.0\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnBack\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"162dp\"\r\n        android:layout_marginTop=\"502dp\"\r\n        android:layout_marginEnd=\"155dp\"\r\n        android:layout_marginBottom=\"181dp\"\r\n        android:text=\"@string/modoru\"\r\n        app:backgroundTint=\"#ffff4444\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_bathlog.xml b/app/src/main/res/layout/activity_bathlog.xml
+--- a/app/src/main/res/layout/activity_bathlog.xml	
++++ b/app/src/main/res/layout/activity_bathlog.xml	
+@@ -1,14 +1,24 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    xmlns:tools="http://schemas.android.com/tools"
+     android:background="@drawable/background_1">
+ 
++    <View
++        android:id="@+id/view2"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/spinner"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <Spinner
+         android:id="@+id/spinner"
+-        tools:ignore="SpeakableTextPresentCheck"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="50dp"
+@@ -22,19 +32,20 @@
+         app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.0" />
++        app:layout_constraintVertical_bias="0.0"
++        tools:ignore="SpeakableTextPresentCheck" />
+ 
+     <Button
+         android:id="@+id/btnBack"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="162dp"
+         android:layout_marginTop="502dp"
+         android:layout_marginEnd="155dp"
+-        android:layout_marginBottom="181dp"
+         android:text="@string/modoru"
++        android:textColor="#212121"
+         app:backgroundTint="#ffff4444"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck,TextContrastCheck" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_chara.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <include\r\n        layout=\"@layout/activity_common\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView2\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:text=\"@string/age\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        app:autoSizeMaxTextSize=\"40sp\"\r\n        app:autoSizeMinTextSize=\"30sp\"\r\n        app:autoSizeTextType=\"uniform\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.146\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.256\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView\"\r\n        android:layout_width=\"388dp\"\r\n        android:layout_height=\"304dp\"\r\n        android:contentDescription=\"@string/woman\"\r\n        android:rotationY=\"-180\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.78\"\r\n        app:srcCompat=\"@drawable/woman\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView3\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:text=\"@string/name\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        app:autoSizeMaxTextSize=\"40sp\"\r\n        app:autoSizeMinTextSize=\"30sp\"\r\n        app:autoSizeTextType=\"uniform\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.146\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.141\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView6\"\r\n        android:layout_width=\"200dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:text=\"@string/favorability\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"40sp\"\r\n        app:autoSizeMaxTextSize=\"40sp\"\r\n        app:autoSizeMinTextSize=\"30sp\"\r\n        app:autoSizeTextType=\"uniform\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.146\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.365\" />\r\n\r\n    <ProgressBar\r\n        android:id=\"@+id/progressBar3\"\r\n        style=\"?android:attr/progressBarStyleHorizontal\"\r\n        android:layout_width=\"300dp\"\r\n        android:layout_height=\"102dp\"\r\n        android:progress=\"30\"\r\n        android:scaleY=\"4\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.495\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.449\" />\r\n\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_chara.xml b/app/src/main/res/layout/activity_chara.xml
+--- a/app/src/main/res/layout/activity_chara.xml	
++++ b/app/src/main/res/layout/activity_chara.xml	
+@@ -1,12 +1,23 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@drawable/background_1">
+ 
++    <View
++        android:id="@+id/view"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/include3"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <include
++        android:id="@+id/include3"
+         layout="@layout/activity_common"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+@@ -14,7 +25,8 @@
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0" />
+ 
+     <TextView
+         android:id="@+id/textView2"
+Index: app/src/main/res/layout/activity_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView4\"\r\n        android:layout_width=\"550dp\"\r\n        android:layout_height=\"880dp\"\r\n        android:contentDescription=\"@string/bg1\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:srcCompat=\"@drawable/background_1\" />\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView4\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"144dp\"\r\n        android:text=\"@string/huroname\"\r\n        android:textColor=\"#000000\"\r\n        android:textSize=\"30sp\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/linearLayout2\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.164\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.013\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/button\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:backgroundTint=\"#FFFFFF\"\r\n        android:shadowColor=\"#A14C4C\"\r\n        android:text=\"@string/tekiyou\"\r\n        android:textColor=\"#0277BD\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/linearLayout2\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.179\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/textView4\"\r\n        app:layout_constraintVertical_bias=\"0.435\" />\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/linearLayout2\"\r\n        android:layout_width=\"409dp\"\r\n        android:layout_height=\"120dp\"\r\n        android:layout_marginTop=\"335dp\"\r\n        android:orientation=\"horizontal\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\">\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/imageButton14\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n\r\n            android:background=\"@drawable/border\"\r\n            android:contentDescription=\"@string/dress1\"\r\n            app:srcCompat=\"@drawable/japanese\"\r\n            tools:ignore=\"ImageContrastCheck,DuplicateSpeakableTextCheck\" />\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/imageButton15\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:background=\"@drawable/border\"\r\n            android:contentDescription=\"@string/dress2\"\r\n            app:srcCompat=\"@drawable/background\"\r\n            tools:ignore=\"ImageContrastCheck\" />\r\n\r\n    </LinearLayout>\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/linearLayout\"\r\n        android:layout_width=\"409dp\"\r\n        android:layout_height=\"120dp\"\r\n        android:orientation=\"horizontal\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/linearLayout2\">\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/imageButton16\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:background=\"@drawable/border\"\r\n            android:contentDescription=\"@string/dress3\"\r\n            app:srcCompat=\"@drawable/apart\"\r\n            tools:ignore=\"ImageContrastCheck\" />\r\n\r\n        <ImageButton\r\n            android:id=\"@+id/imageButton17\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:background=\"@drawable/border\"\r\n            android:contentDescription=\"@string/dress4\"\r\n            app:srcCompat=\"@drawable/telmare\"\r\n            tools:ignore=\"ImageContrastCheck\" />\r\n\r\n\r\n    </LinearLayout>\r\n\r\n    <Button\r\n        android:id=\"@+id/btnBack\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginTop=\"700dp\"\r\n        android:layout_marginEnd=\"155dp\"\r\n        android:layout_marginBottom=\"50dp\"\r\n        android:text=\"@string/backbtn3\"\r\n        android:textColor=\"#212121\"\r\n        app:backgroundTint=\"#ffff4444\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"1.0\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"1.0\"\r\n        tools:ignore=\"TextContrastCheck\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_background.xml b/app/src/main/res/layout/activity_background.xml
+--- a/app/src/main/res/layout/activity_background.xml	
++++ b/app/src/main/res/layout/activity_background.xml	
+@@ -21,15 +21,21 @@
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="144dp"
++        android:shadowColor="#000000"
++        android:shadowDx="5"
++        android:shadowDy="4"
++        android:shadowRadius="7"
+         android:text="@string/huroname"
+-        android:textColor="#000000"
++        android:textAllCaps="true"
++        android:textColor="#FFFFFF"
+         android:textSize="30sp"
+         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.164"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+-        app:layout_constraintVertical_bias="0.013" />
++        app:layout_constraintVertical_bias="0.013"
++        tools:ignore="TextContrastCheck" />
+ 
+     <Button
+         android:id="@+id/button"
+Index: app/src/main/res/layout/activity_setting.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <include\r\n        android:id=\"@+id/include\"\r\n        layout=\"@layout/activity_common\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.666\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.0\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/namechange\"\r\n        style=\"@style/Widget.AppCompat.Button.Borderless.Colored\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:backgroundTint=\"@android:color/transparent\"\r\n        android:text=\"@string/namechenge\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"@+id/include\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.204\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/sound\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/sound\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/namechange\"\r\n        app:layout_constraintVertical_bias=\"0.07\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/bathlog\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/bathlog\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/background\"\r\n        app:layout_constraintVertical_bias=\"0.126\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/dressup\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/dressup\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/sound\"\r\n        app:layout_constraintVertical_bias=\"0.075\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/background\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/background\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/dressup\"\r\n        app:layout_constraintVertical_bias=\"0.09\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_setting.xml b/app/src/main/res/layout/activity_setting.xml
+--- a/app/src/main/res/layout/activity_setting.xml	
++++ b/app/src/main/res/layout/activity_setting.xml	
+@@ -1,15 +1,27 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@drawable/background_1">
+ 
++    <View
++        android:id="@+id/view5"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/include"
++        app:layout_constraintTop_toTopOf="@+id/include" />
++
+     <include
+         android:id="@+id/include"
+         layout="@layout/activity_common"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
++        android:layout_width="411dp"
++        android:layout_height="783dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.666"
+@@ -24,7 +36,6 @@
+         android:layout_height="wrap_content"
+         android:layout_marginStart="158dp"
+         android:layout_marginEnd="159dp"
+-        android:backgroundTint="@android:color/transparent"
+         android:text="@string/namechenge"
+         android:textColor="@color/black"
+         android:textSize="24sp"
+Index: app/src/main/res/layout/activity_sound.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <EditText\r\n        android:id=\"@+id/editTextName\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"92dp\"\r\n        android:layout_marginTop=\"60dp\"\r\n        android:layout_marginEnd=\"109dp\"\r\n        android:ems=\"10\"\r\n        android:inputType=\"textPersonName\"\r\n        android:minHeight=\"48dp\"\r\n        android:text=\"Name\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/buttonUpdate\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/buttonUpdate\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"159dp\"\r\n        android:layout_marginTop=\"73dp\"\r\n        android:layout_marginEnd=\"158dp\"\r\n        android:text=\"Button\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <ListView\r\n        android:id=\"@+id/ListViewNames\"\r\n        android:layout_width=\"209dp\"\r\n        android:layout_height=\"209dp\"\r\n        android:layout_marginStart=\"93dp\"\r\n        android:layout_marginTop=\"7dp\"\r\n        android:layout_marginEnd=\"109dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/editTextName\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_sound.xml b/app/src/main/res/layout/activity_sound.xml
+--- a/app/src/main/res/layout/activity_sound.xml	
++++ b/app/src/main/res/layout/activity_sound.xml	
+@@ -6,42 +6,34 @@
+     android:layout_height="match_parent"
+     android:background="@drawable/background_1">
+ 
+-    <EditText
+-        android:id="@+id/editTextName"
++    <View
++        android:id="@+id/view6"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="92dp"
+-        android:layout_marginTop="60dp"
+-        android:layout_marginEnd="109dp"
+-        android:ems="10"
+-        android:inputType="textPersonName"
+-        android:minHeight="48dp"
+-        android:text="Name"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/buttonUpdate" />
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0" />
+ 
+     <Button
+-        android:id="@+id/buttonUpdate"
++        android:id="@+id/btnBack"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="159dp"
+-        android:layout_marginTop="73dp"
+-        android:layout_marginEnd="158dp"
+-        android:text="Button"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
+-
+-    <ListView
+-        android:id="@+id/ListViewNames"
+-        android:layout_width="209dp"
+-        android:layout_height="209dp"
+-        android:layout_marginStart="93dp"
+-        android:layout_marginTop="7dp"
+-        android:layout_marginEnd="109dp"
++        android:layout_marginStart="162dp"
++        android:layout_marginTop="502dp"
++        android:layout_marginEnd="155dp"
++        android:layout_marginBottom="181dp"
++        android:text="@string/modoruyo"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file

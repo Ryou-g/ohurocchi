@@ -1,0 +1,4 @@
+diff --git a/app/src/main/java/com/example/ohurocchi/User.kt b/app/src/main/java/com/example/ohurocchi/User.kt
+new file mode 100644
+diff --git a/app/src/main/java/com/example/ohurocchi/UserDao.kt b/app/src/main/java/com/example/ohurocchi/UserDao.kt
+new file mode 100644

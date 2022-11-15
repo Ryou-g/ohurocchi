@@ -1,5 +1,7 @@
 package com.example.ohurocchi
 
+import User
+import UserDao
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -72,7 +74,7 @@ class SoundActivity : AppCompatActivity() {
 
     //入力内容をDBに登録する
     private fun insUser(name : String) {
-        Completable.fromAction { dao.insert(User(0, name, money =0, apply_Face =1, apply_Background =1,
+        Completable.fromAction { dao.insertAll(User(0, name, money =0, apply_Face =1, apply_Background =1,
             apply_Costume = 1, clean = 1, favorability = 100)) }
             .subscribeOn(Schedulers.io())
             .subscribe()

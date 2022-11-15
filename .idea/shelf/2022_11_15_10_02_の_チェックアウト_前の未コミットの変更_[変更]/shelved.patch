@@ -1,0 +1,2758 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.おふろっち\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/src/main/AndroidManifest.xml	(date 1668474120470)
+@@ -10,11 +10,33 @@
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+-        android:theme="@style/Theme.おふろっち"
+-        tools:targetApi="31">
++        android:theme="@style/Theme.Ohurocchi"
++        tools:targetApi="31"
++        tools:ignore="LockedOrientationActivity">
++        <activity
++            android:name=".BackgroundActivity"
++            android:exported="false"
++            android:screenOrientation="portrait"/>
++        <activity
++            android:name=".DressupActivity"
++            android:exported="false"
++            android:screenOrientation="portrait"/>
++        <activity
++            android:name=".BathlogActivity"
++            android:exported="false"
++            android:screenOrientation="portrait"/>
++        <activity
++            android:name=".SoundActivity"
++            android:exported="true"
++            android:screenOrientation="portrait"/>
++        <activity
++            android:name=".NameActivity"
++            android:exported="true"
++            android:screenOrientation="portrait"/>
+         <activity
+-            android:name=".MainActivity"
+-            android:exported="true">
++            android:name=".TitleActivity"
++            android:exported="true"
++            android:screenOrientation="portrait">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+@@ -24,6 +46,30 @@
+             <meta-data
+                 android:name="android.app.lib_name"
+                 android:value="" />
++        </activity>
++        <activity
++            android:name=".HomeActivity"
++            android:exported="true"
++            android:screenOrientation="portrait"/>
++        <activity
++            android:name=".SettingActivity"
++            android:exported="true"
++            android:screenOrientation="portrait">
++        </activity>
++        <activity
++            android:name=".CharaActivity"
++            android:exported="true"
++            android:screenOrientation="portrait">
++        </activity>
++        <activity
++            android:name=".DressbuyActivity"
++            android:exported="true"
++            android:screenOrientation="portrait">
++        </activity>
++        <activity
++            android:name=".CommonActivity"
++            android:exported="true"
++            android:screenOrientation="portrait">
+         </activity>
+     </application>
+ 
+Index: app/src/main/res/layout/activity_title.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_title.xml b/app/src/main/res/layout/activity_title.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_title.xml	(date 1668473594025)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background"
++    tools:context=".TitleActivity">
++
++
++    <Button
++        android:id="@+id/btnStart"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:backgroundTint="@android:color/transparent"
++        android:text="@string/start"
++        android:textColor="@color/black"
++        android:textSize="48sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_namechange.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_namechange.xml b/app/src/main/res/layout/activity_namechange.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_namechange.xml	(date 1668473594025)
+@@ -0,0 +1,91 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background_1">
++
++
++    <View
++        android:id="@+id/view4"
++        android:layout_width="818dp"
++        android:layout_height="1626dp"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        android:contentDescription="@string/bariusu"
++        app:layout_constraintBottom_toTopOf="parent"
++        app:layout_constraintEnd_toStartOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/textView"
++        android:layout_width="200dp"
++        android:layout_height="50dp"
++        android:text="@string/nickname"
++        android:textColor="#000000"
++        android:textSize="40sp"
++        app:autoSizeMaxTextSize="40sp"
++        app:autoSizeMinTextSize="30sp"
++        app:autoSizeTextType="uniform"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.161"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.277" />
++
++    <Button
++        android:id="@+id/btnBack"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="502dp"
++        android:layout_marginEnd="155dp"
++        android:layout_marginBottom="181dp"
++        android:text="@string/backbtn"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0"
++        tools:ignore="TextContrastCheck" />
++
++    <EditText
++        android:id="@+id/editTextTextPersonName"
++        android:layout_width="322dp"
++        android:layout_height="62dp"
++        android:autofillHints=""
++        android:background="@color/material_dynamic_neutral80"
++        android:backgroundTint="#D0D5D2D2"
++        android:ems="10"
++        android:inputType="textPersonName"
++        android:text="@string/nameframe"
++        android:textSize="35sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.707"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.362" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:backgroundTint="@android:color/holo_green_light"
++        android:text="@string/change"
++        android:textColor="#616161"
++        android:textSize="20sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.501"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.469"
++        tools:ignore="TextContrastCheck,TextContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_home.xml b/app/src/main/res/layout/activity_home.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_home.xml	(date 1668473594025)
+@@ -0,0 +1,54 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background"
++    tools:context=".HomeActivity">
++
++    <include
++        layout="@layout/activity_common"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
++
++    <ImageView
++        android:id="@+id/imageView"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:contentDescription="@string/woman"
++        android:rotationY="-180"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.74"
++        app:srcCompat="@drawable/woman"
++        tools:ignore="ImageContrastCheck" />
++
++    <Button
++        android:id="@+id/button1"
++        android:layout_width="148dp"
++        android:layout_height="61dp"
++        android:backgroundTint="@android:color/holo_blue_light"
++        android:contentDescription="@string/bathbtn"
++        android:onClick="onA"
++        android:text="@string/ohurobtn"
++        android:textColor="#455A64"
++        android:textSize="15sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.498"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.306"
++        tools:ignore="TextContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_bathlog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_bathlog.xml b/app/src/main/res/layout/activity_bathlog.xml
+new file mode 100644
+--- /dev/null	(date 1668473594009)
++++ b/app/src/main/res/layout/activity_bathlog.xml	(date 1668473594009)
+@@ -0,0 +1,51 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background_1">
++
++    <View
++        android:id="@+id/view2"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/spinner"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Spinner
++        android:id="@+id/spinner"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="50dp"
++        android:layout_marginBottom="386dp"
++        android:background="@color/black"
++        android:contentDescription="@string/pulldown"
++        android:minHeight="48dp"
++        app:backgroundTint="#FF5722"
++        app:layout_constraintBottom_toTopOf="@+id/btnBack"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0"
++        tools:ignore="SpeakableTextPresentCheck" />
++
++    <Button
++        android:id="@+id/btnBack"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="502dp"
++        android:layout_marginEnd="155dp"
++        android:text="@string/modoru"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck,TextContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_common.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_common.xml b/app/src/main/res/layout/activity_common.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_common.xml	(date 1668473594025)
+@@ -0,0 +1,101 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <TextView
++        android:id="@+id/textView2"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="46dp"
++        android:layout_marginTop="30dp"
++        android:layout_marginEnd="295dp"
++        android:layout_marginBottom="682dp"
++        android:text="@string/ohurocchi"
++        android:textColor="#000000"
++        android:textSize="34sp"
++        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.252"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.388" />
++
++    <TextView
++        android:id="@+id/textView3"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="30dp"
++        android:layout_marginBottom="682dp"
++        android:text="@string/Today"
++        android:textColor="#000000"
++        android:textSize="20sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.86"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.294" />
++
++    <ImageButton
++        android:id="@+id/imageButton"
++        android:layout_width="89dp"
++        android:layout_height="82dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginEnd="8dp"
++        android:background="@drawable/character"
++        android:contentDescription="@string/chara"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
++        app:layout_constraintStart_toEndOf="@+id/imageButton2"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0"
++        tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
++
++    <ImageButton
++        android:id="@+id/imageButton2"
++        android:layout_width="89dp"
++        android:layout_height="82dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginEnd="8dp"
++        android:background="@drawable/shop"
++        android:contentDescription="@string/shop"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toStartOf="@+id/imageButton"
++        app:layout_constraintStart_toEndOf="@+id/imageButton3"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0"
++        tools:ignore="ImageContrastCheck" />
++
++    <ImageButton
++        android:id="@+id/imageButton3"
++        android:layout_width="89dp"
++        android:layout_height="82dp"
++        android:layout_marginEnd="8dp"
++        android:background="@drawable/bath"
++        android:contentDescription="@string/home"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0"
++        tools:ignore="ImageContrastCheck" />
++
++    <ImageButton
++        android:id="@+id/imageButton4"
++        android:layout_width="89dp"
++        android:layout_height="82dp"
++        android:layout_marginStart="8dp"
++        android:background="@drawable/establishment"
++        android:contentDescription="@string/setting"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toEndOf="@+id/imageButton"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0"
++        tools:ignore="ImageContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_chara.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_chara.xml b/app/src/main/res/layout/activity_chara.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_chara.xml	(date 1668473594025)
+@@ -0,0 +1,111 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background_1">
++
++    <View
++        android:id="@+id/view"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/include3"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <include
++        android:id="@+id/include3"
++        layout="@layout/activity_common"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0" />
++
++    <TextView
++        android:id="@+id/textView2"
++        android:layout_width="200dp"
++        android:layout_height="50dp"
++        android:text="@string/age"
++        android:textColor="#000000"
++        android:textSize="40sp"
++        app:autoSizeMaxTextSize="40sp"
++        app:autoSizeMinTextSize="30sp"
++        app:autoSizeTextType="uniform"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.146"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.256" />
++
++    <ImageView
++        android:id="@+id/imageView"
++        android:layout_width="388dp"
++        android:layout_height="304dp"
++        android:contentDescription="@string/woman"
++        android:rotationY="-180"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.78"
++        app:srcCompat="@drawable/woman" />
++
++    <TextView
++        android:id="@+id/textView3"
++        android:layout_width="200dp"
++        android:layout_height="50dp"
++        android:text="@string/name"
++        android:textColor="#000000"
++        android:textSize="40sp"
++        app:autoSizeMaxTextSize="40sp"
++        app:autoSizeMinTextSize="30sp"
++        app:autoSizeTextType="uniform"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.146"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.141" />
++
++    <TextView
++        android:id="@+id/textView6"
++        android:layout_width="200dp"
++        android:layout_height="50dp"
++        android:text="@string/favorability"
++        android:textColor="#000000"
++        android:textSize="40sp"
++        app:autoSizeMaxTextSize="40sp"
++        app:autoSizeMinTextSize="30sp"
++        app:autoSizeTextType="uniform"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.146"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.365" />
++
++    <ProgressBar
++        android:id="@+id/progressBar3"
++        style="?android:attr/progressBarStyleHorizontal"
++        android:layout_width="300dp"
++        android:layout_height="102dp"
++        android:progress="30"
++        android:scaleY="4"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.495"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.449" />
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_dressexchange.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_dressexchange.xml b/app/src/main/res/layout/activity_dressexchange.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_dressexchange.xml	(date 1668473594025)
+@@ -0,0 +1,146 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/dressbuybuckground">
++
++    <ImageView
++        android:id="@+id/imageView18"
++        android:layout_width="178dp"
++        android:layout_height="258dp"
++        android:layout_marginEnd="16dp"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.76"
++        app:srcCompat="@drawable/adult"
++        android:contentDescription="@string/image" />
++
++    <TextView
++        android:id="@+id/textView4"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="144dp"
++        android:text="@string/huro"
++        android:textColor="#039BE5"
++        android:textSize="30sp"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.632"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck" />
++
++    <TextView
++        android:id="@+id/textView5"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="40dp"
++        android:text="@string/yen"
++        android:textColor="#000000"
++        android:textSize="24sp"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.519"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="@+id/textView4" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:backgroundTint="#FFFFFF"
++        android:shadowColor="#A14C4C"
++        android:text="@string/exchange"
++        android:textColor="#0277BD"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.522"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView5"
++        app:layout_constraintVertical_bias="0.47" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout2"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:layout_marginTop="335dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ImageButton
++            android:id="@+id/adult"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress1"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            android:scaleType="fitCenter"
++            app:srcCompat="@drawable/adult"
++            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
++
++        <ImageButton
++            android:id="@+id/sexy"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress2"
++            app:srcCompat="@drawable/sexy"
++            tools:ignore="ImageContrastCheck"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"/>
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
++
++        <ImageButton
++            android:id="@+id/neautral"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/neautral"
++            android:contentDescription="@string/dress3"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++
++            />
++
++        <ImageButton
++            android:id="@+id/sick"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/sick"
++            android:contentDescription="@string/dress4"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"/>
++
++    </LinearLayout>
++
++    <include
++        android:id="@+id/include2"
++        layout="@layout/activity_common"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_background.xml b/app/src/main/res/layout/activity_background.xml
+new file mode 100644
+--- /dev/null	(date 1668473594009)
++++ b/app/src/main/res/layout/activity_background.xml	(date 1668473594009)
+@@ -0,0 +1,139 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <ImageView
++        android:id="@+id/imageView4"
++        android:layout_width="550dp"
++        android:layout_height="880dp"
++        android:contentDescription="@string/bg1"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:srcCompat="@drawable/background_1" />
++
++    <TextView
++        android:id="@+id/textView4"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="144dp"
++        android:shadowColor="#000000"
++        android:shadowDx="5"
++        android:shadowDy="4"
++        android:shadowRadius="7"
++        android:text="@string/huroname"
++        android:textAllCaps="true"
++        android:textColor="#FFFFFF"
++        android:textSize="30sp"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.164"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.013"
++        tools:ignore="TextContrastCheck" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:backgroundTint="#FFFFFF"
++        android:shadowColor="#A14C4C"
++        android:text="@string/tekiyou"
++        android:textColor="#0277BD"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.179"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView4"
++        app:layout_constraintVertical_bias="0.435" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout2"
++        android:layout_width="409dp"
++        android:layout_height="120dp"
++        android:layout_marginTop="335dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ImageButton
++            android:id="@+id/imageButton14"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress1"
++            app:srcCompat="@drawable/japanese"
++            tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
++
++        <ImageButton
++            android:id="@+id/imageButton15"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress2"
++            app:srcCompat="@drawable/background"
++            tools:ignore="ImageContrastCheck" />
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="409dp"
++        android:layout_height="120dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
++
++        <ImageButton
++            android:id="@+id/imageButton16"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress3"
++            app:srcCompat="@drawable/apart"
++            tools:ignore="ImageContrastCheck" />
++
++        <ImageButton
++            android:id="@+id/imageButton17"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress4"
++            app:srcCompat="@drawable/telmare"
++            tools:ignore="ImageContrastCheck" />
++
++
++    </LinearLayout>
++
++    <Button
++        android:id="@+id/btnBack"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginTop="700dp"
++        android:layout_marginEnd="155dp"
++        android:layout_marginBottom="50dp"
++        android:text="@string/backbtn3"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0"
++        tools:ignore="TextContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_setting.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_setting.xml b/app/src/main/res/layout/activity_setting.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_setting.xml	(date 1668473594025)
+@@ -0,0 +1,117 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background_1">
++
++    <View
++        android:id="@+id/view5"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="@+id/include"
++        app:layout_constraintTop_toTopOf="@+id/include" />
++
++    <include
++        android:id="@+id/include"
++        layout="@layout/activity_common"
++        android:layout_width="411dp"
++        android:layout_height="783dp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.666"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
++
++    <Button
++        android:id="@+id/namechange"
++        style="@style/Widget.AppCompat.Button.Borderless.Colored"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/namechenge"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="@+id/include"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.204" />
++
++    <Button
++        android:id="@+id/sound"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/sound"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/namechange"
++        app:layout_constraintVertical_bias="0.07" />
++
++    <Button
++        android:id="@+id/bathlog"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/bathlog"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/background"
++        app:layout_constraintVertical_bias="0.126" />
++
++    <Button
++        android:id="@+id/dressup"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/dressup"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/sound"
++        app:layout_constraintVertical_bias="0.075" />
++
++    <Button
++        android:id="@+id/background"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/background"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/dressup"
++        app:layout_constraintVertical_bias="0.09" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_dressup.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_dressup.xml b/app/src/main/res/layout/activity_dressup.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_dressup.xml	(date 1668473594025)
+@@ -0,0 +1,139 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/dressbuybuckground">
++
++    <ImageView
++        android:id="@+id/imageView1"
++        android:layout_width="144dp"
++        android:layout_height="235dp"
++        android:layout_marginEnd="52dp"
++        android:contentDescription="@string/image"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.16"
++        app:srcCompat="@drawable/adult" />
++
++    <TextView
++        android:id="@+id/textView4"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="100dp"
++        android:text="@string/huro"
++        android:textColor="#000000"
++        android:textSize="30sp"
++        app:layout_constraintEnd_toStartOf="@+id/imageView1"
++        app:layout_constraintHorizontal_bias="0.386"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="88dp"
++        android:backgroundTint="#FFFFFF"
++        android:shadowColor="#A14C4C"
++        android:text="@string/dressup1"
++        android:textColor="#0277BD"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toStartOf="@+id/imageView1"
++        app:layout_constraintHorizontal_bias="0.401"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout2"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:layout_marginTop="335dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ImageButton
++            android:id="@+id/adult"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress1"
++            android:scaleType="fitCenter"
++            app:srcCompat="@drawable/adult"
++            tools:ignore="ImageContrastCheck"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            />
++
++        <ImageButton
++            android:id="@+id/sexy"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress2"
++            android:scaleType="fitCenter"
++            app:srcCompat="@drawable/sexy"
++            tools:ignore="ImageContrastCheck"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            />
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
++
++        <ImageButton
++            android:id="@+id/neautral"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:scaleType="fitCenter"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/neautral"
++            android:contentDescription="@string/dress3"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            />
++
++        <ImageButton
++            android:id="@+id/sick"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:scaleType="fitCenter"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/sick"
++            android:contentDescription="@string/dress4"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            />
++
++    </LinearLayout>
++
++    <Button
++        android:id="@+id/btnBack"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="162dp"
++        android:layout_marginTop="700dp"
++        android:layout_marginEnd="155dp"
++        android:text="@string/backbtn3"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/arrays.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/arrays.xml b/app/src/main/res/values/arrays.xml
+new file mode 100644
+--- /dev/null	(date 1668473594165)
++++ b/app/src/main/res/values/arrays.xml	(date 1668473594165)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <string-array name="month">
++        <item>1月</item>
++        <item>2月</item>
++        <item>3月</item>
++        <item>4月</item>
++        <item>5月</item>
++        <item>6月</item>
++        <item>7月</item>
++        <item>8月</item>
++        <item>9月</item>
++        <item>10月</item>
++        <item>11月</item>
++        <item>12月</item>
++    </string-array>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_sound.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_sound.xml b/app/src/main/res/layout/activity_sound.xml
+new file mode 100644
+--- /dev/null	(date 1668473594025)
++++ b/app/src/main/res/layout/activity_sound.xml	(date 1668473594025)
+@@ -0,0 +1,39 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/background_1">
++
++    <View
++        android:id="@+id/view6"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:backgroundTint="#45FFFFFF"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="1.0" />
++
++    <Button
++        android:id="@+id/btnBack"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="162dp"
++        android:layout_marginTop="502dp"
++        android:layout_marginEnd="155dp"
++        android:layout_marginBottom="181dp"
++        android:text="@string/modoruyo"
++        android:textColor="#212121"
++        app:backgroundTint="#ffff4444"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/border.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/border.xml b/app/src/main/res/drawable/border.xml
+new file mode 100644
+--- /dev/null	(date 1668473593994)
++++ b/app/src/main/res/drawable/border.xml	(date 1668473593994)
+@@ -0,0 +1,6 @@
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <stroke android:width="3px" android:color="#47aaff" />
++    <padding android:left="2px" android:top="2px"
++        android:right="2px" android:bottom="2px" />
++    <corners android:radius="2px" />
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/values/ids.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/ids.xml b/app/src/main/res/values/ids.xml
+new file mode 100644
+--- /dev/null	(date 1668473594165)
++++ b/app/src/main/res/values/ids.xml	(date 1668473594165)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <item name="action_settings" type="id" />
++</resources>
+\ No newline at end of file
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pluginManagement {\r\n    repositories {\r\n        gradlePluginPortal()\r\n        google()\r\n        mavenCentral()\r\n    }\r\n}\r\ndependencyResolutionManagement {\r\n    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n    }\r\n}\r\nrootProject.name = \"おふろっち\"\r\ninclude ':app'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle b/settings.gradle
+--- a/settings.gradle	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/settings.gradle	(date 1668474125067)
+@@ -12,5 +12,5 @@
+         mavenCentral()
+     }
+ }
+-rootProject.name = "おふろっち"
++rootProject.name = "ohurocchi"
+ include ':app'
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.おふろっち\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_500</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/white</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+--- a/app/src/main/res/values/themes.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/src/main/res/values/themes.xml	(date 1668474128835)
+@@ -1,6 +1,6 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.おふろっち" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.Ohurocchi" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_500</item>
+         <item name="colorPrimaryVariant">@color/purple_700</item>
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/google-services.json	(date 1668473593962)
+@@ -0,0 +1,39 @@
++{
++  "project_info": {
++    "project_number": "59985799187",
++    "project_id": "ohurocchi",
++    "storage_bucket": "ohurocchi.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:59985799187:android:68c33dee9ed53a14c777e6",
++        "android_client_info": {
++          "package_name": "com.example.ohurocchi"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyCE0wHSTpLux8M97d7EKE4WiceF4TNt7jo"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"purple_200\">#FFBB86FC</color>\r\n    <color name=\"purple_500\">#FF6200EE</color>\r\n    <color name=\"purple_700\">#FF3700B3</color>\r\n    <color name=\"teal_200\">#FF03DAC5</color>\r\n    <color name=\"teal_700\">#FF018786</color>\r\n    <color name=\"black\">#FF000000</color>\r\n    <color name=\"white\">#FFFFFFFF</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/src/main/res/values/colors.xml	(date 1668474123493)
+@@ -7,4 +7,8 @@
+     <color name="teal_700">#FF018786</color>
+     <color name="black">#FF000000</color>
+     <color name="white">#FFFFFFFF</color>
+-</resources>
+\ No newline at end of file
++    <color name="colorPrimary">#3F51B5</color>
++    <color name="colorPrimaryDark">#303F9F</color>
++    <color name="colorAccent">#FF4081</color>
++    <color name="clearButtonPressed">#33000000</color>
++</resources>
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+new file mode 100644
+--- /dev/null	(date 1668473593947)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1668473593947)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetDropDown">
++    <targetSelectedWithDropDown>
++      <Target>
++        <type value="QUICK_BOOT_TARGET" />
++        <deviceKey>
++          <Key>
++            <type value="VIRTUAL_DEVICE_PATH" />
++            <value value="C:\Users\Gowamiya_Ryo\.android\avd\Pixel_6_API_33.avd" />
++          </Key>
++        </deviceKey>
++      </Target>
++    </targetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2022-10-28T01:57:21.319572Z" />
++  </component>
++</project>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    id 'com.android.application' version '7.3.0' apply false\r\n    id 'com.android.library' version '7.3.0' apply false\r\n    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/build.gradle	(date 1668474123196)
+@@ -1,6 +1,10 @@
+-// Top-level build file where you can add configuration options common to all sub-projects/modules.
++buildscript {
++    dependencies {
++        classpath 'com.google.gms:google-services:4.3.14'
++    }
++}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.3.0' apply false
+-    id 'com.android.library' version '7.3.0' apply false
+-    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
++    id 'com.android.application' version '7.3.1' apply false
++    id 'com.android.library' version '7.3.1' apply false
++    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+ }
+\ No newline at end of file
+Index: .idea/render.experimental.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/render.experimental.xml b/.idea/render.experimental.xml
+new file mode 100644
+--- /dev/null	(date 1668473593947)
++++ b/.idea/render.experimental.xml	(date 1668473593947)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RenderSettings">
++    <option name="showDecorations" value="true" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/BackgroundActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/BackgroundActivity.kt b/app/src/main/java/com/example/ohurocchi/BackgroundActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/BackgroundActivity.kt	(date 1668473593962)
+@@ -0,0 +1,56 @@
++package com.example.ohurocchi
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++import android.widget.ImageButton
++import android.widget.ImageView
++import com.example.ohurocchi.databinding.ActivityBackgroundBinding
++
++class BackgroundActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_background)
++
++        val btnBack :Button = findViewById(R.id.btnBack)
++
++        btnBack.setOnClickListener {
++            finish()
++
++        }
++
++        val imageView = findViewById<ImageView>(R.id.imageView4)
++        val imageButton14 = findViewById<ImageButton>(R.id.imageButton14)
++
++        imageButton14.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.japanese_1)
++
++        }
++
++        val imageButton15 = findViewById<ImageButton>(R.id.imageButton15)
++
++        imageButton15.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.background_1)
++
++        }
++
++        val imageButton16 = findViewById<ImageButton>(R.id.imageButton16)
++
++        imageButton16.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.apart_1)
++
++        }
++
++        val imageButton17 = findViewById<ImageButton>(R.id.imageButton17)
++
++        imageButton17.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.telmare_1)
++
++        }
++
++    }
++}
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32__Changes_.xml
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32__Changes_.xml	(date 1668473593962)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]" date="1666240375839" recycled="false" toDelete="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2022/10/20 13:32 [Changes]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29__Changes_.xml
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29__Changes_.xml	(date 1668473593962)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]" date="1666229351221" recycled="false" toDelete="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2022/10/20 10:29 [Changes]" />
++</changelist>
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/SoundActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/SoundActivity.kt b/app/src/main/java/com/example/ohurocchi/SoundActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/SoundActivity.kt	(date 1668473593962)
+@@ -0,0 +1,20 @@
++package com.example.ohurocchi
++
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++
++class SoundActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_sound)
++
++    val btnBack :Button = findViewById(R.id.btnBack)
++
++    btnBack.setOnClickListener {
++        finish()
++
++    }
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/TitleActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/TitleActivity.kt b/app/src/main/java/com/example/ohurocchi/TitleActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/TitleActivity.kt	(date 1668473593962)
+@@ -0,0 +1,56 @@
++package com.example.ohurocchi
++
++import android.content.Intent
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.widget.Button
++import android.media.MediaPlayer
++
++class TitleActivity : AppCompatActivity() {
++    //５）mpを横断的に使えるようにここに書く
++    private lateinit var mp:MediaPlayer
++    private lateinit var mp1:MediaPlayer
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_title)
++
++        //１）Viewの取得
++        val btnStart :Button =findViewById(R.id.btnStart)
++
++        //２）ボタンを押したら次の画面へ
++        btnStart.setOnClickListener {
++            val intent = Intent(this,HomeActivity::class.java)
++            startActivity(intent)
++
++        }
++
++        mp = MediaPlayer.create(this,R.raw.bath)
++        mp1 = MediaPlayer.create(this,R.raw.title)
++        mp.isLooping = true
++        mp.start()
++        mp1.start()
++    }
++    //６）再開
++    override fun onResume() {
++        super.onResume()
++        mp.start()
++        mp1.start()
++    }
++    //５）一時停止
++    override fun onPause() {
++        super.onPause()
++        mp.pause()
++        mp1.pause()
++    }
++
++    //７）終了・メモリの解放
++    override fun onDestroy() {
++        super.onDestroy()
++        mp.stop() //終了・停止
++        mp1.stop() //終了・停止
++        mp.release() //解放
++        mp1.release() //解放
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/CharaActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/CharaActivity.kt b/app/src/main/java/com/example/ohurocchi/CharaActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/CharaActivity.kt	(date 1668473593962)
+@@ -0,0 +1,81 @@
++package com.example.ohurocchi
++
++import android.content.Intent
++import android.media.MediaPlayer
++import android.os.Bundle
++import android.widget.ImageButton
++import androidx.appcompat.app.AppCompatActivity
++
++class CharaActivity : AppCompatActivity(){
++
++    // ① 準備（コンポを部屋に置く・コピペOK）
++
++    private lateinit var mp: MediaPlayer
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_chara)
++
++        //ここからホーム画面遷移のコード
++        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
++        imageButton3.setOnClickListener {
++            //ここから遷移用のコード
++            val intent =
++                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから衣装配布画面遷移のコード
++        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
++        imageButton2.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                DressbuyActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここからキャラ画面遷移のコード
++        val imageButton: ImageButton = findViewById(R.id.imageButton)
++        imageButton.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                CharaActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから設定画面遷移のコード
++        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
++        imageButton4.setOnClickListener{
++            //ここから遷移用のコード
++            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++
++        mp = MediaPlayer.create(this,R.raw.chara)
++        mp.isLooping = true
++        mp.start()
++    }     // ③ 読込処理(CDを入れる)
++
++    //６）再開
++    override fun onResume() {
++        super.onResume()
++        mp.start()
++    }
++    //５）一時停止
++    override fun onPause() {
++        super.onPause()
++        mp.pause()
++    }
++
++    //７）終了・メモリの解放
++    override fun onDestroy() {
++        super.onDestroy()
++        mp.stop() //終了・停止
++        mp.release() //解放
++    }
++}
+\ No newline at end of file
+Index: .idea/shelf/2022_10_21_11_31______.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/2022_10_21_11_31______.xml b/.idea/shelf/2022_10_21_11_31______.xml
+new file mode 100644
+--- /dev/null	(date 1668473593947)
++++ b/.idea/shelf/2022_10_21_11_31______.xml	(date 1668473593947)
+@@ -0,0 +1,4 @@
++<changelist name="2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]" date="1666319509668" recycled="false" toDelete="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]/shelved.patch" />
++  <option name="DESCRIPTION" value="2022/10/21 11:31 の 更新 前の未コミットの変更 [変更]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/.idea/misc.xml	(date 1668474124554)
+@@ -1,10 +1,23 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/build/classes" />
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.16666666666666666" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml" value="0.10326086956521739" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressup.xml" value="0.10326086956521739" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.1331521739130435" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_mypage.xml" value="0.1796875" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_setting.xml" value="0.1331521739130435" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_sound.xml" value="0.1796875" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_title.xml" value="0.1796875" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/spinner_item.xml" value="0.1" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/menu/month_menu.xml" value="0.1796875" />
++        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/xml/spinner_item.xml" value="0.1" />
++      </map>
++    </option>
+   </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/SettingActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/SettingActivity.kt b/app/src/main/java/com/example/ohurocchi/SettingActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/SettingActivity.kt	(date 1668473593962)
+@@ -0,0 +1,110 @@
++package com.example.ohurocchi
++
++import android.content.Intent
++import android.media.MediaPlayer
++import android.os.Bundle
++import android.widget.Button
++import android.widget.ImageButton
++import androidx.appcompat.app.AppCompatActivity
++
++
++class SettingActivity : AppCompatActivity() {
++
++    // ① 準備（コンポを部屋に置く・コピペOK）
++    private lateinit var mp: MediaPlayer
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_setting)
++
++        val namechange : Button = findViewById(R.id.namechange)
++        val sound : Button = findViewById(R.id.sound)
++        val bathlog : Button = findViewById(R.id.bathlog)
++        val dressup : Button = findViewById(R.id.dressup)
++        val background : Button = findViewById(R.id.background)
++
++        namechange.setOnClickListener {
++            val intent = Intent(applicationContext,NameActivity::class.java)
++            startActivity(intent)
++        }
++
++        sound.setOnClickListener {
++            val intent = Intent(applicationContext,SoundActivity::class.java)
++            startActivity(intent)
++        }
++        bathlog.setOnClickListener {
++            val intent = Intent(applicationContext,BathlogActivity::class.java)
++            startActivity(intent)
++        }
++        dressup.setOnClickListener {
++            val intent = Intent(applicationContext,DressupActivity::class.java)
++            startActivity(intent)
++        }
++        background.setOnClickListener {
++            val intent = Intent(applicationContext,BackgroundActivity::class.java)
++            startActivity(intent)
++        }
++
++        //ここからホーム画面遷移のコード
++        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
++        imageButton3.setOnClickListener {
++            //ここから遷移用のコード
++            val intent =
++                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから衣装配布画面遷移のコード
++        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
++        imageButton2.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                DressbuyActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここからキャラ画面遷移のコード
++        val imageButton: ImageButton = findViewById(R.id.imageButton)
++        imageButton.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                CharaActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから設定画面遷移のコード
++        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
++        imageButton4.setOnClickListener{
++            //ここから遷移用のコード
++            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        // ③ 読込処理(CDを入れる)
++        mp = MediaPlayer.create(this,R.raw.setting)
++        mp.isLooping = true
++        mp.start()
++    }
++    //６）再開
++    override fun onResume() {
++        super.onResume()
++        mp.start()
++    }
++    //５）一時停止
++    override fun onPause() {
++        super.onPause()
++        mp.pause()
++    }
++
++    //７）終了・メモリの解放
++    override fun onDestroy() {
++        super.onDestroy()
++        mp.stop() //終了・停止
++        mp.release() //解放
++    }
++
++}
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'org.jetbrains.kotlin.android'\r\n}\r\n\r\nandroid {\r\n    namespace 'com.example.ohurocchi'\r\n    compileSdk 32\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.ohurocchi\"\r\n        minSdk 21\r\n        targetSdk 32\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.7.0'\r\n    implementation 'androidx.appcompat:appcompat:1.5.1'\r\n    implementation 'com.google.android.material:material:1.6.1'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/build.gradle	(date 1668474122239)
+@@ -1,20 +1,29 @@
+ plugins {
+     id 'com.android.application'
+     id 'org.jetbrains.kotlin.android'
++    id 'com.google.gms.google-services'
+ }
+ 
+ android {
+     namespace 'com.example.ohurocchi'
+-    compileSdk 32
++    compileSdk 33
++
++    viewBinding {
++        enabled = true
++    }
+ 
+     defaultConfig {
+         applicationId "com.example.ohurocchi"
+-        minSdk 21
+-        targetSdk 32
++        minSdk 26
++        targetSdk 33
+         versionCode 1
+         versionName "1.0"
+ 
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
++
++        buildFeatures {
++            viewBinding true
++        }
+     }
+ 
+     buildTypes {
+@@ -34,10 +43,12 @@
+ 
+ dependencies {
+ 
+-    implementation 'androidx.core:core-ktx:1.7.0'
++    implementation 'androidx.core:core-ktx:1.9.0'
+     implementation 'androidx.appcompat:appcompat:1.5.1'
+     implementation 'com.google.android.material:material:1.6.1'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
++    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'
++    implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+Index: app/src/main/java/com/example/ohurocchi/HomeActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/HomeActivity.kt b/app/src/main/java/com/example/ohurocchi/HomeActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/HomeActivity.kt	(date 1668473593962)
+@@ -0,0 +1,110 @@
++package com.example.ohurocchi
++
++import android.content.Intent
++import android.media.AudioAttributes
++import android.media.AudioManager
++import android.media.MediaPlayer
++import android.media.SoundPool
++import android.os.Build
++import android.os.Bundle
++import android.view.View
++import android.widget.ImageButton
++import androidx.appcompat.app.AppCompatActivity
++
++
++class HomeActivity : AppCompatActivity() {
++    private lateinit var mp: MediaPlayer
++
++    // ① 準備（コンポを部屋に置く・コピペOK）
++    private var soundPool // 効果音を鳴らす本体（コンポ）
++            : SoundPool? = null
++    private var mp3a // 効果音データ（mp3）
++            = 0
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_home)
++
++        //ここからホーム画面遷移のコード
++        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
++        imageButton3.setOnClickListener {
++            //ここから遷移用のコード
++            val intent =
++                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから衣装配布画面遷移のコード
++        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
++        imageButton2.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                DressbuyActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここからキャラ画面遷移のコード
++        val imageButton: ImageButton = findViewById(R.id.imageButton)
++        imageButton.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                CharaActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから設定画面遷移のコード
++        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
++        imageButton4.setOnClickListener{
++            //ここから遷移用のコード
++            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++
++        // ② 初期化（電源を入れる・コピペOK）
++        soundPool = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
++            SoundPool(5, AudioManager.STREAM_MUSIC, 0)
++        } else {
++            val attr = AudioAttributes.Builder()
++                .setUsage(AudioAttributes.USAGE_MEDIA)
++                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
++                .build()
++            SoundPool.Builder()
++                .setAudioAttributes(attr)
++                .setMaxStreams(5)
++                .build()
++        }
++
++        // ③ 読込処理(CDを入れる)
++        mp3a = soundPool!!.load(this, R.raw.voice1, 1)
++        mp = MediaPlayer.create(this,R.raw.bath)
++        mp.isLooping = true
++        mp.start()
++    }
++
++    fun onA(v: View?) {
++        // ④ 再生処理(再生ボタン)
++        soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
++    }
++    //６）再開
++    override fun onResume() {
++        super.onResume()
++        mp.start()
++    }
++    //５）一時停止
++    override fun onPause() {
++        super.onPause()
++        mp.pause()
++    }
++
++    //７）終了・メモリの解放
++    override fun onDestroy() {
++        super.onDestroy()
++        mp.stop() //終了・停止
++        mp.release() //解放
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/BathlogActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/BathlogActivity.kt b/app/src/main/java/com/example/ohurocchi/BathlogActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/BathlogActivity.kt	(date 1668473593962)
+@@ -0,0 +1,42 @@
++package com.example.ohurocchi
++
++import android.app.Activity
++import androidx.appcompat.app.AppCompatActivity
++import android.os.Bundle
++import android.view.View
++import android.widget.*
++import android.widget.Toast
++
++class BathlogActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_bathlog)
++
++        val spinner = findViewById<Spinner>(R.id.spinner)
++        val adapter = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item)
++        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
++        spinner.adapter = adapter
++
++        // OnItemSelectedListenerの実装
++        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
++
++            // 項目が選択された時に呼ばれる
++            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
++                val text = parent?.selectedItem as String
++                Toast.makeText(this@BathlogActivity, text, Toast.LENGTH_SHORT).show()
++            }
++
++            // 基本的には呼ばれないが、何らかの理由で選択されることなく項目が閉じられたら呼ばれる
++            override fun onNothingSelected(parent: AdapterView<*>?) {
++
++            }
++        }
++
++        val btnBack : Button = findViewById(R.id.btnBack)
++
++        btnBack.setOnClickListener {
++            finish()
++
++        }
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt b/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/DressbuyActivity.kt	(date 1668473593962)
+@@ -0,0 +1,129 @@
++package com.example.ohurocchi
++
++import android.content.Intent
++import android.media.MediaPlayer
++import android.os.Bundle
++import android.widget.ImageButton
++import android.widget.ImageView
++import android.widget.TextView
++import androidx.appcompat.app.AppCompatActivity
++
++class DressbuyActivity : AppCompatActivity() {
++
++    // ① 準備（コンポを部屋に置く・コピペOK）
++
++    private lateinit var mp: MediaPlayer
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_dressexchange)
++
++        //ここからホーム画面遷移のコード
++        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
++        imageButton3.setOnClickListener {
++            //ここから遷移用のコード
++            val intent =
++                Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから衣装配布画面遷移のコード
++        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
++        imageButton2.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                DressbuyActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここからキャラ画面遷移のコード
++        val imageButton: ImageButton = findViewById(R.id.imageButton)
++        imageButton.setOnClickListener {
++            //ここから遷移用のコード
++            val intent = Intent(
++                this,
++                CharaActivity::class.java
++            )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++        //ここから設定画面遷移のコード
++        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
++        imageButton4.setOnClickListener {
++            //ここから遷移用のコード
++            val intent =
++                Intent(this, SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
++            startActivity(intent)
++            //ここまで
++        }
++
++        mp = MediaPlayer.create(this,R.raw.dress_buy)
++        mp.isLooping = true
++        mp.start()
++
++
++        val imageView = findViewById<ImageView>(R.id.imageView18)
++        val textView = findViewById<TextView>(R.id.textView4)
++        val textView1 = findViewById<TextView>(R.id.textView5)
++
++
++        val adult = findViewById<ImageButton>(R.id.adult)
++
++        adult.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.adult)
++            textView.setText("風呂メイド1");
++            textView1.setText("25pt");
++        }
++
++        val sexy = findViewById<ImageButton>(R.id.sexy)
++
++        sexy.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.sexy)
++            textView.setText("風呂メイド2");
++            textView1.setText("30pt");
++        }
++
++        val neautral = findViewById<ImageButton>(R.id.neautral)
++
++        neautral.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.neautral)
++            textView.setText("風呂メイド3");
++            textView1.setText("45pt");
++        }
++
++        val sick = findViewById<ImageButton>(R.id.sick)
++
++        sick.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.sick)
++            textView.setText("風呂メイド4");
++            textView1.setText("300pt");
++        }
++
++    }     // ③ 読込処理(CDを入れる)
++
++    //６）再開
++    override fun onResume() {
++        super.onResume()
++        mp.start()
++    }
++    //５）一時停止
++    override fun onPause() {
++        super.onPause()
++        mp.pause()
++    }
++
++    //７）終了・メモリの解放
++    override fun onDestroy() {
++        super.onDestroy()
++        mp.stop() //終了・停止
++        mp.release() //解放
++    }
++
++
++}
+\ No newline at end of file
+Index: .idea/shelf/2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]/shelved.patch b/.idea/shelf/2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/.idea/shelf/2022_10_21_11_31_の_更新_前の未コミットの変更_[変更]/shelved.patch	(date 1668473593962)
+@@ -0,0 +1,108 @@
++Index: app/src/main/res/values/strings.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><resources>\r\n    <string name=\"app_name\">ohurocchi</string>\r\n    <string name=\"start\">START</string>\r\n    <string name=\"welcome\">ようこそ新しい画面へ</string>\r\n    <string name=\"back\">戻る</string>\r\n    <string name=\"woman\">woman</string>\r\n    <string name=\"bathbtn\">お風呂に入った</string>\r\n    <string name=\"ohurobtn\">お風呂に入った</string>\r\n    <string name=\"age\">年齢：</string>\r\n    <string name=\"name\">名前：</string>\r\n    <string name=\"favorability\">好感度：</string>\r\n    <string name=\"Logo\">おふろっち</string>\r\n    <string name=\"todo\">TODO</string>\r\n    <string name=\"today\">2022/10/14</string>\r\n    <string name=\"td\">TODO</string>\r\n    <string name=\"Todo\">TODO</string>\r\n    <string name=\"toDo\">TODO</string>\r\n    <string name=\"chara\">キャラ</string>\r\n    <string name=\"shop\">衣装購入</string>\r\n    <string name=\"home\">ホーム</string>\r\n    <string name=\"setting\">設定</string>\r\n    <string name=\"tooo\">TODO</string>\r\n    <string name=\"mypage\">マイページ</string>\r\n    <string name=\"sound\">サウンド</string>\r\n    <string name=\"background\">背景変更</string>\r\n    <string name=\"bathlog\">入浴ログ</string>\r\n    <string name=\"dressup\">着せ替え</string>\r\n</resources>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
++--- a/app/src/main/res/values/strings.xml	
+++++ b/app/src/main/res/values/strings.xml	
++@@ -25,4 +25,23 @@
++     <string name="background">背景変更</string>
++     <string name="bathlog">入浴ログ</string>
++     <string name="dressup">着せ替え</string>
+++    <string name="log1">2022/09/11\nお風呂に入りました</string>
+++    <string name="log2">2022/09/10\nお風呂に入りました</string>
+++    <string name="log3">2022/09/09\nお風呂に入りました</string>
+++    <string name="log4">2022/09/08\nお風呂に入りました</string>
+++    <string-array name="month_array">
+++        <item>1</item>
+++        <item>2</item>
+++        <item>3</item>
+++        <item>4</item>
+++        <item>5</item>
+++        <item>6</item>
+++        <item>7</item>
+++        <item>8</item>
+++        <item>9</item>
+++        <item>10</item>
+++        <item>11</item>
+++        <item>12</item>
+++    </string-array>
+++
++ </resources>
++\ No newline at end of file
++Index: app/src/main/AndroidManifest.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Ohurocchi\"\r\n        tools:targetApi=\"31\"\r\n        tools:ignore=\"LockedOrientationActivity\">\r\n        <activity\r\n            android:name=\".BackgroundActivity\"\r\n            android:exported=\"false\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".DressupActivity\"\r\n            android:exported=\"false\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".BathlogActivity\"\r\n            android:exported=\"false\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".SoundActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".MypageActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".TitleActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n\r\n            <meta-data\r\n                android:name=\"android.app.lib_name\"\r\n                android:value=\"\" />\r\n        </activity>\r\n        <activity\r\n            android:name=\".HomeActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\"/>\r\n        <activity\r\n            android:name=\".SettingActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\">\r\n        </activity>\r\n        <activity\r\n            android:name=\".CharaActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\">\r\n        </activity>\r\n        <activity\r\n            android:name=\".DressbuyActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\">\r\n        </activity>\r\n        <activity\r\n            android:name=\".CommonActivity\"\r\n            android:exported=\"true\"\r\n            android:screenOrientation=\"portrait\">\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
++--- a/app/src/main/AndroidManifest.xml	
+++++ b/app/src/main/AndroidManifest.xml	
++@@ -16,23 +16,23 @@
++         <activity
++             android:name=".BackgroundActivity"
++             android:exported="false"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".DressupActivity"
++             android:exported="false"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".BathlogActivity"
++             android:exported="false"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".SoundActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".MypageActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".TitleActivity"
++             android:exported="true"
++@@ -50,27 +50,23 @@
++         <activity
++             android:name=".HomeActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait"/>
+++            android:screenOrientation="portrait" />
++         <activity
++             android:name=".SettingActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait">
++-        </activity>
+++            android:screenOrientation="portrait"></activity>
++         <activity
++             android:name=".CharaActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait">
++-        </activity>
+++            android:screenOrientation="portrait"></activity>
++         <activity
++             android:name=".DressbuyActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait">
++-        </activity>
+++            android:screenOrientation="portrait"></activity>
++         <activity
++             android:name=".CommonActivity"
++             android:exported="true"
++-            android:screenOrientation="portrait">
++-        </activity>
+++            android:screenOrientation="portrait"></activity>
++     </application>
++ 
++ </manifest>
++\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/CommonActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/CommonActivity.kt b/app/src/main/java/com/example/ohurocchi/CommonActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/CommonActivity.kt	(date 1668473593962)
+@@ -0,0 +1,5 @@
++package com.example.ohurocchi
++
++class CommonActivity{
++
++}
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]/shelved.patch	(date 1668473593962)
+@@ -0,0 +1,18 @@
++Index: .idea/misc.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_14\" default=\"true\" project-jdk-name=\"Android Studio java home\" project-jdk-type=\"JavaSDK\" />\r\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/misc.xml b/.idea/misc.xml
++--- a/.idea/misc.xml	
+++++ b/.idea/misc.xml	
++@@ -1,5 +1,5 @@
++ <?xml version="1.0" encoding="UTF-8"?>
++ <project version="4">
++   <component name="ExternalStorageConfigurationManager" enabled="true" />
++-  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="true" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK" />
+++  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" project-jdk-name="adopt-14" project-jdk-type="JavaSDK" />
++ </project>
++\ No newline at end of file
+Index: app/src/main/java/com/example/ohurocchi/DressupActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/DressupActivity.kt b/app/src/main/java/com/example/ohurocchi/DressupActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/DressupActivity.kt	(date 1668473593962)
+@@ -0,0 +1,59 @@
++package com.example.ohurocchi
++
++import android.os.Bundle
++import android.view.View
++import android.widget.Button
++import android.widget.ImageButton
++import android.widget.ImageView
++import androidx.appcompat.app.AppCompatActivity
++
++class DressupActivity : AppCompatActivity() {
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_dressup)
++
++        val btnBack: Button = findViewById(R.id.btnBack)
++
++        btnBack.setOnClickListener {
++            finish()
++
++        }
++
++        val imageView = findViewById<ImageView>(R.id.imageView1)
++        val adult = findViewById<ImageButton>(R.id.adult)
++
++        adult.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.adult)
++
++        }
++
++        val sexy = findViewById<ImageButton>(R.id.sexy)
++
++        sexy.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.sexy)
++
++        }
++
++        val neautral = findViewById<ImageButton>(R.id.neautral)
++
++        neautral.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.neautral)
++
++        }
++
++        val sick = findViewById<ImageButton>(R.id.sick)
++
++        sick.setOnClickListener {
++
++            imageView.setImageResource(R.drawable.sick)
++
++        }
++
++    }
++
++
++
++}
+\ No newline at end of file
+Index: app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.おふろっち\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_200</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/black</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_200</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+--- a/app/src/main/res/values-night/themes.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/src/main/res/values-night/themes.xml	(date 1668474125795)
+@@ -1,6 +1,6 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.おふろっち" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.Ohurocchi" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_200</item>
+         <item name="colorPrimaryVariant">@color/purple_700</item>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">おふろっち</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/app/src/main/res/values/strings.xml	(date 1668474125432)
+@@ -1,3 +1,68 @@
+ <resources>
+-    <string name="app_name">おふろっち</string>
++    <string name="app_name">ohurocchi</string>
++    <string name="start">START</string>
++    <string name="welcome">ようこそ新しい画面へ</string>
++    <string name="back">戻る</string>
++    <string name="woman">woman</string>
++    <string name="bathbtn">お風呂に入った</string>
++    <string name="ohurobtn">お風呂に入った</string>
++    <string name="age">年齢：22才</string>
++    <string name="name">名前：のぶ子</string>
++    <string name="favorability">好感度：普通</string>
++    <string name="Logo">おふろっち</string>
++    <string name="todo">TODO</string>
++    <string name="today">2022/10/14</string>
++    <string name="td">TODO</string>
++    <string name="Todo">TODO</string>
++    <string name="toDo">TODO</string>
++    <string name="chara">キャラ</string>
++    <string name="shop">衣装購入</string>
++    <string name="home">ホーム</string>
++    <string name="setting">設定</string>
++    <string name="tooo">TODO</string>
++    <string name="mypage">マイページ</string>
++    <string name="sound">サウンド</string>
++    <string name="background">背景変更</string>
++    <string name="bathlog">入浴ログ</string>
++    <string name="dressup">着せ替え</string>
++
++    <string-array name="month_array">
++    <item>1月</item>
++    <item>2月</item>
++    <item>3月</item>
++    <item>4月</item>
++    <item>5月</item>
++    <item>6月</item>
++    <item>7月</item>
++    <item>8月</item>
++    <item>9月</item>
++    <item>10月</item>
++    <item>11月</item>
++    <item>12月</item>
++    </string-array>
++    <string name="huro">風呂メイド</string>
++    <string name="yen">25Pt</string>
++    <string name="unrock">アンロック</string>
++    <string name="image">TODO</string>
++    <string name="dress1">TODO</string>
++    <string name="dress2">TODO</string>
++    <string name="dress3">TODO</string>
++    <string name="dress4">TODO</string>
++    <string name="ohurocchi">おふろっち</string>
++    <string name="Today">2022/10/14</string>
++    <string name="nickname">ニックネーム</string>
++    <string name="backbtn">戻る</string>
++    <string name="nameframe">Name</string>
++    <string name="change">変更する</string>
++    <string name="modoru">戻る</string>
++    <string name="dressup1">着せ替え</string>
++    <string name="backbtn3">戻る</string>
++    <string name="namechenge">名前変更</string>
++    <string name="huroname">露天風呂</string>
++    <string name="tekiyou">適用</string>
++    <string name="pulldown">月を選択</string>
++    <string name="bg1">background1</string>
++    <string name="modoruyo">戻る</string>
++    <string name="bariusu">TODO</string>
++    <string name="exchange">交換</string>
+ </resources>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]/shelved.patch	(date 1668473593962)
+@@ -0,0 +1,53 @@
++Index: gradle/wrapper/gradle-wrapper.properties
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+>#Thu Oct 13 13:33:19 JST 2022\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-7.4-bin.zip\r\ndistributionPath=wrapper/dists\r\nzipStorePath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>ISO-8859-1
++===================================================================
++diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
++--- a/gradle/wrapper/gradle-wrapper.properties	
+++++ b/gradle/wrapper/gradle-wrapper.properties	
++@@ -1,4 +1,4 @@
++-#Thu Oct 13 13:33:19 JST 2022
+++#Thu Oct 20 10:15:18 JST 2022
++ distributionBase=GRADLE_USER_HOME
++ distributionUrl=https\://services.gradle.org/distributions/gradle-7.4-bin.zip
++ distributionPath=wrapper/dists
++Index: .idea/misc.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"Android Studio default JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/misc.xml b/.idea/misc.xml
++--- a/.idea/misc.xml	
+++++ b/.idea/misc.xml	
++@@ -1,7 +1,7 @@
++ <?xml version="1.0" encoding="UTF-8"?>
++ <project version="4">
++   <component name="ExternalStorageConfigurationManager" enabled="true" />
++-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
++     <output url="file://$PROJECT_DIR$/build/classes" />
++   </component>
++   <component name="ProjectType">
++Index: .idea/gradle.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/gradle.xml b/.idea/gradle.xml
++--- a/.idea/gradle.xml	
+++++ b/.idea/gradle.xml	
++@@ -7,6 +7,7 @@
++         <option name="testRunner" value="GRADLE" />
++         <option name="distributionType" value="DEFAULT_WRAPPED" />
++         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+++        <option name="gradleJvm" value="Embedded JDK" />
++         <option name="modules">
++           <set>
++             <option value="$PROJECT_DIR$" />
+Index: app/src/main/java/com/example/ohurocchi/NameActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/NameActivity.kt b/app/src/main/java/com/example/ohurocchi/NameActivity.kt
+new file mode 100644
+--- /dev/null	(date 1668473593962)
++++ b/app/src/main/java/com/example/ohurocchi/NameActivity.kt	(date 1668473593962)
+@@ -0,0 +1,25 @@
++package com.example.ohurocchi
++
++import android.os.Bundle
++import android.widget.Button
++import androidx.appcompat.app.AppCompatActivity
++
++class NameActivity : AppCompatActivity() {
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_namechange)
++
++
++        val button = findViewById<Button>(R.id.button)
++        button.setOnClickListener {
++
++            val btnBack: Button = findViewById(R.id.btnBack)
++
++            btnBack.setOnClickListener {
++                finish()
++
++            }
++        }
++    }
++}
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/.idea/gradle.xml	(date 1668474123799)
+@@ -1,11 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+         <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="Embedded JDK" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Thu Oct 13 10:18:31 JST 2022\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-7.4-bin.zip\r\ndistributionPath=wrapper/dists\r\nzipStorePath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+--- a/gradle/wrapper/gradle-wrapper.properties	(revision 74b90de5c0c9979677482846d4e9c67d17288720)
++++ b/gradle/wrapper/gradle-wrapper.properties	(date 1668474124278)
+@@ -1,4 +1,4 @@
+-#Thu Oct 13 10:18:31 JST 2022
++#Fri Oct 14 10:27:52 JST 2022
+ distributionBase=GRADLE_USER_HOME
+ distributionUrl=https\://services.gradle.org/distributions/gradle-7.4-bin.zip
+ distributionPath=wrapper/dists
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_10_29_[Changes]1/shelved.patch
+new file mode 100644
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_10_20_13_32_[Changes]1/shelved.patch
+new file mode 100644

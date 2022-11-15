@@ -1,0 +1,219 @@
+Index: app/src/main/res/layout/activity_dressexchange.xml
+===================================================================
+diff --git a/app/src/main/res/layout/activity_dressexchange.xml b/app/src/main/res/layout/activity_dressexchange.xml
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/res/layout/activity_dressexchange.xml	
+@@ -0,0 +1,146 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@drawable/dressbuybuckground">
++
++    <ImageView
++        android:id="@+id/imageView18"
++        android:layout_width="178dp"
++        android:layout_height="258dp"
++        android:layout_marginEnd="16dp"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.76"
++        app:srcCompat="@drawable/adult"
++        android:contentDescription="@string/image" />
++
++    <TextView
++        android:id="@+id/textView4"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="144dp"
++        android:text="@string/huro"
++        android:textColor="#039BE5"
++        android:textSize="30sp"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.632"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        tools:ignore="TextContrastCheck" />
++
++    <TextView
++        android:id="@+id/textView5"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="40dp"
++        android:text="@string/yen"
++        android:textColor="#000000"
++        android:textSize="24sp"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.519"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="@+id/textView4" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:backgroundTint="#FFFFFF"
++        android:shadowColor="#A14C4C"
++        android:text="@string/exchange"
++        android:textColor="#0277BD"
++        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
++        app:layout_constraintEnd_toStartOf="@+id/imageView18"
++        app:layout_constraintHorizontal_bias="0.522"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView5"
++        app:layout_constraintVertical_bias="0.47" />
++
++    <LinearLayout
++        android:id="@+id/linearLayout2"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:layout_marginTop="335dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ImageButton
++            android:id="@+id/adult"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress1"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++            android:scaleType="fitCenter"
++            app:srcCompat="@drawable/adult"
++            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
++
++        <ImageButton
++            android:id="@+id/sexy"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            android:contentDescription="@string/dress2"
++            app:srcCompat="@drawable/sexy"
++            tools:ignore="ImageContrastCheck"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"/>
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:id="@+id/linearLayout"
++        android:layout_width="409dp"
++        android:layout_height="152dp"
++        android:orientation="horizontal"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
++
++        <ImageButton
++            android:id="@+id/neautral"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/neautral"
++            android:contentDescription="@string/dress3"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"
++
++            />
++
++        <ImageButton
++            android:id="@+id/sick"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:background="@drawable/border"
++            app:srcCompat="@drawable/sick"
++            android:contentDescription="@string/dress4"
++            android:scaleType="fitCenter"
++            android:foreground="?attr/selectableItemBackgroundBorderless"/>
++
++    </LinearLayout>
++
++    <include
++        android:id="@+id/include2"
++        layout="@layout/activity_common"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/google-services.json
+===================================================================
+diff --git a/app/google-services.json b/app/google-services.json
+new file mode 100644
+--- /dev/null	
++++ b/app/google-services.json	
+@@ -0,0 +1,39 @@
++{
++  "project_info": {
++    "project_number": "59985799187",
++    "project_id": "ohurocchi",
++    "storage_bucket": "ohurocchi.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:59985799187:android:68c33dee9ed53a14c777e6",
++        "android_client_info": {
++          "package_name": "com.example.ohurocchi"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyCE0wHSTpLux8M97d7EKE4WiceF4TNt7jo"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "59985799187-prdpm9uf16437h2l3mn6lfaqv8v7lga4.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"GRADLE\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	
++++ b/.idea/gradle.xml	
+@@ -7,6 +7,7 @@
+         <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="Embedded JDK" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />

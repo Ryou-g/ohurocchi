@@ -1,25 +1,17 @@
-package com.example.ohurocchi
-
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import io.reactivex.Flowable
 
-
 @Dao
 interface UserDao {
-
     @Query("SELECT * FROM user")
     fun getAll(): Flowable<List<User>>
 
     @Insert
-    fun insert(user: User)
+    fun insertAll(user: User)
 
     @Delete
     fun delete(user: User)
-
-
-
-
 }
