@@ -8,6 +8,7 @@ android {
     namespace 'com.example.ohurocchi'
     compileSdk 33
 
+
     viewBinding {
         enabled = true
     }

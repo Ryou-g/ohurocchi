@@ -18,6 +18,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="419dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="659dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#79FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="682dp"
+        android:fontFamily="sans-serif-thin"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
+        android:text="@string/ohurocchi"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -39,6 +75,7 @@
         android:layout_height="148dp"
         android:background="@drawable/circle_button"
         android:contentDescription="@string/bathbtn"
+        android:fontFamily="@font/kosugimaru_regular"
         android:onClick="onA"
         android:shadowColor="#C1C0C0"
         android:shadowDx="1"

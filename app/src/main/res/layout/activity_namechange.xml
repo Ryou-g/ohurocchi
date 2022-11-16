@@ -7,10 +7,59 @@
     android:background="@drawable/background_1">
 
 
+    <View
+        android:id="@+id/view12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:backgroundTint="#B9FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="419dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="659dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#79FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="682dp"
+        android:fontFamily="sans-serif-thin"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
+        android:text="名前変更"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/nickname"
         android:textColor="#000000"
         android:textSize="40sp"
@@ -65,6 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_green_light"
+        android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/change"
         android:textColor="#616161"
         android:textSize="20sp"
