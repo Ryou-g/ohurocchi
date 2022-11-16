@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/dressbuybuckground">
 
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="414dp"
+        android:layout_height="790dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="178dp"
@@ -54,28 +66,17 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:shadowColor="#A14C4C"
-        android:text="@string/exchange"
-        android:textColor="#0277BD"
+        android:background="@drawable/button_round"
+        android:insetLeft="1dp"
+        android:text="交換"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView18"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.47" />
-
-    <include
-        android:id="@+id/include2"
-        layout="@layout/activity_common"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"

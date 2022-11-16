@@ -19,17 +19,16 @@
         app:layout_constraintTop_toTopOf="@+id/include" />
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="411dp"
-        android:layout_height="756dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="414dp"
+        android:layout_height="790dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/namechange"
@@ -37,16 +36,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="159dp"
         android:text="@string/namechenge"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sound"

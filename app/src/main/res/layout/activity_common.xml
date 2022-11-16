@@ -5,6 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="419dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="659dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#79FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="411dp"
+        android:layout_height="34dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#79FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -12,20 +37,26 @@
         android:layout_marginStart="46dp"
         android:layout_marginEnd="295dp"
         android:layout_marginBottom="682dp"
+        android:fontFamily="sans-serif-thin"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
         android:text="@string/ohurocchi"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388" />
+        app:layout_constraintVertical_bias="0.508" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="89dp"
-        android:layout_height="82dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.664"
@@ -36,18 +67,18 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="89dp"
-            android:layout_height="82dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:background="@drawable/character"
             android:contentDescription="@string/chara"
             android:scaleType="fitCenter"
-            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
+            tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="89dp"
-        android:layout_height="82dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.35"
@@ -58,17 +89,17 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="87dp"
-            android:layout_height="80dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/dressshop"
             android:contentDescription="@string/shop"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
-        android:layout_width="89dp"
-        android:layout_height="82dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,18 +112,18 @@
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="89dp"
-            android:layout_height="82dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/ohurohome"
             android:contentDescription="@string/home"
 
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
-        android:layout_width="89dp"
-        android:layout_height="82dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.959"
@@ -103,12 +134,12 @@
 
         <ImageButton
             android:id="@+id/imageButton4"
-            android:layout_width="89dp"
-            android:layout_height="82dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/setting"
             android:contentDescription="@string/setting"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

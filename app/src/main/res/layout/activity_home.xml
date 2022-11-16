@@ -8,16 +8,16 @@
     tools:context=".HomeActivity">
 
     <include
+        android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_width="414dp"
+        android:layout_height="790dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="1.0" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -35,21 +35,25 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="150dp"
-        android:layout_height="77dp"
-        android:backgroundTint="@color/blue"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
+        android:background="@drawable/circle_button"
         android:contentDescription="@string/bathbtn"
         android:onClick="onA"
-        android:text="PUSH"
-        android:textColor="#455A64"
-        android:textSize="35sp"
+        android:shadowColor="#C1C0C0"
+        android:shadowDx="1"
+        android:shadowDy="2"
+        android:shadowRadius="10"
+        android:text="入 浴"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.306"
         tools:ignore="TextContrastCheck" />
 
 
