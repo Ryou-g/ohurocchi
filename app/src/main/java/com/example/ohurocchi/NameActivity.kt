@@ -32,7 +32,7 @@ class NameActivity : AppCompatActivity() {
             )
 
 
-            db.collection("NameChange").document().set(userMap)
+            db.collection("NameChange").document("NameChange").set(userMap)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
                     etName.text.clear()
