@@ -1,0 +1,105 @@
+Index: app/src/main/java/com/example/ohurocchi/NameActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ohurocchi\r\n\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.widget.Button\r\nimport android.widget.EditText\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.lifecycle.lifecycleScope\r\nimport com.google.android.material.textfield.TextInputEditText\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\nimport kotlinx.coroutines.withContext\r\nimport org.json.JSONException\r\nimport org.json.JSONObject\r\nimport java.io.BufferedReader\r\nimport java.io.IOException\r\nimport java.io.InputStreamReader\r\nimport java.net.URL\r\n\r\nclass NameActivity : AppCompatActivity() {\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_namechange)\r\n\r\n        val newName:EditText =findViewById(R.id.editTextTextPersonName)\r\n\r\n\r\n\r\n        val button = findViewById<Button>(R.id.button)\r\n        button.setOnClickListener {\r\n\r\n            val setName = newName.text.toString()\r\n\r\n            changeuserNameTask(setName)\r\n            val btnBack: Button = findViewById(R.id.btnBack)\r\n\r\n            btnBack.setOnClickListener {\r\n                finish()\r\n\r\n            }\r\n        }\r\n    }\r\n\r\n    private fun changeuserNameTask(mainURL:String){\r\n        //コルーチンスコープの用意\r\n        lifecycleScope.launch{\r\n            //val result = changeuserNameBackgroundTask(mainURL)\r\n            changeuserNameBackgroundTask(mainURL)\r\n            //changeuserNameJsonTask(result)\r\n        }\r\n    }\r\n\r\n    private suspend fun changeuserNameBackgroundTask(mainURL:String):String{\r\n        val URL = \"http://172.22.113.55/huro_API/DBupdate.php?name=\"\r\n        val response = withContext(Dispatchers.IO){\r\n            // 天気情報サービスから取得した結果情報（JSON文字列）を後で入れるための変数（いったん空っぽ）を用意。\r\n            var httpResult = \"\"\r\n\r\n            //  try{エラーがあるかもしれない処理を実行}catch{実際エラーがあった場合}\r\n            try{\r\n                //ただのURL文字列をURLオブジェクトに変換（文字列にリンクを付けるイメージ）\r\n                val newURL = \"$URL$mainURL\"\r\n                Log.d(\"MyApp\",\"URL $newURL\")\r\n                val urlObj = URL(newURL)\r\n\r\n                // アクセスしたAPIから情報を取得\r\n                //テキストファイルを読み込むクラス(文字コードを読めるようにする準備(URLオブジェクト))\r\n                val br = BufferedReader(InputStreamReader(urlObj.openStream()))\r\n\r\n                //読み込んだデータを文字列に変換して代入\r\n                //httpResult =br.toString()\r\n                httpResult = br.readText()\r\n            }catch (e: IOException){//IOExceptionとは例外管理するクラス\r\n                Log.d(\"MyApp\",\"例外発生\")\r\n                e.printStackTrace() //エラーが発生したよって言う\r\n            }catch (e: JSONException){ //JSONデータ構造に問題が発生した場合の例外\r\n                Log.d(\"MyApp\",\"Json error\")\r\n                e.printStackTrace()\r\n            }\r\n            //HTTP接続の結果、取得したJSON文字列httpResultを戻り値とする\r\n            return@withContext httpResult\r\n        }\r\n        return response\r\n    }\r\n\r\n    private fun changeuserNameJsonTask(result: String){\r\n        val button1:Button = findViewById(R.id.button1)\r\n\r\n//        val JsonObj = JSONObject(result)\r\n//        Log.d(\"MyApp\",\"aaa $JsonObj\")\r\n//        //val array = JsonObj.getJSONArray(\"test0\")\r\n//        //Log.d(\"MyApp\",\"bbb $array\")\r\n//        val nameObj = JsonObj.getJSONObject(\"test0\")\r\n//        val text = nameObj.getString(\"user_name\")\r\n//        button1.text = text\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/ohurocchi/NameActivity.kt b/app/src/main/java/com/example/ohurocchi/NameActivity.kt
+--- a/app/src/main/java/com/example/ohurocchi/NameActivity.kt	
++++ b/app/src/main/java/com/example/ohurocchi/NameActivity.kt	
+@@ -29,7 +29,7 @@
+ 
+         val button = findViewById<Button>(R.id.button)
+         button.setOnClickListener {
+-
++        }
+             val setName = newName.text.toString()
+ 
+             changeuserNameTask(setName)
+@@ -39,7 +39,6 @@
+                 finish()
+ 
+             }
+-        }
+     }
+ 
+     private fun changeuserNameTask(mainURL:String){
+@@ -52,7 +51,7 @@
+     }
+ 
+     private suspend fun changeuserNameBackgroundTask(mainURL:String):String{
+-        val URL = "http://172.22.113.55/huro_API/DBupdate.php?name="
++        val URL = "http://10.0.2.2/huro_API/DBupdate.php?name="
+         val response = withContext(Dispatchers.IO){
+             // 天気情報サービスから取得した結果情報（JSON文字列）を後で入れるための変数（いったん空っぽ）を用意。
+             var httpResult = ""
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'org.jetbrains.kotlin.android'\r\n    id 'com.google.gms.google-services'\r\n}\r\n\r\nandroid {\r\n    namespace 'com.example.ohurocchi'\r\n    compileSdk 33\r\n\r\n    viewBinding {\r\n        enabled = true\r\n    }\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.ohurocchi\"\r\n        minSdk 26\r\n        targetSdk 33\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n\r\n        buildFeatures {\r\n            viewBinding true\r\n        }\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation \"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4\"\r\n    implementation \"androidx.lifecycle:lifecycle-runtime-ktx:2.3.0\"\r\n\r\n    implementation 'androidx.core:core-ktx:1.9.0'\r\n    implementation 'androidx.appcompat:appcompat:1.5.1'\r\n    implementation 'com.google.android.material:material:1.6.1'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'\r\n    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'\r\n    implementation 'com.google.firebase:firebase-database-ktx:20.0.6'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	
++++ b/app/build.gradle	
+@@ -51,6 +51,7 @@
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+     implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'
+     implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
++    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+Index: app/src/main/res/layout/activity_setting.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/background_1\">\r\n\r\n    <View\r\n        android:id=\"@+id/view5\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:background=\"@color/white\"\r\n        android:backgroundTint=\"#45FFFFFF\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/include\"\r\n        app:layout_constraintTop_toTopOf=\"@+id/include\" />\r\n\r\n    <include\r\n        android:id=\"@+id/include\"\r\n        layout=\"@layout/activity_common\"\r\n        android:layout_width=\"411dp\"\r\n        android:layout_height=\"783dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.666\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.0\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/namechange\"\r\n        style=\"@style/Widget.AppCompat.Button.Borderless.Colored\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/namechenge\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"@+id/include\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.204\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/sound\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/sound\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/namechange\"\r\n        app:layout_constraintVertical_bias=\"0.07\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/bathlog\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/bathlog\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/background\"\r\n        app:layout_constraintVertical_bias=\"0.126\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/dressup\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/dressup\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/sound\"\r\n        app:layout_constraintVertical_bias=\"0.075\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/background\"\r\n        style=\"?android:attr/borderlessButtonStyle\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginStart=\"158dp\"\r\n        android:layout_marginEnd=\"159dp\"\r\n        android:text=\"@string/background\"\r\n        android:textColor=\"@color/black\"\r\n        android:textSize=\"24sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/dressup\"\r\n        app:layout_constraintVertical_bias=\"0.09\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_setting.xml b/app/src/main/res/layout/activity_setting.xml
+--- a/app/src/main/res/layout/activity_setting.xml	
++++ b/app/src/main/res/layout/activity_setting.xml	
+@@ -29,6 +29,23 @@
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.0" />
+ 
++    <Button
++        android:id="@+id/MainActivity"
++        style="?android:attr/borderlessButtonStyle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="158dp"
++        android:layout_marginEnd="159dp"
++        android:text="@string/MainActivity"
++        android:textColor="@color/black"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/background"
++        app:layout_constraintVertical_bias="0.43" />
++
+     <Button
+         android:id="@+id/namechange"
+         style="@style/Widget.AppCompat.Button.Borderless.Colored"
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">ohurocchi</string>\r\n    <string name=\"start\">START</string>\r\n    <string name=\"welcome\">ようこそ新しい画面へ</string>\r\n    <string name=\"back\">戻る</string>\r\n    <string name=\"woman\">woman</string>\r\n    <string name=\"bathbtn\">お風呂に入った</string>\r\n    <string name=\"ohurobtn\">お風呂に入った</string>\r\n    <string name=\"age\">年齢：22才</string>\r\n    <string name=\"name\">名前：のぶ子</string>\r\n    <string name=\"favorability\">好感度：普通</string>\r\n    <string name=\"Logo\">おふろっち</string>\r\n    <string name=\"todo\">TODO</string>\r\n    <string name=\"today\">2022/10/14</string>\r\n    <string name=\"td\">TODO</string>\r\n    <string name=\"Todo\">TODO</string>\r\n    <string name=\"toDo\">TODO</string>\r\n    <string name=\"chara\">キャラ</string>\r\n    <string name=\"shop\">衣装購入</string>\r\n    <string name=\"home\">ホーム</string>\r\n    <string name=\"setting\">設定</string>\r\n    <string name=\"tooo\">TODO</string>\r\n    <string name=\"mypage\">マイページ</string>\r\n    <string name=\"sound\">サウンド</string>\r\n    <string name=\"background\">背景変更</string>\r\n    <string name=\"bathlog\">入浴ログ</string>\r\n    <string name=\"dressup\">着せ替え</string>\r\n\r\n    <string-array name=\"month_array\">\r\n    <item>1月</item>\r\n    <item>2月</item>\r\n    <item>3月</item>\r\n    <item>4月</item>\r\n    <item>5月</item>\r\n    <item>6月</item>\r\n    <item>7月</item>\r\n    <item>8月</item>\r\n    <item>9月</item>\r\n    <item>10月</item>\r\n    <item>11月</item>\r\n    <item>12月</item>\r\n    </string-array>\r\n    <string name=\"huro\">風呂メイド</string>\r\n    <string name=\"yen\">25Pt</string>\r\n    <string name=\"unrock\">アンロック</string>\r\n    <string name=\"image\">TODO</string>\r\n    <string name=\"dress1\">TODO</string>\r\n    <string name=\"dress2\">TODO</string>\r\n    <string name=\"dress3\">TODO</string>\r\n    <string name=\"dress4\">TODO</string>\r\n    <string name=\"ohurocchi\">おふろっち</string>\r\n    <string name=\"Today\">2022/10/14</string>\r\n    <string name=\"nickname\">ニックネーム</string>\r\n    <string name=\"backbtn\">戻る</string>\r\n    <string name=\"nameframe\">Name</string>\r\n    <string name=\"change\">変更する</string>\r\n    <string name=\"modoru\">戻る</string>\r\n    <string name=\"dressup1\">着せ替え</string>\r\n    <string name=\"backbtn3\">戻る</string>\r\n    <string name=\"namechenge\">名前変更</string>\r\n    <string name=\"huroname\">露天風呂</string>\r\n    <string name=\"tekiyou\">適用</string>\r\n    <string name=\"pulldown\">月を選択</string>\r\n    <string name=\"bg1\">background1</string>\r\n    <string name=\"modoruyo\">戻る</string>\r\n    <string name=\"bariusu\">TODO</string>\r\n    <string name=\"exchange\">交換</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	
++++ b/app/src/main/res/values/strings.xml	
+@@ -65,4 +65,5 @@
+     <string name="modoruyo">戻る</string>
+     <string name="bariusu">TODO</string>
+     <string name="exchange">交換</string>
++    <string name="MainActivity">テスト</string>
+ </resources>
+\ No newline at end of file

@@ -153,16 +153,19 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="176dp"
+        android:layout_width="166dp"
         android:layout_height="50dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:autoSizeMaxTextSize="40sp"
+        app:autoSizeMinTextSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141"
-        android:textSize="40sp"
-        android:textColor="@color/black"/>
+        app:layout_constraintVertical_bias="0.157" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
