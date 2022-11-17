@@ -1,12 +1,19 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class CharaActivity : AppCompatActivity(){
+
+    private var db = Firebase.firestore
 
     // ① 準備（コンポを部屋に置く・コピペOK）
 
@@ -15,6 +22,19 @@ class CharaActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chara)
+
+        val textView8: TextView = findViewById(R.id.textView8)
+
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView8.text = document.data!!["name"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
