@@ -6,9 +6,9 @@
     <string name="woman">woman</string>
     <string name="bathbtn">お風呂に入った</string>
     <string name="ohurobtn">お風呂に入った</string>
-    <string name="age">年齢:22才</string>
-    <string name="name">名前:のぶ子</string>
-    <string name="favorability">好感度:普通</string>
+    <string name="age">年齢：22才</string>
+    <string name="name">名前：</string>
+    <string name="favorability">好感度：普通</string>
     <string name="Logo">おふろっち</string>
     <string name="todo">TODO</string>
     <string name="today">2022/10/14</string>
