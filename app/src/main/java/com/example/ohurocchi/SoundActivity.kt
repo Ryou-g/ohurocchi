@@ -51,11 +51,11 @@ class SoundActivity : AppCompatActivity() {
 
             }
 
-            db.collection("users")
+            db.collection("user")
                 .get()
-                .addOnSuccessListener { users ->
+                .addOnSuccessListener { user ->
                     val userList = ArrayList<User>()
-                    users.forEach { userList.add(it.toObject(User::class.java)) }
+                    user.forEach { userList.add(it.toObject(User::class.java)) }
                     taskAdapter.submitList(userList)
                 }
                 .addOnFailureListener { exception ->
