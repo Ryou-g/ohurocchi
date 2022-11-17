@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="295dp"
-        android:layout_marginBottom="682dp"
+        android:layout_marginBottom="700dp"
         android:fontFamily="sans-serif-thin"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"

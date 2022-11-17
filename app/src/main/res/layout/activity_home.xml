@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:onClick="onA"
     tools:context=".HomeActivity">
 
     <include
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="295dp"
-        android:layout_marginBottom="682dp"
+        android:layout_marginBottom="700dp"
         android:fontFamily="sans-serif-thin"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
@@ -74,8 +75,10 @@
         android:layout_width="148dp"
         android:layout_height="148dp"
         android:background="@drawable/circle_button"
+        android:backgroundTint="@null"
         android:contentDescription="@string/bathbtn"
         android:fontFamily="@font/kosugimaru_regular"
+        android:freezesText="false"
         android:onClick="onA"
         android:shadowColor="#C1C0C0"
         android:shadowDx="1"
