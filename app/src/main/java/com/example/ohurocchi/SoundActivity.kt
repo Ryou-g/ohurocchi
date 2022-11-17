@@ -1,17 +1,16 @@
 package com.example.ohurocchi
 
+import TaskAdapter
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import com.example.ohurocchi.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohurocchi.databinding.ActivitySoundBinding
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.ktx.database
-import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+
 
 class SoundActivity : AppCompatActivity() {
         // バインディングクラスの変数
@@ -26,6 +25,12 @@ class SoundActivity : AppCompatActivity() {
             // Firestoreをインスタンス化
             val db = Firebase.firestore
 
+            val taskAdapter = TaskAdapter()
+            binding.recyclerView.adapter = taskAdapter
+            binding.recyclerView.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+
             // ボタンを押したときの処理
             binding.addButton.setOnClickListener {
 
@@ -34,7 +39,7 @@ class SoundActivity : AppCompatActivity() {
                     title = binding.titleEditText.text.toString(),
                 )
 
-                db.collection("tasks")
+                db.collection("user")
                     .add(user)
                     .addOnSuccessListener { documentReference ->
                         Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
@@ -42,11 +47,25 @@ class SoundActivity : AppCompatActivity() {
                     .addOnFailureListener { e ->
                         Log.w(TAG, "Error adding document", e)
                     }
+
+
             }
+
+            db.collection("users")
+                .get()
+                .addOnSuccessListener { users ->
+                    val userList = ArrayList<User>()
+                    users.forEach { userList.add(it.toObject(User::class.java)) }
+                    taskAdapter.submitList(userList)
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "Error getting documents: ", exception)
+                }
+        }
         }
 
 
-    }
+
 
 
 
