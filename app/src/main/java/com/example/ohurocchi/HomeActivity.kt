@@ -33,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
         //ここから衣装配布画面遷移のコード
         val imageButton2: ImageButton = findViewById(R.id.imageButton2)
@@ -44,6 +45,7 @@ class HomeActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //アニメーション
         }
         //ここからキャラ画面遷移のコード
         val imageButton: ImageButton = findViewById(R.id.imageButton)
@@ -55,6 +57,7 @@ class HomeActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
         //ここから設定画面遷移のコード
         val imageButton4: ImageButton = findViewById(R.id.imageButton4)
@@ -63,6 +66,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
 
         // ② 初期化（電源を入れる・コピペOK）

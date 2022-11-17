@@ -6,26 +6,76 @@
     android:layout_height="match_parent"
     android:background="@drawable/dressbuybuckground">
 
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="414dp"
+        android:layout_height="790dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="419dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="659dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#79FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="700dp"
+        android:fontFamily="sans-serif-thin"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
+        android:text="衣装交換所"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
+
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="178dp"
         android:layout_height="258dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.76"
-        app:srcCompat="@drawable/adult"
-        android:contentDescription="@string/image" />
+        app:srcCompat="@drawable/adult" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#C9FFFFFF"
+        android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/huro"
-        android:textColor="#039BE5"
-        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +87,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#C9FFFFFF"
+        android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/yen"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/imageView18"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -49,13 +103,15 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:shadowColor="#A14C4C"
-        android:text="@string/exchange"
-        android:textColor="#0277BD"
+        android:background="@drawable/button_round"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:insetLeft="1dp"
+        android:text="交換"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView18"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.47" />
@@ -63,8 +119,8 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="335dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="370dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,17 +145,17 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress2"
-            app:srcCompat="@drawable/sexy"
-            tools:ignore="ImageContrastCheck"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            app:srcCompat="@drawable/sexy"
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
-        android:layout_height="152dp"
+        android:layout_height="170dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,10 +167,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/neautral"
             android:contentDescription="@string/dress3"
-            android:scaleType="fitCenter"
             android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/neautral"
 
             />
 
@@ -124,23 +180,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/sick"
             android:contentDescription="@string/dress4"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
-
-    <include
-        android:id="@+id/include2"
-        layout="@layout/activity_common"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

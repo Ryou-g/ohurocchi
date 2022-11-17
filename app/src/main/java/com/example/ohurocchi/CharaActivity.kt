@@ -43,6 +43,7 @@ class CharaActivity : AppCompatActivity(){
             val intent =
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             //ここまで
         }
         //ここから衣装配布画面遷移のコード
@@ -55,6 +56,7 @@ class CharaActivity : AppCompatActivity(){
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここからキャラ画面遷移のコード
         val imageButton: ImageButton = findViewById(R.id.imageButton)
@@ -66,6 +68,7 @@ class CharaActivity : AppCompatActivity(){
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここから設定画面遷移のコード
         val imageButton4: ImageButton = findViewById(R.id.imageButton4)
@@ -74,6 +77,7 @@ class CharaActivity : AppCompatActivity(){
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         mp = MediaPlayer.create(this,R.raw.chara)

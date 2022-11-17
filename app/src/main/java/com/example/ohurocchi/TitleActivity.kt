@@ -20,9 +20,10 @@ class TitleActivity : AppCompatActivity() {
 
         //２）ボタンを押したら次の画面へ
         btnStart.setOnClickListener {
+
             val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
-
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
         }
 
         mp = MediaPlayer.create(this,R.raw.bath)
