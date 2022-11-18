@@ -8,14 +8,15 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="144dp"
-        android:layout_height="235dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="178dp"
+        android:layout_height="258dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/image"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.76"
         app:srcCompat="@drawable/adult" />
 
     <View
@@ -25,7 +26,7 @@
         android:layout_marginBottom="659dp"
         android:background="#FFFFFF"
         android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -87,8 +88,8 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="335dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="345dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,18 +115,17 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress2"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sexy"
-            tools:ignore="ImageContrastCheck"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            />
+            tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
-        android:layout_height="152dp"
+        android:layout_height="160dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,24 +136,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/neautral"
             android:contentDescription="@string/dress3"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/neautral" />
 
         <ImageButton
             android:id="@+id/sick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
             android:background="@drawable/border"
-            app:srcCompat="@drawable/sick"
             android:contentDescription="@string/dress4"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-            />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
 
