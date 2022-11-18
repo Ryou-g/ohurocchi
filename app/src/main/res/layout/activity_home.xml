@@ -94,7 +94,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:foreground="?attr/selectableItemBackgroundBorderless"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
