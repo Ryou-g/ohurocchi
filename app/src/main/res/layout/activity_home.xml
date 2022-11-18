@@ -79,7 +79,7 @@
         android:contentDescription="@string/bathbtn"
         android:fontFamily="@font/kosugimaru_regular"
         android:freezesText="false"
-        android:onClick="onA"
+        android:onClick="button1"
         android:shadowColor="#C1C0C0"
         android:shadowDx="1"
         android:shadowDy="2"

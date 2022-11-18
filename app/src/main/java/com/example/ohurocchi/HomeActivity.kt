@@ -55,6 +55,9 @@ class HomeActivity : AppCompatActivity() {
                     Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
                 }
 
+            // ④ 再生処理(再生ボタン)
+            soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+
         }
 
         //ここからホーム画面遷移のコード
@@ -120,11 +123,6 @@ class HomeActivity : AppCompatActivity() {
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
         mp.start()
-    }
-
-    fun onA(v: View?) {
-        // ④ 再生処理(再生ボタン)
-        soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
     }
 
 
