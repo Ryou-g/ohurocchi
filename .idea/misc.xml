@@ -4,20 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_chara.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressup.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.1331521739130435" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_mypage.xml" value="0.1796875" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_namechange.xml" value="0.11639492753623189" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_setting.xml" value="0.1331521739130435" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_sound.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_title.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/spinner_item.xml" value="0.1" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/task_list_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/menu/month_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/xml/spinner_item.xml" value="0.1" />
       </map>
     </option>
   </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="androidx.room.Entity" />
+    </list>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK" />
+
 </project>

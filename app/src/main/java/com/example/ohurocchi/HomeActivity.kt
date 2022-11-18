@@ -1,5 +1,6 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
@@ -7,19 +8,23 @@ import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.Timestamp
+import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.Timestamp
 import java.util.*
 
 
+
 class HomeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
 
     private var db = Firebase.firestore
@@ -35,6 +40,31 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val db = Firebase.firestore
+
+        binding.button1.setOnClickListener {
+
+            // Bathlogをインスタンス化
+            val bathlog = Bathlog(
+                title = binding.button1.text.toString(),
+            )
+
+            db.collection("Bathlog")
+                .add(bathlog)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(ContentValues.TAG, "Error adding document", e)
+                }
+
+
+        }
+
+
 
 
         btnBath = findViewById(R.id.button1)
@@ -144,3 +174,4 @@ class HomeActivity : AppCompatActivity() {
         mp.release() //解放
     }
 }
+
