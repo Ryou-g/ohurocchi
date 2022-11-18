@@ -8,12 +8,23 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var mp: MediaPlayer
+
+    private var db = Firebase.firestore
+
+    private lateinit var btnBath: Button
 
     // ① 準備（コンポを部屋に置く・コピペOK）
     private var soundPool // 効果音を鳴らす本体（コンポ）
@@ -24,6 +35,27 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+
+        btnBath = findViewById(R.id.button1)
+
+        btnBath.setOnClickListener {
+
+
+            val userMap = hashMapOf(
+                "time" to Timestamp(Date())
+            )
+
+
+            db.collection("bathlog").document().set(userMap)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
+                }
+
+        }
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
@@ -94,6 +126,8 @@ class HomeActivity : AppCompatActivity() {
         // ④ 再生処理(再生ボタン)
         soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
     }
+
+
     //６）再開
     override fun onResume() {
         super.onResume()
