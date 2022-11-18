@@ -17,6 +17,15 @@
         app:layout_constraintStart_toStartOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="189dp"
+        tools:ignore="MissingConstraints" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"

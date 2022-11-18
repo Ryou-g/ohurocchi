@@ -7,7 +7,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ohurocchi.databinding.ActivitySoundBinding
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -62,7 +61,7 @@ class SoundActivity : AppCompatActivity() {
                     Log.d(TAG, "Error getting documents: ", exception)
                 }
         }
-        }
+}
 
 
 
