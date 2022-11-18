@@ -61,8 +61,11 @@
     <string name="huroname">露天風呂</string>
     <string name="tekiyou">適用</string>
     <string name="pulldown">月を選択</string>
-    <string name="bg1">background1</string>
+    <string name="bg1">background!</string>
     <string name="modoruyo">戻る</string>
     <string name="bariusu">TODO</string>
     <string name="exchange">交換</string>
+    <string name="nickname1">ニックネーム</string>
+    <string name="cahnge">変更</string>
+    <string name="name1"> ニックネームを入力してください</string>
 </resources>
