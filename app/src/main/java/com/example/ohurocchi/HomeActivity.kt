@@ -10,16 +10,26 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.Timestamp
+import java.util.*
+
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
+
+    private var db = Firebase.firestore
+
+    private lateinit var btnBath: Button
 
     // ① 準備（コンポを部屋に置く・コピペOK）
     private var soundPool // 効果音を鳴らす本体（コンポ）
@@ -56,6 +66,30 @@ class HomeActivity : AppCompatActivity() {
 
 
 
+
+        btnBath = findViewById(R.id.button1)
+
+        btnBath.setOnClickListener {
+
+
+            val userMap = hashMapOf(
+                "time" to Timestamp(Date())
+            )
+
+
+            db.collection("bathlog").document().set(userMap)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
+                }
+
+            // ④ 再生処理(再生ボタン)
+            soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+
+        }
+
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
         imageButton3.setOnClickListener {
@@ -64,6 +98,7 @@ class HomeActivity : AppCompatActivity() {
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
         //ここから衣装配布画面遷移のコード
         val imageButton2: ImageButton = findViewById(R.id.imageButton2)
@@ -75,6 +110,7 @@ class HomeActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //アニメーション
         }
         //ここからキャラ画面遷移のコード
         val imageButton: ImageButton = findViewById(R.id.imageButton)
@@ -86,6 +122,7 @@ class HomeActivity : AppCompatActivity() {
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
         //ここから設定画面遷移のコード
         val imageButton4: ImageButton = findViewById(R.id.imageButton4)
@@ -94,6 +131,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
             //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
 
         // ② 初期化（電源を入れる・コピペOK）
@@ -117,10 +155,7 @@ class HomeActivity : AppCompatActivity() {
         mp.start()
     }
 
-    fun onA(v: View?) {
-        // ④ 再生処理(再生ボタン)
-        soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
-    }
+
     //６）再開
     override fun onResume() {
         super.onResume()

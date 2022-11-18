@@ -11,4 +11,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="clearButtonPressed">#33000000</color>
+    <color name="blue">#8BD2EB</color>
 </resources>
