@@ -13,7 +13,6 @@
         android:layout_marginBottom="659dp"
         android:background="#FFFFFF"
         android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +24,7 @@
         android:layout_marginStart="46dp"
         android:layout_marginEnd="295dp"
         android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
         android:shadowDx="1"
@@ -48,14 +47,16 @@
         android:layout_marginStart="162dp"
         android:layout_marginTop="502dp"
         android:layout_marginEnd="155dp"
-        android:layout_marginBottom="181dp"
+        android:layout_marginBottom="140dp"
         android:text="@string/modoruyo"
         android:textColor="#212121"
         app:backgroundTint="#ffff4444"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <androidx.cardview.widget.CardView

@@ -7,8 +7,8 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_width="411dp"
-        android:layout_height="34dp"
+        android:layout_width="403dp"
+        android:layout_height="44dp"
         android:background="#FFFFFF"
         android:backgroundTint="#79FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,11 +24,11 @@
         android:layout_height="45dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997">
+        app:layout_constraintVertical_bias="0.963">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -46,11 +46,11 @@
         android:layout_height="45dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997">
+        app:layout_constraintVertical_bias="0.963">
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -73,7 +73,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997">
+        app:layout_constraintVertical_bias="0.963">
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -81,7 +81,7 @@
             android:layout_height="45dp"
             android:background="@drawable/ohurohome"
             android:contentDescription="@string/home"
-
+            android:onClick="animateScaleY"
             tools:ignore="ImageContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
@@ -89,13 +89,15 @@
         android:id="@+id/cardView4"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997">
+        app:layout_constraintVertical_bias="0.963">
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -106,5 +108,53 @@
             android:contentDescription="@string/setting"
             tools:ignore="ImageContrastCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="入浴"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="交換所"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="231dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="キャラ"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="356dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="設定"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:onClick="onA"
     tools:context=".HomeActivity">
 
     <include
@@ -27,7 +26,6 @@
         android:layout_marginBottom="659dp"
         android:background="#FFFFFF"
         android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -96,6 +94,7 @@
         app:layout_constraintVertical_bias="0.306"
         tools:ignore="TextContrastCheck"
         android:foreground="?attr/selectableItemBackgroundBorderless"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
