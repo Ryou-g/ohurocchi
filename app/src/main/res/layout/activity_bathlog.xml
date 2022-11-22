@@ -8,14 +8,16 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="450dp"
+        android:layout_height="795dp"
         android:background="@color/white"
         android:backgroundTint="#B9FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view14"
@@ -51,32 +53,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.508" />
 
-    <Spinner
-        android:id="@+id/spinner"
+    <CalendarView
+        android:id="@+id/calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="386dp"
-        android:background="@color/black"
-        android:contentDescription="@string/pulldown"
-        android:minHeight="48dp"
-        app:backgroundTint="#FF5722"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        android:layout_marginTop="152dp"
+        android:textColor="@color/white"
+        app:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="556dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="548dp"
+        android:layout_marginEnd="180dp"
         android:text="@string/modoru"
-        android:textColor="#212121"
+        android:textColor="#000000"
         app:backgroundTint="#ffff4444"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
