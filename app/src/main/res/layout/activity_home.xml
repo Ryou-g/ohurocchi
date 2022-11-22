@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:onClick="onA"
     tools:context=".HomeActivity">
 
     <include
@@ -57,17 +56,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="600dp"
+        android:layout_height="1100dp"
         android:contentDescription="@string/woman"
-        android:rotationY="-180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74"
-        app:srcCompat="@drawable/woman"
+        app:layout_constraintVertical_bias="0.115"
+        app:srcCompat="@drawable/uniform_usually"
         tools:ignore="ImageContrastCheck" />
 
     <Button

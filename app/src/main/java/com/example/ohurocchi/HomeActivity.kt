@@ -27,7 +27,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
 
-    private var db = Firebase.firestore
 
     private lateinit var btnBath: Button
 
@@ -55,40 +54,23 @@ class HomeActivity : AppCompatActivity() {
             db.collection("Bathlog")
                 .add(bathlog)
                 .addOnSuccessListener { documentReference ->
-                    Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                }
-                .addOnFailureListener { e ->
-                    Log.w(ContentValues.TAG, "Error adding document", e)
-                }
-
-
-        }
-
-
-
-
-        btnBath = findViewById(R.id.button1)
-
-        btnBath.setOnClickListener {
-
-
-            val userMap = hashMapOf(
-                "time" to Timestamp(Date())
-            )
-
-
-            db.collection("bathlog").document().set(userMap)
-                .addOnSuccessListener {
+                    Log.d(
+                        ContentValues.TAG,
+                        "DocumentSnapshot added with ID: ${documentReference.id}"
+                    )
                     Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
                 }
-                .addOnFailureListener{
+                .addOnFailureListener {
                     Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
                 }
-
+            // ③ 読込処理(CDを入れる)
+            mp3a = soundPool!!.load(this, R.raw.voice1, 1)
             // ④ 再生処理(再生ボタン)
             soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
-
         }
+
+
+
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)
@@ -147,9 +129,7 @@ class HomeActivity : AppCompatActivity() {
                 .setMaxStreams(5)
                 .build()
         }
-
         // ③ 読込処理(CDを入れる)
-        mp3a = soundPool!!.load(this, R.raw.voice1, 1)
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
         mp.start()
