@@ -96,6 +96,33 @@ class HomeActivity : AppCompatActivity() {
             mp3a = soundPool!!.load(this, R.raw.voice1, 1)
             // ④ 再生処理(再生ボタン)
             soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+
+            //好感度を取得する
+            var Fa: Int = 10
+            var Fav = db.collection("NameChange")
+                .document("NameChange")
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val document = task.result
+                        if (document != null && document.data != null) {
+                            Log.d(TAG, "getData")
+                            Log.d(TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
+                            Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
+                            Log.d(TAG,"FA=$Fa")
+                            Fa += 5
+                            db.collection("NameChange").document("NameChange").update("Favorability",Fa)
+                        } else {
+                            Log.d(TAG, "No such document")
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with " + task.exception)
+                    }
+                }
+                .addOnFailureListener { e -> Log.d(TAG, "Error adding document" + e)}
+
+            //好感度を更新
+            Log.d(TAG,"Favorite = $Fa")
         }
 
 
