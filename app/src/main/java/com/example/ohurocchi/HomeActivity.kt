@@ -1,17 +1,17 @@
 package com.example.ohurocchi
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.SoundPool
+import android.nfc.Tag
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +19,7 @@ import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.Timestamp
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -44,14 +45,42 @@ class HomeActivity : AppCompatActivity() {
 
         val db = Firebase.firestore
 
+        //日付処理
+        val cal1 = Calendar.getInstance(TimeZone.getTimeZone("Asia/Tokyo"), Locale.JAPAN)   //現在時刻を取得する
+
+
+        val date1 = cal1.time
+
+        //変換フォーマット
+        val sd = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+
+        //Calender型からDate型へ変換
+        val fdate1 = sd.format(date1)   //書いている時刻
+
+        var message = ""
+        var rand_num = (0..2).random()
+        Log.d(TAG,"rand=$rand_num")
+        if( rand_num == 0){
+            message = "おふろに入った"
+        }
+        else if(rand_num == 1){
+            message = "にゅうよく"
+        }
+        else{
+            message = "ふろりだ"
+        }
+
         binding.button1.setOnClickListener {
 
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
-                title = binding.button1.text.toString(),
+                //title = binding.button1.text.toString(),
+                title = message,
+                createdAt = fdate1
             )
+            Log.d(TAG,"インスタンス化")
 
-            db.collection("Bathlog")
+            db.collection("BAthlog")
                 .add(bathlog)
                 .addOnSuccessListener { documentReference ->
                     Log.d(

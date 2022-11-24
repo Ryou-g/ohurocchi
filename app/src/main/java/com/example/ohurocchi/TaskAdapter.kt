@@ -25,8 +25,8 @@ class TaskViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(task: User) {
         binding.titleTextView.text = task.title
-        binding.dateTextView.text =
-            SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPANESE).format(task.createdAt)
+        binding.dateTextView.text = task.createdAt
+            //SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.JAPANESE).format(task.createdAt)
     }
 }
 
