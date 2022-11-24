@@ -7,5 +7,6 @@ data class User(
     @com.google.firebase.firestore.DocumentId
     val id: String = "",
     val title: String = "",
-    var createdAt: Date = Date(System.currentTimeMillis()),
+    //var createdAt: Date = Date(System.currentTimeMillis()),
+    val createdAt: String = ""
 )
