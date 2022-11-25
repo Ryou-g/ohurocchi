@@ -29,8 +29,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var mp: MediaPlayer
 
 
-    private lateinit var btnBath: Button
-
     // ① 準備（コンポを部屋に置く・コピペOK）
     private var soundPool // 効果音を鳴らす本体（コンポ）
             : SoundPool? = null
@@ -92,10 +90,33 @@ class HomeActivity : AppCompatActivity() {
                 .addOnFailureListener {
                     Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
                 }
-            // ③ 読込処理(CDを入れる)
-            mp3a = soundPool!!.load(this, R.raw.voice1, 1)
             // ④ 再生処理(再生ボタン)
             soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+
+            //好感度を取得する
+            var Fa: Int = 10
+            var Fav = db.collection("NameChange")
+                .document("NameChange")
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val document = task.result
+                        if (document != null && document.data != null) {
+                            Log.d(TAG, "getData")
+                            Log.d(TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
+                            Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
+                            Log.d(TAG,"FA=$Fa")
+                            Fa += 5
+                            db.collection("NameChange").document("NameChange").update("Favorability",Fa)
+                        } else {
+                            Log.d(TAG, "No such document")
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with " + task.exception)
+                    }
+                }
+                .addOnFailureListener { e -> Log.d(TAG, "Error adding document" + e)}
+
         }
 
 
@@ -159,6 +180,7 @@ class HomeActivity : AppCompatActivity() {
                 .build()
         }
         // ③ 読込処理(CDを入れる)
+        mp3a = soundPool!!.load(this, R.raw.voice1, 1)
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
         mp.start()
