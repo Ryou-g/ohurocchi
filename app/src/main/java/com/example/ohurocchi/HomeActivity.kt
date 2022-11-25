@@ -121,8 +121,6 @@ class HomeActivity : AppCompatActivity() {
                 }
                 .addOnFailureListener { e -> Log.d(TAG, "Error adding document" + e)}
 
-            //好感度を更新
-            Log.d(TAG,"Favorite = $Fa")
         }
 
 
