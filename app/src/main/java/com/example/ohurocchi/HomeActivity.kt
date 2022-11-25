@@ -11,9 +11,7 @@ import android.nfc.Tag
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -27,8 +25,7 @@ import java.util.*
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
-
-
+    
     // ① 準備（コンポを部屋に置く・コピペOK）
     private var soundPool // 効果音を鳴らす本体（コンポ）
             : SoundPool? = null
@@ -42,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val db = Firebase.firestore
+
 
         //日付処理
         val cal1 = Calendar.getInstance(TimeZone.getTimeZone("Asia/Tokyo"), Locale.JAPAN)   //現在時刻を取得する
