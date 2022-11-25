@@ -26,6 +26,7 @@ class NameActivity : AppCompatActivity() {
         btnUpdate = findViewById(R.id.sbtn_Update)
 
         btnUpdate.setOnClickListener {
+            //ボタンを押されたらまず現在の好感度情報を取得
             var Fa: Int = 10
             var Fav = db.collection("NameChange")
                 .document("NameChange")
@@ -35,9 +36,27 @@ class NameActivity : AppCompatActivity() {
                         val document = task.result
                         if (document != null && document.data != null) {
                             Log.d(ContentValues.TAG, "getData")
-                            Log.d(ContentValues.TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
+                            //Log.d(ContentValues.TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
+                            Log.d(ContentValues.TAG, "name=${document.data?.get("Favorability")}")
                             Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
                             Log.d(ContentValues.TAG,"FA=$Fa")
+                            val sName = etName.text.toString().trim()
+
+                            //新しいユーザー名と取得した好感度情報をセット
+                            val userMap = hashMapOf(
+                                "name" to sName,
+                                "Favorability" to Fa
+                            )
+
+                            //セットした情報を基にデータを更新する
+                            db.collection("NameChange").document("NameChange").set(userMap)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                                    etName.text.clear()
+                                }
+                                .addOnFailureListener{
+                                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                                }
                         } else {
                             Log.d(ContentValues.TAG, "No such document")
                         }
@@ -46,23 +65,6 @@ class NameActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { e -> Log.d(ContentValues.TAG, "Error adding document" + e)}
-
-            val sName = etName.text.toString().trim()
-
-            val userMap = hashMapOf(
-                "name" to sName,
-                "Favorability" to Fa
-            )
-
-
-            db.collection("NameChange").document("NameChange").set(userMap)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
-                    etName.text.clear()
-                }
-                .addOnFailureListener{
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-                }
 
         }
         val btnBack: Button = findViewById(R.id.btnBack)
