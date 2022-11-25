@@ -1,23 +1,21 @@
 package com.example.ohurocchi
 
 import TaskAdapter
-import android.app.Activity
-import android.content.ContentValues
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.applandeo.materialcalendarview.EventDay
 import com.example.ohurocchi.databinding.ActivityBathlogBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.lang.reflect.Array.get
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class BathlogActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBathlogBinding
