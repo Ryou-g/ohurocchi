@@ -17,23 +17,24 @@
         app:srcCompat="@drawable/background_1" />
 
     <View
-        android:id="@+id/view15"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:id="@+id/view11"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="700dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
@@ -41,15 +42,16 @@
         android:shadowDx="1"
         android:shadowDy="1.5"
         android:shadowRadius="5"
-        android:text="背景着せ替え"
+        android:text="@string/background"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <TextView
         android:id="@+id/textView4"

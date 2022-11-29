@@ -10,22 +10,23 @@
 
     <View
         android:id="@+id/view6"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="700dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
@@ -33,93 +34,86 @@
         android:shadowDx="1"
         android:shadowDy="1.5"
         android:shadowRadius="5"
-        android:text="名前変更"
+        android:text="@string/namechange"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.425" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:backgroundTint="#B9FFFFFF"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <View
+        android:id="@+id/view14"
+        android:layout_width="395dp"
+        android:layout_height="371dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteY="226dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="330dp"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="376dp"
+        android:layout_height="34dp"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="@string/nickname1"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="311dp" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/kosugimaru_regular"
-                android:text="@string/nickname1"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:textStyle="bold" />
+    <EditText
+        android:id="@+id/stv_name"
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:hint="@string/name1"
+        android:inputType="textPersonName"
+        android:maxLength="5"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462" />
 
-
-            <EditText
-                android:id="@+id/stv_name"
-                android:layout_width="332dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="50dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:fontFamily="@font/kosugimaru_regular"
-                android:hint="@string/name1"
-                android:inputType="textPersonName"
-                android:maxLength="5"
-                android:maxLines="1"
-                android:minHeight="48dp"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/sbtn_Update"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/button_round"
-                android:fontFamily="@font/kosugimaru_regular"
-                android:text="@string/cahnge"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/sbtn_Update"
+        android:layout_width="373dp"
+        android:layout_height="47dp"
+        android:background="@drawable/button_round"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="@string/cahnge"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="490dp" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="650dp"
-        android:layout_marginEnd="155dp"
         android:text="@string/backbtn"
         android:textColor="@color/black"
         app:backgroundTint="#ffff4444"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="918dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
