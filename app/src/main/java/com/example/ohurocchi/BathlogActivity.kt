@@ -75,87 +75,20 @@ class BathlogActivity : AppCompatActivity() {
         Log.d(TAG, "starttime = $starttime")
         Log.d(TAG, "time=$fdate1")
 
-        val spinner = findViewById<Spinner>(R.id.spinner)
+        //val spinner = findViewById<Spinner>(R.id.spinner)
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.month,
             android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        //spinner.adapter = adapter
 
         // OnItemSelectedListenerの実装
         //spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             // 項目が選択された時に呼ばれる
-            fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val text = parent?.selectedItem as String
-                Toast.makeText(this@BathlogActivity, text, Toast.LENGTH_SHORT).show()
-                //日付範囲設定
-                val cal1 = Calendar.getInstance()
-                val cal2 = Calendar.getInstance()
 
-                val month_str = text.dropLast(1)
-                val month_int = month_str.toIntOrNull()
-                Log.d(TAG, "$month_int")
-
-
-                //変数で指定出来ないため全パターン記述
-                when (month_int) {
-                    1 -> {
-                        cal1[2023, 0, 1, 0, 0] = 0
-                        cal2[2023, 0, 31, 23, 59] = 59
-                    }
-                    2 -> {
-                        cal1[2023, 1, 1, 0, 0] = 0
-                        cal2[2023, 1, 28, 23, 59] = 59
-                    }
-                    3 -> {
-                        cal1[2023, 2, 1, 0, 0] = 0
-                        cal2[2023, 2, 31, 23, 59] = 59
-                    }
-                    4 -> {
-                        cal1[2022, 3, 1, 0, 0] = 0
-                        cal2[2022, 3, 30, 23, 59] = 59
-                    }
-                    5 -> {
-                        cal1[2022, 4, 1, 0, 0] = 0
-                        cal2[2022, 4, 31, 23, 59] = 59
-                    }
-                    6 -> {
-                        cal1[2022, 5, 1, 0, 0] = 0
-                        cal2[2022, 5, 30, 23, 59] = 59
-                    }
-                    7 -> {
-                        cal1[2022, 6, 1, 0, 0] = 0
-                        cal2[2022, 6, 31, 23, 59] = 59
-                    }
-                    8 -> {
-                        cal1[2022, 7, 1, 0, 0] = 0
-                        cal2[2022, 7, 31, 23, 59] = 59
-                    }
-                    9 -> {
-                        cal1[2022, 8, 1, 0, 0] = 0
-                        cal2[2022, 8, 30, 23, 59] = 59
-                    }
-                    10 -> {
-                        cal1[2022, 9, 1, 0, 0] = 0
-                        cal2[2022, 9, 31, 23, 59] = 59
-                    }
-                    11 -> {
-                        cal1[2022, 10, 1, 0, 0] = 0
-                        cal2[2022, 10, 30, 23, 59] = 59
-                    }
-                    12 -> {
-                        cal1[2022, 11, 1, 0, 0] = 0
-                        cal2[2022, 11, 31, 23, 59] = 59
-                    }
-                }
 
 
                 Log.d(TAG, "start=$starttime")
@@ -165,10 +98,14 @@ class BathlogActivity : AppCompatActivity() {
                 val Bathlog = db.collection("BAthlog").orderBy("createdAt").startAt(starttime)
                     .get()
                     .addOnCompleteListener { Bathlog ->
+
+
                         val events: MutableList<EventDay> = ArrayList()
                         val cal = Calendar.getInstance()
                         //Log.d(TAG, "fa$Fa")
-                        //cal.add(Calendar.Fa, 0)
+                        //cal.add(Calendar.DECEMBER, 0)
+                        //Toast.makeText(this, "$cal", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "cal=$cal")
                         events.add(EventDay(cal, R.drawable.ohurohome))
                         calendarView.setEvents(events)
 
@@ -208,8 +145,8 @@ class BathlogActivity : AppCompatActivity() {
                         //val cal = Calendar.getInstance()
                         //Log.d(TAG, "fa$Fa")
                         //cal.add(Calendar.Fa, 0)
-                        events.add(EventDay(cal, R.drawable.ohurohome))
-                        calendarView.setEvents(events)
+                        //events.add(EventDay(cal, R.drawable.ohurohome))
+                        //calendarView.setEvents(events)
 
                     }
 
@@ -220,17 +157,16 @@ class BathlogActivity : AppCompatActivity() {
                 //}
                 //}
 
-                //val btnBack: Button = findViewById(R.id.btnBack)
+                val btnBack: Button = findViewById(R.id.btnBack)
 
-                //btnBack.setOnClickListener
-                //{
-                //finish()
+                btnBack.setOnClickListener{
+                finish()
 
-                //}
+                }
 
             }
         }
-    }
+
 
 
 
