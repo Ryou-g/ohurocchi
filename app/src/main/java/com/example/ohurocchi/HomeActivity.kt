@@ -40,7 +40,8 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //imageViewの取得
-        val imageView = findViewById<ImageView>(R.id.imageView)
+        val imageView1 = findViewById<ImageView>(R.id.imageView)
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
 
         val db = Firebase.firestore
 
@@ -142,7 +143,19 @@ class HomeActivity : AppCompatActivity() {
                                 Log.d(TAG,"okdayo")
                             }
                         }
-                        //imageView.setImageResource(getResources().getIdentifier(dress_document.data?.get("nowDress") as String?,"drawable", getPackageName()))
+
+                    }
+                }
+
+            }
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
                     }
                 }
 
@@ -199,6 +212,9 @@ class HomeActivity : AppCompatActivity() {
                                             .addOnFailureListener {
                                                 Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
                                             }
+                                    }
+                                    else {
+                                        Toast.makeText(this, "本日は入浴済みです！", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                                 .addOnFailureListener{
