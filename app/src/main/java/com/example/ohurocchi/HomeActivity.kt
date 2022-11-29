@@ -38,6 +38,9 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //imageViewの取得
+        val imageView = findViewById<ImageView>(R.id.imageView)
+
         val db = Firebase.firestore
 
 
@@ -66,8 +69,19 @@ class HomeActivity : AppCompatActivity() {
             message = "ふろりだ"
         }
 
-        binding.button1.setOnClickListener {
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { dress ->
+                if(dress.isSuccessful){
+                    val dress_document = dress.result
+                    if (dress_document != null && dress_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView.setImageResource(getResources().getIdentifier(dress_document.data?.get("nowDress") as String?,"drawable", getPackageName()))
+                    }
+                }
 
+            }
+
+        binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
                 //title = binding.button1.text.toString(),
