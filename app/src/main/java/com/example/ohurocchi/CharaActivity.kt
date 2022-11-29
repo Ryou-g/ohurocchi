@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -24,6 +25,8 @@ class CharaActivity : AppCompatActivity(){
         setContentView(R.layout.activity_chara)
 
         val textView8: TextView = findViewById(R.id.textView8)
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val imageView2 = findViewById<ImageView>(R.id.imageView5)
 
         db.collection("NameChange")
             .get()
@@ -34,6 +37,35 @@ class CharaActivity : AppCompatActivity(){
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
+            }
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { dress ->
+                if (dress.isSuccessful) {
+                    val dress_document = dress.result
+                    if (dress_document != null && dress_document.data != null) {
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView.setImageResource(
+                            getResources().getIdentifier(
+                                dress_document.data?.get(
+                                    "nowDress"
+                                ) as String?, "drawable", getPackageName()
+                            )
+                        )
+                    }
+                }
+            }
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
             }
 
         //ここからホーム画面遷移のコード

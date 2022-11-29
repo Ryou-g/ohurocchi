@@ -2,11 +2,10 @@ package com.example.ohurocchi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.example.ohurocchi.databinding.ActivityBackgroundBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class BackgroundActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,8 +13,13 @@ class BackgroundActivity : AppCompatActivity() {
         setContentView(R.layout.activity_background)
 
         val btnBack :Button = findViewById(R.id.btnBack)
+        val acceptButton: Button = findViewById(R.id.button)
+        var acceptflag = ""
+
+        val db = Firebase.firestore
 
         btnBack.setOnClickListener {
+
             finish()
 
         }
@@ -28,6 +32,7 @@ class BackgroundActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.japanese_1)
             textView.setText("バスルーム");
+            acceptflag = "japanese_1"
 
         }
 
@@ -37,6 +42,7 @@ class BackgroundActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.background_1)
             textView.setText("露天風呂");
+            acceptflag = "background_1"
         }
 
         val imageButton16 = findViewById<ImageButton>(R.id.imageButton16)
@@ -45,7 +51,7 @@ class BackgroundActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.apart_1)
             textView.setText("浴室");
-
+            acceptflag = "apart_1"
         }
 
         val imageButton17 = findViewById<ImageButton>(R.id.imageButton17)
@@ -54,6 +60,14 @@ class BackgroundActivity : AppCompatActivity() {
 
             imageView.setImageResource(R.drawable.telmare_1)
             textView.setText("洋式風呂");
+            acceptflag = "telmare_1"
+        }
+
+        //適用ボタン押下時処理
+        acceptButton.setOnClickListener {
+            db.collection("NameChange").document("NameChange").update("nowBackground",acceptflag)
+            Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
+
         }
 
     }

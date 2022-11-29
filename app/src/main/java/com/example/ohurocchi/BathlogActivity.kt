@@ -29,6 +29,20 @@ class BathlogActivity : AppCompatActivity() {
 
         val db = Firebase.firestore
 
+        val imageView2 = findViewById<ImageView>(R.id.imageView8)
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
+
         val taskAdapter = TaskAdapter()
         binding.recyclerView.adapter = taskAdapter
         binding.recyclerView.layoutManager =
@@ -220,13 +234,12 @@ class BathlogActivity : AppCompatActivity() {
                 //}
                 //}
 
-                //val btnBack: Button = findViewById(R.id.btnBack)
+                val btnBack: Button = findViewById(R.id.btnBack)
 
-                //btnBack.setOnClickListener
-                //{
-                //finish()
+                btnBack.setOnClickListener{
+                finish()
 
-                //}
+                }
 
             }
         }

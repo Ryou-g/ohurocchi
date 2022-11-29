@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -21,6 +22,21 @@ class NameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_namechange)
+
+
+        val imageView2 = findViewById<ImageView>(R.id.imageView7)
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
 
         etName = findViewById(R.id.stv_name)
         btnUpdate = findViewById(R.id.sbtn_Update)
