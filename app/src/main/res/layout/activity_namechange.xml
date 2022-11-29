@@ -53,7 +53,8 @@
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="226dp" />
+        tools:layout_editor_absoluteY="226dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
@@ -67,7 +68,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="311dp" />
+        tools:layout_editor_absoluteY="311dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/stv_name"
@@ -102,7 +104,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="490dp" />
+        tools:layout_editor_absoluteY="490dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnBack"
@@ -111,7 +114,7 @@
         android:text="@string/backbtn"
         android:textColor="@color/black"
         app:backgroundTint="#ffff4444"
-        tools:ignore="TextContrastCheck"
+        tools:ignore="MissingConstraints,TextContrastCheck"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="918dp" />
 

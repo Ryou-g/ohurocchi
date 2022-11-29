@@ -9,12 +9,12 @@ class SoundActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sound)
 
-    val btnBack :Button = findViewById(R.id.btnBack)
+        val btnBack :Button = findViewById(R.id.btnBack)
 
-    btnBack.setOnClickListener {
-        finish()
+        btnBack.setOnClickListener {
+            finish()
 
-    }
+        }
 
     }
 

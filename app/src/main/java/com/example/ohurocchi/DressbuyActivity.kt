@@ -104,9 +104,9 @@ class DressbuyActivity : AppCompatActivity() {
 
         sick.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.sick)
-            textView.setText("風呂メイド4");
-            textView1.setText("300pt");
+            imageView.setImageResource(R.drawable._34554)
+            textView.setText("準備中");
+            textView1.setText("???pt");
         }
 
     }     // ③ 読込処理(CDを入れる)
