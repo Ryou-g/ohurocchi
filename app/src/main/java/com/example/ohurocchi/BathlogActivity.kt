@@ -34,8 +34,6 @@ class BathlogActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-<<<<<<< HEAD
-=======
         val spinner = findViewById<Spinner>(R.id.spinner)
         val adapter = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -128,7 +126,6 @@ class BathlogActivity : AppCompatActivity() {
 
             }
         }
->>>>>>> 6302f93e0162a0af5f0275fd0396a3a6704ab954
 
         val btnBack : Button = findViewById(R.id.btnBack)
 
@@ -138,7 +135,5 @@ class BathlogActivity : AppCompatActivity() {
         }
     }
 }
-
-
 
 
