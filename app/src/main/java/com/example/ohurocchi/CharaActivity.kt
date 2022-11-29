@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -24,6 +25,27 @@ class CharaActivity : AppCompatActivity(){
         setContentView(R.layout.activity_chara)
 
         val textView8: TextView = findViewById(R.id.textView8)
+        val progressBar: ProgressBar = findViewById(R.id.progressber)
+
+        // 水平プログレスバーの最大値を設定します
+        progressBar.setMax(200);
+
+        //好感度を取得
+        var Faboravirity = 0
+        db.collection("NameChange").document("NameChange")
+            .get()
+            .addOnCompleteListener{ Fav ->
+                if(Fav.isSuccessful){
+                    val Fav_document = Fav.result
+                    if(Fav_document != null && Fav_document.data != null){
+                        Faboravirity = Integer.parseInt((Fav_document.data?.get("Favorability")).toString())
+                        // progress
+                        progressBar.setProgress(Faboravirity);
+                    }
+                }
+            }
+
+
 
         db.collection("NameChange")
             .get()
