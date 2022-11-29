@@ -40,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //imageViewの取得
-        val imageView1 = findViewById<ImageView>(R.id.imageView)
+        val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
 
         val db = Firebase.firestore
