@@ -55,8 +55,8 @@
 
     <View
         android:id="@+id/view5"
-        android:layout_width="417dp"
-        android:layout_height="467dp"
+        android:layout_width="403dp"
+        android:layout_height="462dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,8 +69,8 @@
     <include
         android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="790dp"
+        android:layout_width="418dp"
+        android:layout_height="871dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
