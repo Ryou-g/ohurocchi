@@ -237,7 +237,8 @@ class BathlogActivity : AppCompatActivity() {
                 val btnBack: Button = findViewById(R.id.btnBack)
 
                 btnBack.setOnClickListener{
-                finish()
+
+                    finish()
 
                 }
 

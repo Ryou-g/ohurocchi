@@ -15,9 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_1"
-        tools:srcCompat="@drawable/background_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/include3"
@@ -73,14 +71,11 @@
         android:layout_width="531dp"
         android:layout_height="469dp"
         android:contentDescription="@string/woman"
-        android:rotationY="-180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843"
-        app:srcCompat="@drawable/uniform_bad"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.843"/>
 
     <Button
         android:id="@+id/button1"
