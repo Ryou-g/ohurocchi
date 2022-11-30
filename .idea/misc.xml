@@ -3,15 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.142792384406165" />
-=======
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.16666666666666666" />
->>>>>>> 6302f93e0162a0af5f0275fd0396a3a6704ab954
-=======
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.14266304347826086" />
->>>>>>> 8b84f2725c5f17d0fa61fffb81fe990c75961335
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_chara.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml" value="0.10326086956521739" />
@@ -36,7 +31,6 @@
     </list>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
   <component name="VisualizationToolProject">
     <option name="state">
@@ -45,7 +39,7 @@
       </ProjectState>
     </option>
   </component>
-=======
+
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK" />
->>>>>>> 6302f93e0162a0af5f0275fd0396a3a6704ab954
+
 </project>

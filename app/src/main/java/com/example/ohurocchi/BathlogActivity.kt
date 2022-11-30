@@ -44,9 +44,9 @@ class BathlogActivity : AppCompatActivity() {
             }
 
         val taskAdapter = TaskAdapter()
-        binding.recyclerView.adapter = taskAdapter
-        binding.recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        //binding.recyclerView.adapter = taskAdapter
+        //binding.recyclerView.layoutManager =
+         //   LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         //日付処理
         val cal1 =
@@ -89,14 +89,14 @@ class BathlogActivity : AppCompatActivity() {
         Log.d(TAG, "starttime = $starttime")
         Log.d(TAG, "time=$fdate1")
 
-        val spinner = findViewById<Spinner>(R.id.spinner)
+        //val spinner = findViewById<Spinner>(R.id.spinner)
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.month,
             android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+        //spinner.adapter = adapter
 
         // OnItemSelectedListenerの実装
         //spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

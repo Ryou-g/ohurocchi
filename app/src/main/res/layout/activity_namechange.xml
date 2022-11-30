@@ -7,6 +7,14 @@
     tools:context=".NameActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="590dp"
+        android:layout_height="870dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/background_1" />
 
     <View
         android:id="@+id/view6"
@@ -20,15 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="590dp"
-        android:layout_height="870dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background_1" />
 
 
     <TextView
