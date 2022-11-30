@@ -248,5 +248,3 @@ class BathlogActivity : AppCompatActivity() {
 
 
 
-
-
