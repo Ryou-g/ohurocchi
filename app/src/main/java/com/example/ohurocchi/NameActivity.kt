@@ -44,6 +44,8 @@ class NameActivity : AppCompatActivity() {
         btnUpdate.setOnClickListener {
             //ボタンを押されたらまず現在の好感度情報を取得
             var Fa: Int = 10
+            var nowDress = 0
+            var nowBack = ""
             var Fav = db.collection("NameChange")
                 .document("NameChange")
                 .get()
@@ -55,13 +57,17 @@ class NameActivity : AppCompatActivity() {
                             //Log.d(ContentValues.TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
                             Log.d(ContentValues.TAG, "name=${document.data?.get("Favorability")}")
                             Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
+                            nowDress = Integer.parseInt((document.data?.get("nowDress_num")).toString())
+                            nowBack = (document.data?.get("nowBackground")).toString()
                             Log.d(ContentValues.TAG,"FA=$Fa")
                             val sName = etName.text.toString().trim()
 
                             //新しいユーザー名と取得した好感度情報をセット
                             val userMap = hashMapOf(
                                 "name" to sName,
-                                "Favorability" to Fa
+                                "Favorability" to Fa,
+                                "nowDress_num" to nowDress,
+                                "nowBackground" to nowBack
                             )
 
                             //セットした情報を基にデータを更新する
