@@ -1,6 +1,7 @@
 package com.example.ohurocchi
 
 import android.content.ContentValues
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -13,6 +14,9 @@ import com.google.firebase.ktx.Firebase
 
 
 class NameActivity : AppCompatActivity() {
+
+    // ① 準備（コンポを部屋に置く・コピペOK）
+    private lateinit var mp: MediaPlayer
 
     private lateinit var etName: EditText
     private lateinit var btnUpdate: Button
@@ -56,6 +60,9 @@ class NameActivity : AppCompatActivity() {
                             Log.d(ContentValues.TAG, "getData")
                             //Log.d(ContentValues.TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
                             Log.d(ContentValues.TAG, "name=${document.data?.get("Favorability")}")
+                            Log.d(ContentValues.TAG, "name=${document.data?.get("nowDress")}")
+                            Log.d(ContentValues.TAG, "name=${document.data?.get("nowBackground")}")
+                            Log.d(ContentValues.TAG, "name=${document.data?.get("nowDress_num")}")
                             Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
                             nowDress = Integer.parseInt((document.data?.get("nowDress_num")).toString())
                             nowBack = (document.data?.get("nowBackground")).toString()
@@ -95,5 +102,27 @@ class NameActivity : AppCompatActivity() {
             finish()
 
         }
+        // ③ 読込処理(CDを入れる)
+        mp = MediaPlayer.create(this,R.raw.setting)
+        mp.isLooping = true
+        mp.start()
     }
+    //６）再開
+    override fun onResume() {
+        super.onResume()
+        mp.start()
+    }
+    //５）一時停止
+    override fun onPause() {
+        super.onPause()
+        mp.pause()
+    }
+
+    //７）終了・メモリの解放
+    override fun onDestroy() {
+        super.onDestroy()
+        mp.stop() //終了・停止
+        mp.release() //解放
+    }
+
 }
