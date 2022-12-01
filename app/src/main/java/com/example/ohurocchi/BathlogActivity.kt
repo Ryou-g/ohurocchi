@@ -2,6 +2,7 @@ package com.example.ohurocchi
 
 import TaskAdapter
 import android.content.ContentValues.TAG
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -20,6 +21,9 @@ import java.time.Year
 
 
 class BathlogActivity : AppCompatActivity() {
+
+    private lateinit var mp: MediaPlayer
+
     private lateinit var binding: ActivityBathlogBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -234,17 +238,39 @@ class BathlogActivity : AppCompatActivity() {
                 //}
                 //}
 
-                val btnBack: Button = findViewById(R.id.btnBack)
-
-                btnBack.setOnClickListener{
-
-                    finish()
-
-                }
-
             }
+
+        val btnBack: Button = findViewById(R.id.btnBack)
+
+        btnBack.setOnClickListener{
+
+            finish()
+
         }
+        // ③ 読込処理(CDを入れる)
+        mp = MediaPlayer.create(this,R.raw.setting)
+        mp.isLooping = true
+        mp.start()
     }
+    //６）再開
+    override fun onResume() {
+        super.onResume()
+        mp.start()
+    }
+    //５）一時停止
+    override fun onPause() {
+        super.onPause()
+        mp.pause()
+    }
+
+    //７）終了・メモリの解放
+    override fun onDestroy() {
+        super.onDestroy()
+        mp.stop() //終了・停止
+        mp.release() //解放
+    }
+
+}
 
 
 
