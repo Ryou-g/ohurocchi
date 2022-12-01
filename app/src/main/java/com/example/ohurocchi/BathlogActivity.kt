@@ -243,6 +243,10 @@ class BathlogActivity : AppCompatActivity() {
             finish()
 
         }
+        // ③ 読込処理(CDを入れる)
+        mp = MediaPlayer.create(this,R.raw.setting)
+        mp.isLooping = true
+        mp.start()
 
     }
     public fun getDate(){
@@ -250,18 +254,6 @@ class BathlogActivity : AppCompatActivity() {
 
             }
 
-        val btnBack: Button = findViewById(R.id.btnBack)
-
-        btnBack.setOnClickListener{
-
-            finish()
-
-        }
-        // ③ 読込処理(CDを入れる)
-        mp = MediaPlayer.create(this,R.raw.setting)
-        mp.isLooping = true
-        mp.start()
-    }
     //６）再開
     override fun onResume() {
         super.onResume()
@@ -278,8 +270,6 @@ class BathlogActivity : AppCompatActivity() {
         super.onDestroy()
         mp.stop() //終了・停止
         mp.release() //解放
-    }
-
     }
 }
 
