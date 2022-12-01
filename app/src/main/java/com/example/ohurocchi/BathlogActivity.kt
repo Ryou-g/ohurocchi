@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 import com.applandeo.materialcalendarview.CalendarView
+import java.text.DateFormat
 import java.time.Month
 import java.time.Year
 
@@ -101,12 +102,15 @@ class BathlogActivity : AppCompatActivity() {
 
 
                         val events: MutableList<EventDay> = ArrayList()
-                        val cal = Calendar.getInstance()
+                        //val cal = Calendar.getInstance()
+                        val cal = db.collection("BAthlog").orderBy("createdAt")
                         //Log.d(TAG, "fa$Fa")
                         //cal.add(Calendar.DECEMBER, 0)
                         //Toast.makeText(this, "$cal", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "stTime=$starttime")
                         Log.d(TAG, "cal=$cal")
-                        events.add(EventDay(cal, R.drawable.ohurohome))
+                        //cal.setTime(DateFormat.getDateInstance().parse(cal.replace("-", "/")));
+                        //events.add(EventDay(cal, R.drawable.ohurohome))
                         calendarView.setEvents(events)
 
 
