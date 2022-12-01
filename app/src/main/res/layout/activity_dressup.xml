@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dressbuybuckground">
+    android:background="@drawable/pop1">
 
     <View
         android:id="@+id/view13"
@@ -60,15 +60,13 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#C9FFFFFF"
+        android:layout_marginTop="152dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/huro"
         android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView1"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,7 +89,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="160dp"
-        android:layout_marginTop="345dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,11 +102,10 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/adult"
-            tools:ignore="ImageContrastCheck"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            />
+            tools:ignore="ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/sexy"
@@ -172,7 +169,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.432" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

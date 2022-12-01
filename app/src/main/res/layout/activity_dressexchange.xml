@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dressbuybuckground">
+    android:background="@drawable/pop1">
 
     <View
         android:id="@+id/view3"
@@ -72,7 +72,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:background="#FFFFFF"
         android:backgroundTint="#C9FFFFFF"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/huro"
@@ -89,8 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#C9FFFFFF"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/yen"
         android:textColor="#000000"
@@ -122,7 +119,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="160dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
