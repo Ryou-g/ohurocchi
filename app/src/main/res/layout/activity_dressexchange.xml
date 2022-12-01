@@ -6,51 +6,54 @@
     android:layout_height="match_parent"
     android:background="@drawable/dressbuybuckground">
 
-    <include
-        android:id="@+id/include3"
-        layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="790dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <View
         android:id="@+id/view3"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
         android:shadowDx="1"
         android:shadowDy="1.5"
         android:shadowRadius="5"
-        android:text="@string/dressexcahngeroom"
+        android:text="@string/shop"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.425" />
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="414dp"
+        android:layout_height="871dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -105,7 +108,7 @@
         android:background="@drawable/button_round"
         android:fontFamily="@font/kosugimaru_regular"
         android:insetLeft="1dp"
-        android:text="@string/exchange2"
+        android:text="交換"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -121,7 +124,6 @@
         android:layout_height="160dp"
         android:layout_marginTop="370dp"
         android:orientation="horizontal"
-        android:background="#5AFFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -156,7 +158,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="160dp"
-        android:background="#5AFFFFFF"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +165,7 @@
 
         <ImageButton
             android:id="@+id/neautral"
-            android:layout_width="3dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
@@ -173,20 +174,18 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/neautral"
 
-            tools:ignore="ImageContrastCheck" />
+            />
 
         <ImageButton
             android:id="@+id/sick"
-            android:layout_width="3dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
-            android:backgroundTint="@null"
             android:contentDescription="@string/dress4"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:src="@drawable/_34554"
-            tools:ignore="ImageContrastCheck" />
+            app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
 

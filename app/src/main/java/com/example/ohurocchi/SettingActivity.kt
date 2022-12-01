@@ -5,13 +5,18 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class SettingActivity : AppCompatActivity() {
 
     // ① 準備（コンポを部屋に置く・コピペOK）
     private lateinit var mp: MediaPlayer
+
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +26,22 @@ class SettingActivity : AppCompatActivity() {
         val sound : Button = findViewById(R.id.sound)
         val bathlog : Button = findViewById(R.id.bathlog)
         val dressup : Button = findViewById(R.id.dressup)
-        val background : Button = findViewById(R.id.background)
+        val background1 : Button = findViewById(R.id.background)
+
+        val imageView2 = findViewById<ImageView>(R.id.imageView3)
+
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
 
         namechange.setOnClickListener {
             val intent = Intent(applicationContext,NameActivity::class.java)
@@ -44,7 +64,7 @@ class SettingActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
-        background.setOnClickListener {
+        background1.setOnClickListener {
             val intent = Intent(applicationContext,BackgroundActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
