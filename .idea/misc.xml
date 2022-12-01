@@ -7,8 +7,9 @@
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_chara.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml" value="0.10326086956521739" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressexchange.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressup.xml" value="0.10326086956521739" />
-        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.1331521739130435" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_mypage.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_namechange.xml" value="0.11639492753623189" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_setting.xml" value="0.1331521739130435" />
@@ -27,5 +28,12 @@
     </list>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
+  </component>
 </project>
