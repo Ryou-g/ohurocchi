@@ -78,13 +78,13 @@ class NameActivity : AppCompatActivity() {
                             )
 
                             //セットした情報を基にデータを更新する
-                            db.collection("NameChange").document("NameChange").set(userMap)
+                            db.collection("NameChange").document("NameChange").update("name",sName)
                                 .addOnSuccessListener {
-                                    Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "名前の変更が完了しました！", Toast.LENGTH_SHORT).show()
                                     etName.text.clear()
                                 }
                                 .addOnFailureListener{
-                                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "エラーが発生しました", Toast.LENGTH_SHORT).show()
                                 }
                         } else {
                             Log.d(ContentValues.TAG, "No such document")
