@@ -74,8 +74,36 @@ class DressupActivity : AppCompatActivity() {
 
         //適用ボタン押下時処理
         acceptButton.setOnClickListener {
-            db.collection("NameChange").document("NameChange").update("nowDress",acceptflag,"nowDress_num",nowDress_num)
-            Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
+            var dress = ""
+            db.collection("NameChange")
+                .document("NameChange")
+                .get()
+                .addOnCompleteListener{changedress ->
+                    if(changedress.isSuccessful){
+                        val changedress_doc = changedress.result
+                        if (changedress_doc != null && changedress_doc.data != null){
+                            if(nowDress_num == 1){
+                                dress = changedress_doc.data?.get("coat_unlock").toString()
+                            }
+                            else if(nowDress_num == 2){
+                                dress = (changedress_doc.data?.get("dress_unlock")).toString()
+                            }else if(nowDress_num == 3){
+                                dress = (changedress_doc.data?.get("maid_unlock")).toString()
+                            }else if(nowDress_num == 4){
+                                dress = (changedress_doc.data?.get("uniform_unlock")).toString()
+                            }
+                            Log.d(TAG,"dress=$dress")
+                            if(dress == "True"){
+                                db.collection("NameChange").document("NameChange").update("nowDress",acceptflag,"nowDress_num",nowDress_num)
+                                Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
+                            }else{
+                                Toast.makeText(this, "衣装をアンロックしてください！", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+
+                }
+
 
         }
 
