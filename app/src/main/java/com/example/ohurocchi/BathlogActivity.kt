@@ -27,6 +27,13 @@ class BathlogActivity : AppCompatActivity() {
         binding = ActivityBathlogBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+            finish()
+
+        }
+
         val db = Firebase.firestore
 
         val imageView2 = findViewById<ImageView>(R.id.imageView8)
@@ -234,13 +241,6 @@ class BathlogActivity : AppCompatActivity() {
                 //}
                 //}
 
-                val btnBack: Button = findViewById(R.id.btnBack)
-
-                btnBack.setOnClickListener{
-
-                    finish()
-
-                }
 
             }
         }

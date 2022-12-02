@@ -120,7 +120,9 @@
         android:layout_width="409dp"
         android:layout_height="160dp"
         android:layout_marginTop="400dp"
+        android:layout_marginBottom="1dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -156,9 +158,12 @@
         android:layout_width="409dp"
         android:layout_height="160dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/include3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78">
 
         <ImageButton
             android:id="@+id/neautral"

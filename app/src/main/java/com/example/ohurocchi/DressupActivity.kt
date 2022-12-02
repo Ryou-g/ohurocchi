@@ -16,7 +16,7 @@ class DressupActivity : AppCompatActivity() {
 
         val db = Firebase.firestore
 
-        val btnBack: Button = findViewById(R.id.btnBack)
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
         val acceptButton: Button = findViewById(R.id.button)
         var acceptflag = ""
         var nowDress_num = 0

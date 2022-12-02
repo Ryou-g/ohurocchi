@@ -3,6 +3,7 @@ package com.example.ohurocchi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -30,7 +31,7 @@ class SoundActivity : AppCompatActivity() {
 
             }
 
-        val btnBack :Button = findViewById(R.id.btnBack)
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
             finish()
