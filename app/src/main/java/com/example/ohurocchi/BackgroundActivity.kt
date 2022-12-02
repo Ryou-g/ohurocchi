@@ -16,7 +16,7 @@ class BackgroundActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
 
-        val btnBack :Button = findViewById(R.id.btnBack)
+        val btnBack :ImageButton = findViewById(R.id.btnBack)
         val acceptButton: Button = findViewById(R.id.button)
         var acceptflag = ""
 
@@ -75,7 +75,7 @@ class BackgroundActivity : AppCompatActivity() {
         }
 
         // ③ 読込処理(CDを入れる)
-        mp = MediaPlayer.create(this,R.raw.setting)
+        mp = MediaPlayer.create(this,R.raw.dress_buy)
         mp.isLooping = true
         mp.start()
     }

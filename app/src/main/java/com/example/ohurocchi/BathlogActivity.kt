@@ -29,6 +29,13 @@ class BathlogActivity : AppCompatActivity() {
         binding = ActivityBathlogBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+            finish()
+
+        }
+
         val calendarView = findViewById<View>(R.id.calendarView) as CalendarView
 
         val db = Firebase.firestore
@@ -262,18 +269,14 @@ class BathlogActivity : AppCompatActivity() {
         //}
         //}
 
-        val btnBack: Button = findViewById(R.id.btnBack)
 
-        btnBack.setOnClickListener {
-            finish()
-
-        }
         // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.setting)
         mp.isLooping = true
         mp.start()
 
     }
+
 
     //６）再開
     override fun onResume() {
