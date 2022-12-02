@@ -268,6 +268,19 @@ class BathlogActivity : AppCompatActivity() {
 
         //}
         //}
+        val imageView2 = findViewById<ImageView>(R.id.imageView8)
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
 
 
         // ③ 読込処理(CDを入れる)
