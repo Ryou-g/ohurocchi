@@ -4,10 +4,7 @@ import android.content.ContentValues
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -96,7 +93,7 @@ class NameActivity : AppCompatActivity() {
                 .addOnFailureListener { e -> Log.d(ContentValues.TAG, "Error adding document" + e)}
 
         }
-        val btnBack: Button = findViewById(R.id.btnBack)
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
             finish()
