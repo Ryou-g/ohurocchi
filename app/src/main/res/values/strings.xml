@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ohurocchi</string>
+    <string name="app_name">おふろっち</string>
     <string name="start">START</string>
     <string name="welcome">ようこそ新しい画面へ</string>
     <string name="back">戻る</string>
@@ -15,16 +15,16 @@
     <string name="td">TODO</string>
     <string name="Todo">TODO</string>
     <string name="toDo">TODO</string>
-    <string name="chara">キャラ</string>
-    <string name="shop">衣装購入</string>
+    <string name="chara">キャラクター</string>
+    <string name="shop">衣装交換所</string>
     <string name="home">ホーム</string>
-    <string name="setting">設定</string>
+    <string name="setting">設 定</string>
     <string name="tooo">TODO</string>
     <string name="mypage">マイページ</string>
     <string name="sound">サウンド</string>
-    <string name="background">背景変更</string>
+    <string name="background">背景着せ替え</string>
     <string name="bathlog">入浴ログ</string>
-    <string name="dressup">着せ替え</string>
+    <string name="dressup">衣装着せ替え</string>
 
     <string-array name="month_array">
     <item>1月</item>
@@ -48,8 +48,7 @@
     <string name="dress2">TODO</string>
     <string name="dress3">TODO</string>
     <string name="dress4">TODO</string>
-    <string name="ohurocchi">おふろっち</string>
-    <string name="Today">2022/10/14</string>
+    <string name="ohurocchi">入 浴</string>
     <string name="nickname">ニックネーム</string>
     <string name="backbtn">戻る</string>
     <string name="nameframe">Name</string>
@@ -57,7 +56,7 @@
     <string name="modoru">戻る</string>
     <string name="dressup1">着せ替え</string>
     <string name="backbtn3">戻る</string>
-    <string name="namechenge">名前変更</string>
+    <string name="namechange">名前変更</string>
     <string name="huroname">露天風呂</string>
     <string name="tekiyou">適用</string>
     <string name="pulldown">月を選択</string>
@@ -69,4 +68,8 @@
     <string name="cahnge">変更</string>
     <string name="name1"> ニックネームを入力してください</string>
     <string name="com_soon">coming soon...</string>
+    <string name="dressexcahngeroom">衣装交換所</string>
+    <string name="exchange2">交換</string>
+    <string name="bath_btn">入 浴</string>
+    <string name="todo5">TODO</string>
 </resources>

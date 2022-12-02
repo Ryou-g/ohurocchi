@@ -3,66 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_1">
+    android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view10"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="590dp"
+        android:layout_height="1100dp"
+        android:background="@drawable/background_1"
+        android:contentDescription="@string/todo5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
-        android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
-        android:includeFontPadding="false"
-        android:shadowColor="#F3F0F0"
-        android:shadowDx="1"
-        android:shadowDy="1.5"
-        android:shadowRadius="5"
-        android:text="サウンド"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="502dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="181dp"
-        android:text="@string/modoruyo"
-        android:textColor="#212121"
-        app:backgroundTint="#ffff4444"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
-
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:backgroundTint="#B9FFFFFF"
+        android:backgroundTint="#C4FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,6 +92,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="700dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
+        android:text="@string/sound"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="6dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/backbtn"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

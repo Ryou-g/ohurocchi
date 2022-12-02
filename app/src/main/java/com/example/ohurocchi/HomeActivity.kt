@@ -17,6 +17,7 @@ import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.Timestamp
+import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -38,12 +39,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //imageViewの取得
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
+
         val db = Firebase.firestore
 
 
         //日付処理
         val cal1 = Calendar.getInstance(TimeZone.getTimeZone("Asia/Tokyo"), Locale.JAPAN)   //現在時刻を取得する
-
 
         val date1 = cal1.time
 
@@ -52,6 +56,26 @@ class HomeActivity : AppCompatActivity() {
 
         //Calender型からDate型へ変換
         val fdate1 = sd.format(date1)   //書いている時刻
+
+        //0:0:0にする処理
+        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        val min = Calendar.getInstance().get(Calendar.MINUTE)
+        val sec = Calendar.getInstance().get(Calendar.SECOND)
+
+        cal1.add(Calendar.HOUR, -hour)
+        cal1.add(Calendar.MINUTE, -min)
+        cal1.add(Calendar.SECOND,-sec)
+
+        val date2 = cal1.time
+        val starttime = sd.format(date2)
+
+        Log.d(TAG,"hour=$hour")
+        Log.d(TAG,"hour=$min")
+        Log.d(TAG,"hour=$sec")
+
+        Log.d(TAG,"starttime = $starttime")
+        Log.d(TAG,"time=$fdate1")
+
 
         var message = ""
         var rand_num = (0..2).random()
@@ -66,8 +90,78 @@ class HomeActivity : AppCompatActivity() {
             message = "ふろりだ"
         }
 
-        binding.button1.setOnClickListener {
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { dress ->
+                if(dress.isSuccessful){
+                    val dress_document = dress.result
+                    if (dress_document != null && dress_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        //imageView.setImageResource(getResources().getIdentifier(dress_document.data?.get("nowDress") as String?,"drawable", getPackageName()))
+                        var Fav = Integer.parseInt((dress_document.data?.get("Favorability")).toString())
+                        val dress_num = Integer.parseInt((dress_document.data?.get("nowDress_num")).toString())
+                        Log.d(TAG,"dress_num=$dress_num")
+                        Log.d(TAG,"Fav=$Fav")
+                        if(dress_num == 1){
+                            if(Fav >= 150){
+                                imageView.setImageResource(R.drawable.coat_highest)
+                            }else if(Fav >= 100){
+                                imageView.setImageResource(R.drawable.coat_usually)
+                            }else if(Fav >= 50){
+                                imageView.setImageResource(R.drawable.coat_bad)
+                            }else{
+                                imageView.setImageResource(R.drawable.coat_terrible)
+                            }
+                        }else if(dress_num == 2){
+                            if(Fav >= 150){
+                                imageView.setImageResource(R.drawable.dress_highest)
+                            }else if(Fav >= 100){
+                                imageView.setImageResource(R.drawable.dress_usually)
+                            }else if(Fav >= 50){
+                                imageView.setImageResource(R.drawable.dress_bad)
+                            }else{
+                                imageView.setImageResource(R.drawable.dress_terrible)
+                            }
+                        }else if(dress_num == 3){
+                            if(Fav >= 150){
+                                imageView.setImageResource(R.drawable.maid_highest)
+                            }else if(Fav >= 100){
+                                imageView.setImageResource(R.drawable.maid_usually)
+                            }else if(Fav >= 50){
+                                imageView.setImageResource(R.drawable.maid_bad)
+                            }else{
+                                imageView.setImageResource(R.drawable.maid_terrible)
+                            }
+                        }else if(dress_num == 4){
+                            if(Fav >= 150){
+                                imageView.setImageResource(R.drawable.uniform_highest)
+                            }else if(Fav >= 100){
+                                imageView.setImageResource(R.drawable.uniform_usually)
+                            }else if(Fav >= 50){
+                                imageView.setImageResource(R.drawable.uniform_bad)
+                            }else{
+                                imageView.setImageResource(R.drawable.uniform_terrible)
+                                Log.d(TAG,"okdayo")
+                            }
+                        }
 
+                    }
+                }
+
+            }
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
+
+        binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
                 //title = binding.button1.text.toString(),
@@ -76,18 +170,7 @@ class HomeActivity : AppCompatActivity() {
             )
             Log.d(TAG,"インスタンス化")
 
-            db.collection("BAthlog")
-                .add(bathlog)
-                .addOnSuccessListener { documentReference ->
-                    Log.d(
-                        ContentValues.TAG,
-                        "DocumentSnapshot added with ID: ${documentReference.id}"
-                    )
-                    Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
-                }
+
             // ④ 再生処理(再生ボタン)
             soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
 
@@ -104,8 +187,42 @@ class HomeActivity : AppCompatActivity() {
                             Log.d(TAG, "DocumentSnapshot data: " + (document.data?.get("Favorability")?.javaClass?.kotlin))
                             Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
                             Log.d(TAG,"FA=$Fa")
-                            Fa += 5
-                            db.collection("NameChange").document("NameChange").update("Favorability",Fa)
+
+                            val hoge = db.collection("BAthlog").orderBy("createdAt").startAt(starttime).endAt(fdate1)
+                                .get()
+                                .addOnSuccessListener { result ->
+                                    var cnt = 0
+                                    for(doc in result){
+                                        Log.d(TAG,"resultt=$doc")
+                                        cnt += 1
+                                    }
+                                    if(cnt == 0){
+                                        Fa += 5
+                                        db.collection("NameChange").document("NameChange").update("Favorability",Fa)
+                                        Log.d(TAG,"FA2=$Fa")
+                                        db.collection("BAthlog")
+                                            .add(bathlog)
+                                            .addOnSuccessListener { documentReference ->
+                                                Log.d(
+                                                    ContentValues.TAG,
+                                                    "DocumentSnapshot added with ID: ${documentReference.id}"
+                                                )
+                                                Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
+                                            }
+                                            .addOnFailureListener {
+                                                Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
+                                            }
+                                    }
+                                    else {
+                                        Toast.makeText(this, "本日は入浴済みです！", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                                .addOnFailureListener{
+                                    Log.d(TAG,"Error Error Error")
+                                }
+                            Log.d(TAG,"hoge=$hoge")
+
+
                         } else {
                             Log.d(TAG, "No such document")
                         }

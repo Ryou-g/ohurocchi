@@ -4,7 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dressbuybuckground">
+    android:background="@drawable/pop1">
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="6dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/backbtn"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="700dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:includeFontPadding="false"
+        android:shadowColor="#F3F0F0"
+        android:shadowDx="1"
+        android:shadowDy="1.5"
+        android:shadowRadius="5"
+        android:text="@string/dressup"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -19,54 +73,17 @@
         app:layout_constraintVertical_bias="0.76"
         app:srcCompat="@drawable/adult" />
 
-    <View
-        android:id="@+id/view13"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
-        android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
-        android:includeFontPadding="false"
-        android:shadowColor="#F3F0F0"
-        android:shadowDx="1"
-        android:shadowDy="1.5"
-        android:shadowRadius="5"
-        android:text="衣装着せ替え"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#C9FFFFFF"
+        android:layout_marginTop="152dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/huro"
         android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView1"
-        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,7 +106,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="160dp"
-        android:layout_marginTop="345dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,11 +119,10 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress1"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/adult"
-            tools:ignore="ImageContrastCheck"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            />
+            tools:ignore="ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/sexy"
@@ -127,9 +143,12 @@
         android:layout_width="409dp"
         android:layout_height="160dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
             android:id="@+id/neautral"
@@ -152,25 +171,7 @@
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sick" />
-
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="700dp"
-        android:layout_marginEnd="155dp"
-        android:text="@string/backbtn3"
-        android:textColor="#212121"
-        app:backgroundTint="#ffff4444"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

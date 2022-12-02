@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="590dp"
+        android:layout_height="1100dp"
+        android:contentDescription="@string/todo5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="790dp"
+        android:layout_width="412dp"
+        android:layout_height="866dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -21,23 +31,25 @@
 
     <View
         android:id="@+id/view7"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
         android:shadowDx="1"
@@ -45,26 +57,25 @@
         android:shadowRadius="5"
         android:text="@string/ohurocchi"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.425" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="600dp"
-        android:layout_height="1100dp"
+        android:layout_width="531dp"
+        android:layout_height="469dp"
         android:contentDescription="@string/woman"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"
-        app:srcCompat="@drawable/uniform_usually"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.843"/>
 
     <Button
         android:id="@+id/button1"
@@ -74,13 +85,14 @@
         android:backgroundTint="@null"
         android:contentDescription="@string/bathbtn"
         android:fontFamily="@font/kosugimaru_regular"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:freezesText="false"
         android:onClick="button1"
         android:shadowColor="#C1C0C0"
         android:shadowDx="1"
         android:shadowDy="2"
         android:shadowRadius="10"
-        android:text="入 浴"
+        android:text="@string/bath_btn"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -90,8 +102,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306"
-        tools:ignore="TextContrastCheck"
-        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+        tools:ignore="TextContrastCheck" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

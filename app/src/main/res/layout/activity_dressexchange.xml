@@ -4,54 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dressbuybuckground">
-
-    <include
-        android:id="@+id/include3"
-        layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="790dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    android:background="@drawable/pop1">
 
     <View
         android:id="@+id/view3"
-        android:layout_width="419dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="659dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#79FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginEnd="295dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="700dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
         android:shadowDx="1"
         android:shadowDy="1.5"
         android:shadowRadius="5"
-        android:text="衣装交換所"
+        android:text="@string/shop"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.425" />
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="414dp"
+        android:layout_height="871dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -70,7 +70,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:background="#FFFFFF"
         android:backgroundTint="#C9FFFFFF"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/huro"
@@ -87,8 +86,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#C9FFFFFF"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/yen"
         android:textColor="#000000"
@@ -120,7 +117,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="160dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,14 +154,13 @@
         android:layout_width="409dp"
         android:layout_height="160dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="2dp">
 
         <ImageButton
             android:id="@+id/neautral"
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border"
             android:contentDescription="@string/dress3"
@@ -174,23 +170,16 @@
 
             />
 
-        <Button
+        <ImageButton
             android:id="@+id/sick"
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="-5.5dp"
-            android:layout_marginBottom="-5dp"
-            android:alpha="0.5"
-            android:backgroundTint="@color/material_dynamic_tertiary100"
+            android:background="@drawable/border"
             android:contentDescription="@string/dress4"
-            android:minHeight="48dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
-            android:text="@string/com_soon"
-            android:textColor="#757575"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textsize="20dp" />
+            app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
 
