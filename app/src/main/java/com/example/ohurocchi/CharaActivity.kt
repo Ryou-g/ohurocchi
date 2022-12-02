@@ -28,7 +28,7 @@ class CharaActivity : AppCompatActivity(){
         setContentView(R.layout.activity_chara)
 
         val textView8: TextView = findViewById(R.id.textView8)
-        val progressBar: ProgressBar = findViewById(R.id.progressber)
+        val progressBar: ProgressBar = findViewById(R.id.progressber1)
 
         // 水平プログレスバーの最大値を設定します
         progressBar.setMax(200);
