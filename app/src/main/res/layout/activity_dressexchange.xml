@@ -46,8 +46,8 @@
     <include
         android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="414dp"
-        android:layout_height="871dp"
+        android:layout_width="411dp"
+        android:layout_height="886dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -101,6 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
+        app:backgroundTint="@null"
         android:fontFamily="@font/kosugimaru_regular"
         android:insetLeft="1dp"
         android:text="交換"
@@ -155,7 +156,8 @@
         android:layout_height="160dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="2dp">
+        tools:layout_editor_absoluteX="2dp"
+        tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/neautral"
