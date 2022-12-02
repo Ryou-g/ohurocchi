@@ -5,10 +5,12 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ShareCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -27,6 +29,8 @@ class CharaActivity : AppCompatActivity(){
         val textView8: TextView = findViewById(R.id.textView8)
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView5)
+        val share_button = findViewById<Button>(R.id.share_button)
+
 
         db.collection("NameChange")
             .get()
@@ -157,7 +161,29 @@ class CharaActivity : AppCompatActivity(){
         mp = MediaPlayer.create(this,R.raw.chara)
         mp.isLooping = true
         mp.start()
-    }     // ③ 読込処理(CDを入れる)
+        share_button.setOnClickListener() {
+            showShareChooser()
+        }
+    }
+
+    //share compatの実装
+    fun showShareChooser() {
+
+        val chooserTitle = "共有方法"
+        val subject = "メールの件名"
+        val text = "アプリタイトル"
+
+
+        val builder = ShareCompat.IntentBuilder.from(this)
+        builder.setChooserTitle(chooserTitle) // シェアする時のタイトル
+            .setSubject(subject) // 件名。使われ方はシェアされた側のアプリによる
+            .setText(text) // 本文。使われ方はシェアされた側のアプリによる
+            .setType("text/plain") // ストリームで指定したファイルのMIMEタイプ
+
+
+        // 結果を受け取らなくても良い場合は、ビルダーからそのまま開始できる
+        builder.startChooser()
+    }
 
     //６）再開
     override fun onResume() {
