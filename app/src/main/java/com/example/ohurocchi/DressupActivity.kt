@@ -109,7 +109,7 @@ class DressupActivity : AppCompatActivity() {
 
 
         // ③ 読込処理(CDを入れる)
-        mp = MediaPlayer.create(this,R.raw.setting)
+        mp = MediaPlayer.create(this,R.raw.dress_buy)
         mp.isLooping = true
         mp.start()
     }
