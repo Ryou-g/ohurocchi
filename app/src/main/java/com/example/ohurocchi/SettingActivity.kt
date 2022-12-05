@@ -24,7 +24,6 @@ class SettingActivity : AppCompatActivity() {
 
         val namechange : Button = findViewById(R.id.namechange)
         val sound : Button = findViewById(R.id.sound)
-        val bathlog : Button = findViewById(R.id.bathlog)
         val dressup : Button = findViewById(R.id.dressup)
         val background1 : Button = findViewById(R.id.background)
 
@@ -51,11 +50,6 @@ class SettingActivity : AppCompatActivity() {
 
         sound.setOnClickListener {
             val intent = Intent(applicationContext,SoundActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }
-        bathlog.setOnClickListener {
-            val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }

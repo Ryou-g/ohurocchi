@@ -59,55 +59,80 @@ class BathlogActivity : AppCompatActivity() {
 
         //現在の年月日日時秒を取得
         val Year = Calendar.getInstance().get(Calendar.YEAR)
-        //val Month = Calendar.getInstance().get(Calendar.MONTH)
-        val Month = 10
+        val Month = Calendar.getInstance().get(Calendar.MONTH)
         val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         val min = Calendar.getInstance().get(Calendar.MINUTE)
         val sec = Calendar.getInstance().get(Calendar.SECOND)
 
-        //当月の1日0:0:0に設定
+        //当年の1日0:0:0に設定
         //        cal1.add(Calendar.YEAR, -Year)
-//        cal1.add(Calendar.YEAR, -Month)
-        cal1.add(Calendar.DAY_OF_MONTH, -day)
-        //cal1.add(Calendar.DAY_OF_MONTH, 1)
-        cal1.add(Calendar.HOUR, -hour)
-        cal1.add(Calendar.MINUTE, -min)
-        cal1.add(Calendar.SECOND, -sec)
+//        cal1.add(Calendar.MONTH, -Month)
+//        cal1.add(Calendar.MONTH, 1)
+//        cal1.add(Calendar.DATE, -day)
+//        cal1.add(Calendar.DATE, 1)
 
-        cal2.add(Calendar.DAY_OF_MONTH, -day)
-        //cal1.add(Calendar.DAY_OF_MONTH, 1)
-        cal2.add(Calendar.HOUR, -hour)
-        cal2.add(Calendar.MINUTE, -min)
-        cal2.add(Calendar.SECOND, -sec)
-        //0:0:0から23:59:59を作る
-        cal2.add(Calendar.HOUR, 23)
-        cal2.add(Calendar.MINUTE, 59)
-        cal2.add(Calendar.SECOND, 59)
+
+
+
+        //それをスタートに365回のループを繰り返す、この際starttimeとendtimeを一日ずらしながら進む
+
+//        cal2.add(Calendar.MONTH, -Month)
+//        cal2.add(Calendar.DAY_OF_MONTH, -day)
+//        //cal1.add(Calendar.DAY_OF_MONTH, 1)
+//        cal2.add(Calendar.HOUR, -hour)
+//        cal2.add(Calendar.MINUTE, -min)
+//        cal2.add(Calendar.SECOND, -sec)
+//        //0:0:0から23:59:59を作る
+//        cal2.add(Calendar.MONTH, 12)
+//        cal2.add(Calendar.HOUR, 23)
+//        cal2.add(Calendar.MINUTE, 59)
+//        cal2.add(Calendar.SECOND, 59)
+
+
+//        var endmonth = 0
+//        Log.d(TAG, "Month=$Month")
+//        if (Month == 3 || Month == 5 || Month == 8 || Month == 10) {
+//            endmonth = 30
+//        } else if (Month == 1) {
+//            endmonth = 28
+//        } else {
+//            endmonth = 31
+//        }
+//        Log.d(TAG, "endmonth=$endmonth")
+
 
         //変換フォーマット作成
         val sd = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
-        var endmonth = 0
-        Log.d(TAG, "Month=$Month")
-        if (Month == 3 || Month == 5 || Month == 8 || Month == 10) {
-            endmonth = 30
-        } else if (Month == 1) {
-            endmonth = 28
-        } else {
-            endmonth = 31
-        }
-        Log.d(TAG, "endmonth=$endmonth")
+
+        //一年前の日付を計算
+        cal1.add(Calendar.DATE, -365)
+        cal2.add(Calendar.DATE, -365)
+        //0:0:0に設定
+        cal1.add(Calendar.HOUR, -hour)
+        cal1.add(Calendar.MINUTE, -min)
+        cal1.add(Calendar.SECOND, -sec)
+        cal2.add(Calendar.HOUR, -hour)
+        cal2.add(Calendar.MINUTE, -min)
+        cal2.add(Calendar.SECOND, -sec)
+        cal2.add(Calendar.DATE, 1)
+        cal2.add(Calendar.SECOND, -1)
+
+
+        //一年前の日をstarttime,その日の終わりをendtimeと定義
+
+
+
+//        Log.d(TAG,"starttime=$starttime")
+//        Log.d(TAG, "endtime=$endtime")
 
         val events: MutableList<EventDay> = ArrayList()
         //一日ごとの最初から最後を計算で求める
-        for (i in 1..endmonth) {
-            cal1.add(Calendar.DAY_OF_MONTH, 1)  //日付を後ろにずらす
-            cal2.add(Calendar.DAY_OF_MONTH, 1)  //日付を後ろにずらす
-            //Calender型からDate型へ変換
-            val date2 = cal1.time
-            val starttime = sd.format(date2)
-            val date3 = cal2.time
-            val endtime = sd.format(date3)
+        for (i in 1..366) {
+            var date3 = cal1.time
+            val starttime = sd.format(date3)
+            var date4 = cal2.time
+            val endtime = sd.format(date4)
             Log.d(TAG, "startAt=$starttime")
             Log.d(TAG, "endAt=$endtime")
             val Bathlog =
@@ -121,8 +146,8 @@ class BathlogActivity : AppCompatActivity() {
                         for (today in Bathlog) {
                             bath_cnt += 1
                         }
-                        Log.d(TAG, "startAt2=$starttime")
-                        Log.d(TAG,"bathcnt=$bath_cnt")
+//                        Log.d(TAG, "startAt2=$starttime")
+//                        Log.d(TAG,"bathcnt=$bath_cnt")
                         //Log.d(TAG, "fa$Fa")
                         //cal.add(Calendar.DECEMBER, 0)
                         //Toast.makeText(this, "$cal", Toast.LENGTH_SHORT).show()
@@ -131,20 +156,20 @@ class BathlogActivity : AppCompatActivity() {
                         if(bath_cnt >= 1){
                             var cal5 = Calendar.getInstance()
                             //cal5.add(Calendar.MONTH, -1)
-                            cal5.add(Calendar.DAY_OF_MONTH, -day)
+                            cal5.add(Calendar.DAY_OF_MONTH, -365)
                             //cal1.add(Calendar.DAY_OF_MONTH, 1)
                             cal5.add(Calendar.HOUR, -hour)
                             cal5.add(Calendar.MINUTE, -min)
                             cal5.add(Calendar.SECOND, -sec)
-                            cal5.add(Calendar.DATE,i)
-                            Log.d(TAG, "i = =$i")
+                            cal5.add(Calendar.DATE,i-1)
+                            Log.d(TAG, "i = =$i-1")
                             events.add(EventDay(cal5, R.drawable.ohurohome))
                             calendarView.setEvents(events)
-                            val date4 = cal1.time
-                            val fdate4 = sd.format(date4)
-                            Log.d(TAG, "date4=$date4")
                         }
                     }
+            //処理が終わったら日付をインクリメントする
+            cal1.add(Calendar.DAY_OF_MONTH, 1)  //日付を後ろにずらす
+            cal2.add(Calendar.DAY_OF_MONTH, 1)  //日付を後ろにずらす
         }
 
 
@@ -243,6 +268,19 @@ class BathlogActivity : AppCompatActivity() {
 
         //}
         //}
+        val imageView2 = findViewById<ImageView>(R.id.imageView8)
+
+        db.collection("NameChange").document("NameChange").get()
+            .addOnCompleteListener { background ->
+                if(background.isSuccessful){
+                    val background_document = background.result
+                    if (background_document != null && background_document.data != null){
+                        //var rrr =dress_document.data?.get("Favorability")
+                        imageView2.setImageResource(getResources().getIdentifier(background_document.data?.get("nowBackground") as String?,"drawable", getPackageName()))
+                    }
+                }
+
+            }
 
 
         // ③ 読込処理(CDを入れる)
@@ -251,9 +289,7 @@ class BathlogActivity : AppCompatActivity() {
         mp.start()
 
     }
-    public fun getDate(){
 
-            }
 
     //６）再開
     override fun onResume() {
