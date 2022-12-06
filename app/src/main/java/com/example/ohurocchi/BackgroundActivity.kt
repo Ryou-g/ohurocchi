@@ -1,8 +1,10 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import com.example.ohurocchi.databinding.ActivityBackgroundBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -27,6 +29,20 @@ class BackgroundActivity : AppCompatActivity() {
             finish()
 
         }
+
+        val textView16: TextView = findViewById(R.id.textView16)
+
+
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView16.text = document.data!!["Favorability"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
 
         val imageView = findViewById<ImageView>(R.id.imageView4)
         val imageButton14 = findViewById<ImageButton>(R.id.imageButton14)
