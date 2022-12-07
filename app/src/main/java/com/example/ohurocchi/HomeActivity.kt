@@ -237,11 +237,13 @@ class HomeActivity : AppCompatActivity() {
 
 
 
+
         bathlog.setOnClickListener {
             val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)

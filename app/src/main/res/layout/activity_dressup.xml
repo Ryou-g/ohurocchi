@@ -93,9 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
         android:background="@drawable/button_round"
+        app:backgroundTint="@null"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/dressup1"
-        android:textColor="@color/white"
+        android:textColor="#3A3838"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/imageView1"
         app:layout_constraintHorizontal_bias="0.401"
@@ -116,9 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress1"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/adult"
             tools:ignore="ImageContrastCheck" />
@@ -128,9 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress2"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sexy"
             tools:ignore="ImageContrastCheck" />
@@ -154,9 +153,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress3"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/neautral" />
 
@@ -165,9 +163,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress4"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sick" />
     </LinearLayout>

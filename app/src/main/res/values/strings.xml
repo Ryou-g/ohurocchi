@@ -22,7 +22,7 @@
     <string name="tooo">TODO</string>
     <string name="mypage">マイページ</string>
     <string name="sound">サウンド</string>
-    <string name="background">背景着せ替え</string>
+    <string name="background">背景切り替え</string>
     <string name="bathlog">入浴ログ</string>
     <string name="dressup">衣装着せ替え</string>
 
@@ -41,7 +41,7 @@
     <item>12月</item>
     </string-array>
     <string name="huro">風呂メイド1</string>
-    <string name="yen">25Pt</string>
+    <string name="yen">25pt</string>
     <string name="unrock">アンロック</string>
     <string name="image">TODO</string>
     <string name="dress1">TODO</string>
