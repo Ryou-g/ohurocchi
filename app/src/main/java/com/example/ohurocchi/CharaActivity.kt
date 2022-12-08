@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
@@ -26,6 +27,10 @@ class CharaActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chara)
+
+        val circleprogressBar :ProgressBar = findViewById(R.id.circle_progressBar)
+        circleprogressBar.visibility = View.INVISIBLE
+
 
         val textView8: TextView = findViewById(R.id.textView8)
         val progressBar: ProgressBar = findViewById(R.id.progressber)
