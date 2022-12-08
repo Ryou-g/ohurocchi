@@ -1,6 +1,7 @@
 package com.example.ohurocchi
 
 import android.content.ContentValues
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -53,7 +54,11 @@ class SoundActivity : AppCompatActivity() {
         val btnBack: ImageButton = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
-            finish()
+            //ここから遷移用のコード
+            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
+            startActivity(intent)
+            //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
         }
 

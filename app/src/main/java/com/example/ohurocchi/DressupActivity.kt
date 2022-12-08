@@ -2,6 +2,7 @@ package com.example.ohurocchi
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +28,11 @@ class DressupActivity : AppCompatActivity() {
         var nowDress_num = 0
 
         btnBack.setOnClickListener {
-            finish()
+            //ここから遷移用のコード
+            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
+            startActivity(intent)
+            //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
         }
 

@@ -1,6 +1,7 @@
 package com.example.ohurocchi
 
 import android.content.ContentValues
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -111,7 +112,11 @@ class NameActivity : AppCompatActivity() {
         val btnBack: ImageButton = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
-            finish()
+            //ここから遷移用のコード
+            val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
+            startActivity(intent)
+            //ここまで
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
         }
         // ③ 読込処理(CDを入れる)

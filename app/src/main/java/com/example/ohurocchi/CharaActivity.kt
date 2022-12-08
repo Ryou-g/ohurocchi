@@ -199,6 +199,7 @@ class CharaActivity : AppCompatActivity(){
         mp.isLooping = true
         mp.start()
         share_button.setOnClickListener() {
+
             showShareChooser()
         }
     }
