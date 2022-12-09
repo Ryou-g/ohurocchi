@@ -94,7 +94,6 @@
         android:layout_marginBottom="88dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/kosugimaru_regular"
-        android:shadowColor="#A14C4C"
         android:text="@string/dressup1"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -172,6 +171,19 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sick" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="85dp"
+        android:layout_height="46dp"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

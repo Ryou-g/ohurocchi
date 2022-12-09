@@ -1,11 +1,14 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -24,7 +27,6 @@ class SettingActivity : AppCompatActivity() {
 
         val namechange : Button = findViewById(R.id.namechange)
         val sound : Button = findViewById(R.id.sound)
-        val bathlog : Button = findViewById(R.id.bathlog)
         val dressup : Button = findViewById(R.id.dressup)
         val background1 : Button = findViewById(R.id.background)
 
@@ -43,6 +45,20 @@ class SettingActivity : AppCompatActivity() {
 
             }
 
+        val textView16: TextView = findViewById(R.id.textView16)
+
+
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView16.text = document.data!!["Favorability"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
+
         namechange.setOnClickListener {
             val intent = Intent(applicationContext,NameActivity::class.java)
             startActivity(intent)
@@ -51,11 +67,6 @@ class SettingActivity : AppCompatActivity() {
 
         sound.setOnClickListener {
             val intent = Intent(applicationContext,SoundActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }
-        bathlog.setOnClickListener {
-            val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }

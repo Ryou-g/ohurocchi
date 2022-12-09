@@ -57,16 +57,15 @@
 
     <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="423dp"
-        android:layout_height="408dp"
+        android:layout_width="410dp"
+        android:layout_height="477dp"
         android:layout_marginTop="216dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </com.applandeo.materialcalendarview.CalendarView>
-
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -84,5 +83,18 @@
         app:layout_constraintVertical_bias="0.043"
         app:srcCompat="@drawable/backbtn"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="85dp"
+        android:layout_height="46dp"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

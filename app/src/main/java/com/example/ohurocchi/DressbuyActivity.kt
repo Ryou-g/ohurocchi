@@ -1,5 +1,6 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.media.MediaPlayer
@@ -157,6 +158,20 @@ class DressbuyActivity : AppCompatActivity() {
                 Toast.makeText(this, "好感度が不足しています！", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val textView16: TextView = findViewById(R.id.textView16)
+
+
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView16.text = document.data!!["Favorability"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
 
 
     }     // ③ 読込処理(CDを入れる)

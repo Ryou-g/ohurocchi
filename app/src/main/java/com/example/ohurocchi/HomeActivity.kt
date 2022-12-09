@@ -42,7 +42,8 @@ class HomeActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
         val imageView10 = findViewById<ImageView>(R.id.imageView10)
-
+        val bathlog : Button = findViewById(R.id.bathlog)
+        
         val db = Firebase.firestore
 
 
@@ -1041,8 +1042,26 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
+        val textView16: TextView = findViewById(R.id.textView16)
 
 
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView16.text = document.data!!["Favorability"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
+
+
+        bathlog.setOnClickListener {
+            val intent = Intent(applicationContext,BathlogActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)

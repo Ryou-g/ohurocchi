@@ -1,5 +1,6 @@
 package com.example.ohurocchi
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.media.MediaPlayer
@@ -28,7 +29,21 @@ class CharaActivity : AppCompatActivity(){
         setContentView(R.layout.activity_chara)
 
         val textView8: TextView = findViewById(R.id.textView8)
-        val progressBar: ProgressBar = findViewById(R.id.progressber)
+        val progressBar: ProgressBar = findViewById(R.id.progressber1)
+
+        val textView16: TextView = findViewById(R.id.textView16)
+
+
+        db.collection("NameChange")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    textView16.text = document.data!!["Favorability"].toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+            }
 
         // 水平プログレスバーの最大値を設定します
         progressBar.setMax(200);
@@ -184,6 +199,7 @@ class CharaActivity : AppCompatActivity(){
         mp.isLooping = true
         mp.start()
         share_button.setOnClickListener() {
+
             showShareChooser()
         }
     }
@@ -191,9 +207,9 @@ class CharaActivity : AppCompatActivity(){
     //share compatの実装
     fun showShareChooser() {
 
-        val chooserTitle = "共有方法"
+        val chooserTitle = "おふろっち"
         val subject = "メールの件名"
-        val text = "アプリタイトル"
+        val text = "#おふろっち"
 
 
         val builder = ShareCompat.IntentBuilder.from(this)
@@ -201,6 +217,7 @@ class CharaActivity : AppCompatActivity(){
             .setSubject(subject) // 件名。使われ方はシェアされた側のアプリによる
             .setText(text) // 本文。使われ方はシェアされた側のアプリによる
             .setType("text/plain") // ストリームで指定したファイルのMIMEタイプ
+
 
 
         // 結果を受け取らなくても良い場合は、ビルダーからそのまま開始できる
