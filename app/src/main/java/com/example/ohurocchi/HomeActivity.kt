@@ -10,9 +10,7 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
