@@ -38,18 +38,7 @@ class SoundActivity : AppCompatActivity() {
 
             }
 
-        val textView16: TextView = findViewById(R.id.textView16)
 
-        db.collection("NameChange")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-            }
 
         val btnBack: ImageButton = findViewById(R.id.btnBack)
 
