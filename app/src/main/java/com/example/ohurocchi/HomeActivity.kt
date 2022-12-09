@@ -7,20 +7,19 @@ import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.SoundPool
-import android.nfc.Tag
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ohurocchi.databinding.ActivityHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.Timestamp
-import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
+import java.time.LocalTime
 import java.util.*
-
 
 
 class HomeActivity : AppCompatActivity() {
@@ -42,8 +41,9 @@ class HomeActivity : AppCompatActivity() {
         //imageViewの取得
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
+        val imageView10 = findViewById<ImageView>(R.id.imageView10)
         val bathlog : Button = findViewById(R.id.bathlog)
-
+        
         val db = Firebase.firestore
 
 
@@ -95,53 +95,860 @@ class HomeActivity : AppCompatActivity() {
             .addOnCompleteListener { dress ->
                 if(dress.isSuccessful){
                     val dress_document = dress.result
-                    if (dress_document != null && dress_document.data != null){
+                    if (dress_document != null && dress_document.data != null) {
                         //var rrr =dress_document.data?.get("Favorability")
                         //imageView.setImageResource(getResources().getIdentifier(dress_document.data?.get("nowDress") as String?,"drawable", getPackageName()))
-                        var Fav = Integer.parseInt((dress_document.data?.get("Favorability")).toString())
-                        val dress_num = Integer.parseInt((dress_document.data?.get("nowDress_num")).toString())
-                        Log.d(TAG,"dress_num=$dress_num")
-                        Log.d(TAG,"Fav=$Fav")
-                        if(dress_num == 1){
-                            if(Fav >= 150){
-                                imageView.setImageResource(R.drawable.coat_highest)
+                        var Fav =
+                            Integer.parseInt((dress_document.data?.get("Favorability")).toString())
+                        val dress_num =
+                            Integer.parseInt((dress_document.data?.get("nowDress_num")).toString())
+                        Log.d(TAG, "dress_num=$dress_num")
+                        Log.d(TAG, "Fav=$Fav")
+                        if (dress_num == 1) {
+                            if (Fav >= 150) {
+                                val random = (1..3).random()
+                                //日付処理
+                                //val cal7 = Calendar.getInstance(TimeZone.getTimeZone("Asia/Tokyo"), Locale.JAPAN)   //現在時刻を取得する
+                                val cal7 = LocalTime.now()
+                                val date7 = cal7
+
+                                //変換フォーマット
+                                //val sd = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+
+
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+
+                                val fdate6 = date7
+                                val fdate7 = fdate6
+
+                                val fdate8 = date8
+                                val fdate9 = fdate8
+
+                                val fdate10 = date9
+                                val fdate11 = fdate10
+
+                                val fdate12 = date10
+                                val fdate13 = fdate12
+
+                                val fdate14 = date11
+                                val fdate15 = fdate14
+
+                                if(fdate7 > fdate9 && fdate7 < fdate11) {
+                                    //val morning = 1
+                                    imageView.setImageResource(R.drawable.coat_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(fdate7 >= fdate11 && fdate7 < fdate13) {
+                                    imageView.setImageResource(R.drawable.coat_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(fdate7 >= fdate13 && fdate7 < fdate13) {
+                                    imageView.setImageResource(R.drawable.coat_highest)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(fdate7 in fdate15..fdate9){
+                                    imageView.setImageResource(R.drawable.coat_highest)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }else if(Fav >= 100){
-                                imageView.setImageResource(R.drawable.coat_usually)
+                                //日付処理
+                                val cal7 = LocalTime.now()
+                                val date7 = cal7
+
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+
+                                val fdate6 = date7
+                                val fdate7 = fdate6
+
+                                val fdate8 = date8
+                                val fdate9 = fdate8
+
+                                val fdate10 = date9
+                                val fdate11 = fdate10
+
+                                val fdate12 = date10
+                                val fdate13 = fdate12
+
+                                val fdate14 = date11
+                                val fdate15 = fdate14
+
+                                val random = (1..3).random()
+                                if(fdate7 > fdate9 && fdate7 < fdate11) {
+                                    //val morning = 1
+                                    imageView.setImageResource(R.drawable.coat_usually)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(fdate7 >= fdate11 && fdate7 < fdate13) {
+                                    imageView.setImageResource(R.drawable.coat_usually)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(fdate7 >= fdate13 && fdate7 < fdate13){
+                                    imageView.setImageResource(R.drawable.coat_usually)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(fdate7 in fdate15..fdate9){
+                                    imageView.setImageResource(R.drawable.coat_usually)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
+
                             }else if(Fav >= 50){
-                                imageView.setImageResource(R.drawable.coat_bad)
+                                //日付処理
+                                val cal7 = LocalTime.now()
+                                val date7 = cal7
+
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+
+                                val fdate6 = date7
+                                val fdate7 = fdate6
+
+                                val fdate8 = date8
+                                val fdate9 = fdate8
+
+                                val fdate10 = date9
+                                val fdate11 = fdate10
+
+                                val fdate12 = date10
+                                val fdate13 = fdate12
+
+                                val fdate14 = date11
+                                val fdate15 = fdate14
+
+                                val random = (1..3).random()
+
+                                if(fdate7 > fdate9 && fdate7 < fdate11) {
+                                    imageView.setImageResource(R.drawable.coat_bad)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(fdate7 >= fdate11 && fdate7 < fdate13){
+                                    imageView.setImageResource(R.drawable.coat_bad)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(fdate7 >= fdate13 && fdate7 < fdate13){
+                                    imageView.setImageResource(R.drawable.coat_bad)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(fdate7 in fdate15..fdate9){
+                                    imageView.setImageResource(R.drawable.coat_bad)
+                                    if( random == 1){
+                                        Log.d(TAG, "skin1=$random")
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        Log.d(TAG, "skin2=$random")
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        Log.d(TAG, "skin3=$random")
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
+
                             }else{
-                                imageView.setImageResource(R.drawable.coat_terrible)
+
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.coat_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(date7 >= date9 && date7 < date10 ){
+                                    imageView.setImageResource(R.drawable.coat_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11) {
+                                    imageView.setImageResource(R.drawable.coat_terrible)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8) {
+                                    imageView.setImageResource(R.drawable.coat_terrible)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }
                         }else if(dress_num == 2){
                             if(Fav >= 150){
-                                imageView.setImageResource(R.drawable.dress_highest)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.dress_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.dress_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11) {
+                                    imageView.setImageResource(R.drawable.dress_highest)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8) {
+                                    imageView.setImageResource(R.drawable.dress_highest)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }else if(Fav >= 100){
-                                imageView.setImageResource(R.drawable.dress_usually)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.dress_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11) {
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }else if(Fav >= 50){
-                                imageView.setImageResource(R.drawable.dress_bad)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(date7 >= date10 && date7 < date11) {
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }else{
-                                imageView.setImageResource(R.drawable.dress_terrible)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.dress_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.dress_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11) {
+                                    imageView.setImageResource(R.drawable.dress_terrible)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8) {
+                                    imageView.setImageResource(R.drawable.dress_terrible)
+                                    if (random == 1) {
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if (random == 2) {
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if (random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }
                         }else if(dress_num == 3){
+                            val random = (1..3).random()
                             if(Fav >= 150){
-                                imageView.setImageResource(R.drawable.maid_highest)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.maid_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.maid_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.maid_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.maid_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+                                //imageView10.setImageResource(R.drawable.e1300_1)
                             }else if(Fav >= 100){
-                                imageView.setImageResource(R.drawable.maid_usually)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.maid_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.maid_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.maid_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.maid_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }else if(Fav >= 50){
-                                imageView.setImageResource(R.drawable.maid_bad)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.maid_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.maid_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.maid_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.maid_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }else{
-                                imageView.setImageResource(R.drawable.maid_terrible)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.maid_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.maid_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.maid_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.maid_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }
                         }else if(dress_num == 4){
                             if(Fav >= 150){
-                                imageView.setImageResource(R.drawable.uniform_highest)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.uniform_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.uniform_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.uniform_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.uniform_highest)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
                             }else if(Fav >= 100){
-                                imageView.setImageResource(R.drawable.uniform_usually)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.uniform_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.uniform_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.uniform_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.uniform_usually)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }else if(Fav >= 50){
-                                imageView.setImageResource(R.drawable.uniform_bad)
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.uniform_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.uniform_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.uniform_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.uniform_bad)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
                             }else{
-                                imageView.setImageResource(R.drawable.uniform_terrible)
-                                Log.d(TAG,"okdayo")
+                                val date7 = LocalTime.now()
+
+                                val date8 = LocalTime.of(6, 0, 0)
+                                val date9 = LocalTime.of(12, 0, 0)
+                                val date10 = LocalTime.of(18, 0, 0)
+                                val date11 = LocalTime.of(0, 0, 0)
+                                val random = (1..3).random()
+                                if(date7 > date8 && date7 < date9){
+                                    imageView.setImageResource(R.drawable.uniform_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date9 && date7 < date10){
+                                    imageView.setImageResource(R.drawable.uniform_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 >= date10 && date7 < date11){
+                                    imageView.setImageResource(R.drawable.uniform_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }else if(date7 in date11..date8){
+                                    imageView.setImageResource(R.drawable.uniform_terrible)
+                                    if( random == 1){
+                                        imageView10.setImageResource(R.drawable.morning)
+                                    } else if(random == 2){
+                                        imageView10.setImageResource(R.drawable.afternoon)
+                                    } else if(random == 3) {
+                                        imageView10.setImageResource(R.drawable.evening)
+                                    }
+                                }
+
+                                //imageView10.setImageResource(R.drawable.e1300_1)
+                                //Log.d(TAG,"okdayo")
                             }
                         }
 
