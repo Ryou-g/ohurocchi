@@ -131,7 +131,7 @@
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/cahnge"
         android:textColor="#3A3838"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"

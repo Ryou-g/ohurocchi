@@ -31,6 +31,14 @@ class CharaActivity : AppCompatActivity(){
         val circleprogressBar :ProgressBar = findViewById(R.id.circle_progressBar)
         circleprogressBar.visibility = View.INVISIBLE
 
+        val text_koukando :TextView = findViewById(R.id.textView23)
+        text_koukando.visibility = View.INVISIBLE
+
+        val view :View = findViewById(R.id.view8)
+        view.visibility = View.INVISIBLE
+
+        val text_favarite :TextView = findViewById(R.id.textView24)
+        text_favarite.visibility = View.INVISIBLE
 
         val textView8: TextView = findViewById(R.id.textView8)
         val progressBar: ProgressBar = findViewById(R.id.progressber)
