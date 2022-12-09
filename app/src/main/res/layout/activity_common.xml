@@ -37,7 +37,7 @@
         android:id="@+id/view8"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/circle_view"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
@@ -215,17 +215,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
         app:layout_constraintEnd_toEndOf="@+id/circle_progressBar"
-        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toStartOf="@+id/circle_progressBar"
         app:layout_constraintTop_toTopOf="@+id/circle_progressBar"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.406" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kosugimaru_regular"
-        android:text="140"
+        android:text="40"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
