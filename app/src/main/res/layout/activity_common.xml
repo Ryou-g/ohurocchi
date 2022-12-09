@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <View
         android:id="@+id/view7"
         android:layout_width="299dp"
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.092" />
+
 
     <View
         android:id="@+id/view4"
@@ -219,7 +221,7 @@
         app:layout_constraintVertical_bias="0.271" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/textView16"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kosugimaru_regular"
