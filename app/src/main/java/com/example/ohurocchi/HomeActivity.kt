@@ -39,9 +39,14 @@ class HomeActivity : AppCompatActivity() {
         //imageViewの取得
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
+
+        val bathlog : ImageButton = findViewById(R.id.bathlog)
+
+
         val imageView10 = findViewById<ImageView>(R.id.imageView10)
-        val bathlog : Button = findViewById(R.id.bathlog)
+
         
+
         val db = Firebase.firestore
 
 
@@ -1055,11 +1060,13 @@ class HomeActivity : AppCompatActivity() {
             }
 
 
+
         bathlog.setOnClickListener {
             val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
 
         //ここからホーム画面遷移のコード
         val imageButton3: ImageButton = findViewById(R.id.imageButton3)

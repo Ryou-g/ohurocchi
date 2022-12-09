@@ -6,18 +6,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/pop1">
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#C4FFFFFF"
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="412dp"
+        android:layout_height="866dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView10"
@@ -32,26 +31,16 @@
         android:shadowDx="1"
         android:shadowDy="1.5"
         android:shadowRadius="5"
-        android:text="@string/shop"
+        android:text="@string/dressexcahngeroom"
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
-
-    <include
-        android:id="@+id/include3"
-        layout="@layout/activity_common"
-        android:layout_width="411dp"
-        android:layout_height="886dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -101,12 +90,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
-        app:backgroundTint="@null"
         android:fontFamily="@font/kosugimaru_regular"
         android:insetLeft="1dp"
         android:text="交換"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textColor="#3A3838"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.207"
@@ -129,9 +119,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress1"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/adult"
             tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
@@ -141,9 +130,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress2"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sexy"
             tools:ignore="ImageContrastCheck" />
@@ -164,9 +152,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress3"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/neautral"
 
@@ -177,26 +164,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/border"
+            android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress4"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/sick" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="85dp"
-        android:layout_height="46dp"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

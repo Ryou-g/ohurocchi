@@ -31,17 +31,34 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <View
-        android:id="@+id/view7"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
+        android:id="@+id/view12"
+        android:layout_width="72dp"
+        android:layout_height="70dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.167" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="入浴ログ"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224" />
 
     <TextView
         android:id="@+id/textView9"
@@ -62,10 +79,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -81,23 +98,25 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="148dp"
-        android:layout_height="148dp"
-        android:background="@drawable/circle_button"
-        app:backgroundTint="@null"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/button_ripple"
+        android:backgroundTint="@null"
         android:contentDescription="@string/bathbtn"
-        android:fontFamily="@font/kosugimaru_regular"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:elevation="10dp"
+        android:fontFamily="@font/yujimai_regular"
         android:freezesText="false"
         android:onClick="button1"
-        android:shadowColor="#C1C0C0"
-        android:shadowDx="1"
-        android:shadowDy="2"
-        android:shadowRadius="10"
+        android:scaleType="centerCrop"
         android:text="@string/bath_btn"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:icon="@drawable/ohurohome_"
+        app:iconGravity="top"
+        app:iconSize="65sp"
+        app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -106,40 +125,35 @@
         app:layout_constraintVertical_bias="0.306"
         tools:ignore="TextContrastCheck" />
 
+
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="131dp"
         android:layout_height="124dp"
-        android:layout_marginEnd="228dp"
-        android:layout_marginBottom="308dp"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-        
-    <Button
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539" />
+
+    <ImageButton
         android:id="@+id/bathlog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="入浴ログ"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bathlog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.169"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:contentDescription="TODO" />
 
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="85dp"
-        android:layout_height="46dp"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

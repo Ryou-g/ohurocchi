@@ -5,6 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="299dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092" />
+
+
     <View
         android:id="@+id/view4"
         android:layout_width="413dp"
@@ -17,6 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle_view"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066" />
 
     <TextView
         android:id="@+id/textView2"
@@ -152,5 +181,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.961"
         tools:ignore="ImageContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <ProgressBar
+        android:id="@+id/circle_progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape"
+        android:max="200"
+        android:min="0"
+        android:progress="140"
+        android:progressDrawable="@drawable/circular_progressbar"
+        android:rotation="-90"
+        android:scaleType="fitCenter"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="45dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="好感度"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/circle_progressBar"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="@+id/circle_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/circle_progressBar"
+        app:layout_constraintVertical_bias="0.271" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="140"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/circle_progressBar"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/circle_progressBar"
+        app:layout_constraintTop_toTopOf="@+id/circle_progressBar"
+        app:layout_constraintVertical_bias="0.711" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

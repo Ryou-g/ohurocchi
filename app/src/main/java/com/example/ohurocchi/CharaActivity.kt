@@ -6,6 +6,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
@@ -28,8 +29,20 @@ class CharaActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chara)
 
+        val circleprogressBar :ProgressBar = findViewById(R.id.circle_progressBar)
+        circleprogressBar.visibility = View.INVISIBLE
+
+        val text_koukando :TextView = findViewById(R.id.textView23)
+        text_koukando.visibility = View.INVISIBLE
+
+        val view :View = findViewById(R.id.view8)
+        view.visibility = View.INVISIBLE
+
+        val text_favarite :TextView = findViewById(R.id.textView16)
+        text_favarite.visibility = View.INVISIBLE
+
         val textView8: TextView = findViewById(R.id.textView8)
-        val progressBar: ProgressBar = findViewById(R.id.progressber1)
+        val progressBar: ProgressBar = findViewById(R.id.progressber)
 
         val textView16: TextView = findViewById(R.id.textView16)
 

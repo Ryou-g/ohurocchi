@@ -15,22 +15,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_1" />
 
-    <View
-        android:id="@+id/view8"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#C4FFFFFF"
+    <include
+        android:id="@+id/include3"
+        layout="@layout/activity_common"
+        android:layout_width="412dp"
+        android:layout_height="866dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="1.0" />
+
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
@@ -48,35 +47,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <View
         android:id="@+id/view5"
         android:layout_width="403dp"
-        android:layout_height="462dp"
+        android:layout_height="420dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
-
-
-    <include
-        android:id="@+id/include3"
-        layout="@layout/activity_common"
-        android:layout_width="418dp"
-        android:layout_height="871dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.443" />
 
     <Button
         android:id="@+id/namechange"
@@ -84,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="244dp"
         android:layout_marginEnd="159dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/namechange"
@@ -148,18 +134,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dressup"
         app:layout_constraintVertical_bias="0.09" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="85dp"
-        android:layout_height="46dp"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
