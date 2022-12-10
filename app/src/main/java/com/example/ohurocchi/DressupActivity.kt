@@ -43,7 +43,7 @@ class DressupActivity : AppCompatActivity() {
         adult.setOnClickListener {
 
             imageView.setImageResource(R.drawable.coat_usually)
-            textview.setText("風呂メイド1");
+            textview.setText("コート");
             acceptflag = "coat_usually"
             nowDress_num = 1
         }
@@ -53,7 +53,7 @@ class DressupActivity : AppCompatActivity() {
         sexy.setOnClickListener {
 
             imageView.setImageResource(R.drawable.dress_usually)
-            textview.setText("風呂メイド2");
+            textview.setText("ワンピース");
             acceptflag = "dress_usually"
             nowDress_num = 2
         }
@@ -63,7 +63,7 @@ class DressupActivity : AppCompatActivity() {
         neautral.setOnClickListener {
 
             imageView.setImageResource(R.drawable.maid_usually)
-            textview.setText("風呂メイド3");
+            textview.setText("メイド");
             acceptflag = "maid_usually"
             nowDress_num = 3
         }
@@ -73,7 +73,7 @@ class DressupActivity : AppCompatActivity() {
         sick.setOnClickListener {
 
             imageView.setImageResource(R.drawable.uniform_usually)
-            textview.setText("風呂メイド4");
+            textview.setText("制服");
             acceptflag = "uniform_usually"
             nowDress_num = 4
         }
