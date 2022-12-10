@@ -30,6 +30,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="531dp"
+        android:layout_height="469dp"
+        android:contentDescription="@string/woman"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
     <View
         android:id="@+id/view12"
         android:layout_width="72dp"
@@ -113,18 +125,6 @@
         app:layout_constraintVertical_bias="0.306"
         tools:ignore="TextContrastCheck" />
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="531dp"
-        android:layout_height="469dp"
-        android:contentDescription="@string/woman"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
 
     <ImageView
         android:id="@+id/imageView10"
