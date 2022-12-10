@@ -85,8 +85,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         adult.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.adult)
-            textView.setText("風呂メイド1");
+            imageView.setImageResource(R.drawable.coat_usually)
+            textView.setText("コート");
             textView1.setText("50pt");
             fav_point = 50
             select_costume = 1
@@ -96,8 +96,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         sexy.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.sexy)
-            textView.setText("風呂メイド2");
+            imageView.setImageResource(R.drawable.dress_usually)
+            textView.setText("ワンピース");
             textView1.setText("100pt");
             fav_point = 100
             select_costume = 2
@@ -107,8 +107,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         neautral.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.neautral)
-            textView.setText("風呂メイド3");
+            imageView.setImageResource(R.drawable.maid_usually)
+            textView.setText("メイド");
             textView1.setText("150pt");
             fav_point = 150
             select_costume = 3
