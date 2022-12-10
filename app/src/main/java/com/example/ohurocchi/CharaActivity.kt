@@ -44,14 +44,14 @@ class CharaActivity : AppCompatActivity(){
         val textView8: TextView = findViewById(R.id.textView8)
         val progressBar: ProgressBar = findViewById(R.id.progressber)
 
-        val textView16: TextView = findViewById(R.id.textView16)
+        val textView22: TextView = findViewById(R.id.textView22)
 
 
         db.collection("NameChange")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
+                    textView22.text = document.data!!["Favorability"].toString()
                 }
             }
             .addOnFailureListener { exception ->

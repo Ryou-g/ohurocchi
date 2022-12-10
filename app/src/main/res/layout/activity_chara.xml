@@ -65,17 +65,18 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="600dp"
-        android:layout_height="1100dp"
+        android:layout_width="259dp"
+        android:layout_height="378dp"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/woman"
         android:rotationY="0"
+        android:scaleX="2.5"
+        android:scaleY="2.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034"
+        app:layout_constraintVertical_bias="0.835"
         app:srcCompat="@drawable/uniform_usually" />
 
     <TextView
@@ -98,8 +99,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="171dp"
+        android:layout_height="49dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/favorability"
         android:textColor="#000000"
@@ -109,7 +110,7 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.399" />
@@ -177,5 +178,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.531" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="142dp"
+        android:layout_height="47dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:textSize="40sp"
+        app:autoSizeMaxTextSize="40sp"
+        app:autoSizeMinTextSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
