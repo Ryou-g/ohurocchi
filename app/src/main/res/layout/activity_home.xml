@@ -84,18 +84,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.29" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="531dp"
-        android:layout_height="469dp"
-        android:contentDescription="@string/woman"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="160dp"
@@ -127,6 +115,18 @@
 
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="531dp"
+        android:layout_height="469dp"
+        android:contentDescription="@string/woman"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <ImageView
         android:id="@+id/imageView10"
         android:layout_width="131dp"
         android:layout_height="124dp"
@@ -151,9 +151,6 @@
         app:layout_constraintVertical_bias="0.169"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
         android:contentDescription="TODO" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
