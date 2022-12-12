@@ -79,7 +79,7 @@ class CharaActivity : AppCompatActivity(){
 
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView5)
-        val share_button = findViewById<Button>(R.id.share_button)
+        val share_button = findViewById<ImageButton>(R.id.share_button)
 
 
         db.collection("NameChange")
