@@ -157,7 +157,7 @@ class HomeActivity : AppCompatActivity() {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
 
-                                }else if(fdate7 >= fdate13 && fdate7 < fdate13) {
+                                }else if(fdate7 >= fdate13) {
                                     imageView.setImageResource(R.drawable.coat_highest)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
@@ -226,7 +226,7 @@ class HomeActivity : AppCompatActivity() {
                                         Log.d(TAG, "skin3=$random")
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(fdate7 >= fdate13 && fdate7 < fdate13){
+                                }else if(fdate7 >= fdate13){
                                     imageView.setImageResource(R.drawable.coat_usually)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
@@ -307,7 +307,7 @@ class HomeActivity : AppCompatActivity() {
                                         Log.d(TAG, "skin3=$random")
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(fdate7 >= fdate13 && fdate7 < fdate13){
+                                }else if(fdate7 >= fdate13){
                                     imageView.setImageResource(R.drawable.coat_bad)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
@@ -364,7 +364,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11) {
+                                }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.coat_terrible)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
@@ -413,7 +413,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11) {
+                                }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_highest)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
@@ -453,7 +453,7 @@ class HomeActivity : AppCompatActivity() {
                                     }
 
                                 }else if(date7 >= date9 && date7 < date10){
-                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    imageView.setImageResource(R.drawable.dress_usually)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
                                     } else if(random == 2){
@@ -461,8 +461,8 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11) {
-                                    imageView.setImageResource(R.drawable.dress_bad)
+                                }else if(date7 >= date10) {
+                                    imageView.setImageResource(R.drawable.dress_usually)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
                                     } else if (random == 2) {
@@ -471,7 +471,7 @@ class HomeActivity : AppCompatActivity() {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
                                 }else if(date7 in date11..date8){
-                                    imageView.setImageResource(R.drawable.dress_bad)
+                                    imageView.setImageResource(R.drawable.dress_usually)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
                                     } else if (random == 2) {
@@ -508,7 +508,7 @@ class HomeActivity : AppCompatActivity() {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
 
-                                }else if(date7 >= date10 && date7 < date11) {
+                                }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_bad)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
@@ -555,7 +555,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11) {
+                                }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_terrible)
                                     if (random == 1) {
                                         imageView10.setImageResource(R.drawable.morning)
@@ -602,7 +602,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_highest)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -648,7 +648,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_usually)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -694,7 +694,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_bad)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -739,7 +739,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_terrible)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -787,7 +787,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_highest)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -833,7 +833,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_usually)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -879,7 +879,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_bad)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
@@ -925,7 +925,7 @@ class HomeActivity : AppCompatActivity() {
                                     } else if(random == 3) {
                                         imageView10.setImageResource(R.drawable.evening)
                                     }
-                                }else if(date7 >= date10 && date7 < date11){
+                                }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_terrible)
                                     if( random == 1){
                                         imageView10.setImageResource(R.drawable.morning)
