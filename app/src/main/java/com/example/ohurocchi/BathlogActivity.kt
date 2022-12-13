@@ -1,7 +1,5 @@
 package com.example.ohurocchi
 
-import TaskAdapter
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -9,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.EventDay
 import com.example.ohurocchi.databinding.ActivityBathlogBinding
