@@ -114,7 +114,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress1"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/japanese"
+            app:srcCompat="@drawable/wafu_pc"
             tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <ImageButton
@@ -125,7 +125,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress2"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/background"
+            app:srcCompat="@drawable/roten_pc"
             tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
@@ -152,7 +152,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress3"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/apart"
+            app:srcCompat="@drawable/huro_pc"
             tools:ignore="ImageContrastCheck" />
 
         <ImageButton
@@ -163,7 +163,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress4"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/telmare"
+            app:srcCompat="@drawable/daiyokujo_pc"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
