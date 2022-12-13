@@ -4,30 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/roten"
     tools:context=".TitleActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="397dp"
-        android:layout_height="294dp"
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#9AFFFFFF"
+        android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368"
-        app:srcCompat="@drawable/ohurocchi_logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnStart"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="231dp"
-        android:layout_height="63dp"
+        android:layout_width="408dp"
+        android:layout_height="874dp"
         android:backgroundTint="@android:color/transparent"
         android:fontFamily="@font/kosugimaru_regular"
         android:onClick="start"
-        android:text="@string/start"
         android:textColor="@color/black"
         android:textSize="44sp"
         android:textStyle="bold"
@@ -36,4 +35,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.659" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="397dp"
+        android:layout_height="294dp"
+        android:stateListAnimator="@android:anim/cycle_interpolator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368"
+        app:srcCompat="@drawable/ohurocchi_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

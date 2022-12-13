@@ -36,6 +36,12 @@ class TitleActivity : AppCompatActivity() {
     }
 
 
+    private fun animateRotationY(img:ImageView) {                   //タイトルアニメーション
+        val objectAnimator = ObjectAnimator.ofFloat(img, "rotationY", 2f)
+        objectAnimator.duration = 2000
+        objectAnimator.repeatCount = -1
+        objectAnimator.start()
+    }
 
     //６）再開
     override fun onResume() {
