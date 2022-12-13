@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.213"
-        app:srcCompat="@drawable/background_1" />
+        app:srcCompat="@drawable/roten" />
 
     <View
         android:id="@+id/view11"
