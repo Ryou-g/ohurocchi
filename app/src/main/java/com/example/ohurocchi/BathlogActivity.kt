@@ -164,7 +164,7 @@ class BathlogActivity : AppCompatActivity() {
                             cal5.add(Calendar.SECOND, -sec)
                             cal5.add(Calendar.DATE,i-1)
                             Log.d(TAG, "i = =$i-1")
-                            events.add(EventDay(cal5, R.drawable.ohurohome))
+                            events.add(EventDay(cal5, R.drawable.ohurohome_))
                             calendarView.setEvents(events)
                         }
                     }
