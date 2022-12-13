@@ -1,10 +1,12 @@
 package com.example.ohurocchi
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.media.MediaPlayer
+import android.widget.ImageView
 
 class TitleActivity : AppCompatActivity() {
     //５）mpを横断的に使えるようにここに書く
@@ -32,6 +34,9 @@ class TitleActivity : AppCompatActivity() {
         mp.start()
         mp1.start()
     }
+
+
+
     //６）再開
     override fun onResume() {
         super.onResume()
