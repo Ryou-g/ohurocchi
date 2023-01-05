@@ -1,13 +1,10 @@
 package com.example.ohurocchi
 
-import android.content.ContentValues
 import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
-import com.example.ohurocchi.databinding.ActivityBackgroundBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -43,9 +40,9 @@ class BackgroundActivity : AppCompatActivity() {
 
         imageButton14.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.japanese_1)
-            textView.setText("バスルーム");
-            acceptflag = "japanese_1"
+            imageView.setImageResource(R.drawable.wafu)
+            textView.text = "バスルーム"
+            acceptflag = "wafu"
 
         }
 
@@ -53,27 +50,27 @@ class BackgroundActivity : AppCompatActivity() {
 
         imageButton15.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.background_1)
-            textView.setText("露天風呂");
-            acceptflag = "background_1"
+            imageView.setImageResource(R.drawable.roten)
+            textView.text = "露天風呂"
+            acceptflag = "roten"
         }
 
         val imageButton16 = findViewById<ImageButton>(R.id.imageButton16)
 
         imageButton16.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.apart_1)
-            textView.setText("浴室");
-            acceptflag = "apart_1"
+            imageView.setImageResource(R.drawable.huro)
+            textView.text = "浴室"
+            acceptflag = "huro"
         }
 
         val imageButton17 = findViewById<ImageButton>(R.id.imageButton17)
 
         imageButton17.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.telmare_1)
-            textView.setText("洋式風呂");
-            acceptflag = "telmare_1"
+            imageView.setImageResource(R.drawable.daiyokujo)
+            textView.text = "洋式風呂"
+            acceptflag = "daiyokujo"
         }
 
         //適用ボタン押下時処理

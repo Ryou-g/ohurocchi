@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.213"
-        app:srcCompat="@drawable/background_1" />
+        app:srcCompat="@drawable/roten" />
 
     <View
         android:id="@+id/view11"
@@ -114,7 +114,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress1"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/japanese"
+            app:srcCompat="@drawable/wafu"
             tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <ImageButton
@@ -125,7 +125,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress2"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/background"
+            app:srcCompat="@drawable/roten"
             tools:ignore="ImageContrastCheck" />
 
     </LinearLayout>
@@ -152,7 +152,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress3"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/apart"
+            app:srcCompat="@drawable/huro"
             tools:ignore="ImageContrastCheck" />
 
         <ImageButton
@@ -163,7 +163,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress4"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/telmare"
+            app:srcCompat="@drawable/daiyokujo_pc"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
