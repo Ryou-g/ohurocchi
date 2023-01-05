@@ -23,7 +23,8 @@ class TitleActivity : AppCompatActivity() {
         //２）ボタンを押したら次の画面へ
         btnStart.setOnClickListener {
 
-            val intent = Intent(this,HomeActivity::class.java)
+            //val intent = Intent(this,HomeActivity::class.java)
+            val intent = Intent(this,AuthActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
         }
