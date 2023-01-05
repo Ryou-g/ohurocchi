@@ -2,6 +2,7 @@ package com.example.ohurocchi
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -67,7 +68,7 @@ class AuthActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Log.d(ContentValues.TAG, "createUserWithEmail:success")
                 var user = mAuth?.currentUser
-
+                Toast.makeText(this, "登録成功", Toast.LENGTH_SHORT).show()
                 updateUI(user)
             } else {
                 Log.w(ContentValues.TAG, "createUserWithEmail:failure")
@@ -85,7 +86,9 @@ class AuthActivity : AppCompatActivity() {
                 Log.d(ContentValues.TAG, "signInWithEmail:success")
                 var user = mAuth?.currentUser
                 status.now_Login = user?.uid.toString()
-                updateUI(user)
+                //updateUI(user)
+                val intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
             } else {
                 Log.w(ContentValues.TAG, "signInWithEmail:failure")
                 Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
