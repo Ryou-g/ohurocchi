@@ -7,36 +7,33 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="590dp"
-        android:layout_height="1100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/background_1" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".69" />
+
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="700dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
@@ -49,17 +46,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
-
+        app:layout_constraintVertical_bias="0.061"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".4" />
 
     <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="410dp"
-        android:layout_height="477dp"
-        android:layout_marginTop="216dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".55"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,18 +71,21 @@
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="6dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#FFFFFF"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".045"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
+        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".08"
         app:srcCompat="@drawable/backbtn"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

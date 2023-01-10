@@ -9,51 +9,32 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="590dp"
-        android:layout_height="870dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/background_1" />
 
     <View
         android:id="@+id/view6"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
-
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="6dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@drawable/backbtn"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".69" />
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="700dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
@@ -66,29 +47,59 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".55" />
+
+    <ImageButton
+        android:id="@+id/btnBack4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".045"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".08"
+        app:srcCompat="@drawable/backbtn"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 
     <View
         android:id="@+id/view14"
-        android:layout_width="395dp"
-        android:layout_height="371dp"
-        android:layout_marginBottom="6dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".95" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="376dp"
-        android:layout_height="34dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".8536"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".05"
         android:layout_margin="20dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/nickname1"
@@ -105,8 +116,12 @@
 
     <EditText
         android:id="@+id/stv_name"
-        android:layout_width="332dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".8536"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".07"
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/kosugimaru_regular"
@@ -125,21 +140,25 @@
 
     <Button
         android:id="@+id/sbtn_Update"
-        android:layout_width="373dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/cahnge"
         android:textColor="#3A3838"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.644"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".8536"
+        tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

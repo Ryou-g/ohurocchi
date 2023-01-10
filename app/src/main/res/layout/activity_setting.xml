@@ -7,19 +7,16 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="590dp"
-        android:layout_height="1100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/background_1" />
 
     <include
         android:id="@+id/include3"
         layout="@layout/activity_common"
-        android:layout_width="412dp"
-        android:layout_height="866dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -27,14 +24,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".95" />
 
     <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="700dp"
+        android:id="@+id/textView24"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
@@ -47,22 +56,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
+        app:layout_constraintVertical_bias="0.061"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".4" />
 
-    <View
-        android:id="@+id/view5"
-        android:layout_width="403dp"
-        android:layout_height="420dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#C4FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443" />
 
     <Button
         android:id="@+id/namechange"

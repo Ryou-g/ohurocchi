@@ -6,39 +6,48 @@
     android:layout_height="match_parent"
     android:background="@drawable/pop1">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="202dp"
-        android:layout_height="333dp"
-        android:contentDescription="@string/bg1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213"
-        app:srcCompat="@drawable/roten" />
-
     <View
-        android:id="@+id/view11"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
+        android:id="@+id/view9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape"
         android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.048"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".69" />
+
+    <ImageButton
+        android:id="@+id/btnBack2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".045"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".08"
+        app:srcCompat="@drawable/backbtn"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="700dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:includeFontPadding="false"
         android:shadowColor="#F3F0F0"
@@ -51,16 +60,36 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".05"
+        app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.061"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/bg1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".40"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".5"
+        app:srcCompat="@drawable/roten" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:shadowDx="5"
         android:shadowDy="4"
@@ -71,21 +100,30 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".07"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.013"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintVertical_bias="0.421"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".45"
+        tools:ignore="TextContrastCheck"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".2"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".08"
         android:background="@drawable/button_round"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/tekiyou"
         android:textColor="#3A3838"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -97,14 +135,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="270dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".130"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.723">
 
         <ImageButton
             android:id="@+id/imageButton14"
@@ -114,7 +155,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress1"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/wafu"
+            app:srcCompat="@drawable/wafu_pc"
             tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <ImageButton
@@ -125,23 +166,23 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress2"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/roten"
+            app:srcCompat="@drawable/roten_pc"
             tools:ignore="ImageContrastCheck" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".130"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.11">
 
 
         <ImageButton
@@ -152,7 +193,7 @@
             android:background="@drawable/boder_ripple"
             android:contentDescription="@string/dress3"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/huro"
+            app:srcCompat="@drawable/huro_pc"
             tools:ignore="ImageContrastCheck" />
 
         <ImageButton
@@ -166,22 +207,5 @@
             app:srcCompat="@drawable/daiyokujo_pc"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="6dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@drawable/backbtn"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

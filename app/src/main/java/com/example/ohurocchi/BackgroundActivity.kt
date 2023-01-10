@@ -16,7 +16,7 @@ class BackgroundActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
 
-        val btnBack :ImageButton = findViewById(R.id.btnBack)
+        val btnBack :ImageButton = findViewById(R.id.btnBack2)
         val acceptButton: Button = findViewById(R.id.button)
         var acceptflag = ""
 
