@@ -966,13 +966,14 @@ class HomeActivity : AppCompatActivity() {
                 }
 
             }
-
+        var status = Login_status.getInstance()
         binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
                 //title = binding.button1.text.toString(),
                 title = message,
-                createdAt = fdate1
+                createdAt = fdate1,
+                uid = status.now_Login
             )
             Log.d(TAG,"インスタンス化")
 

@@ -17,6 +17,7 @@ import java.util.*
 
 
 class BathlogActivity : AppCompatActivity() {
+    var status = Login_status.getInstance()
 
     private lateinit var mp: MediaPlayer
 
@@ -133,8 +134,9 @@ class BathlogActivity : AppCompatActivity() {
             val endtime = sd.format(date4)
             Log.d(TAG, "startAt=$starttime")
             Log.d(TAG, "endAt=$endtime")
+            val user_id = status.now_Login
             val Bathlog =
-                db.collection("BAthlog").orderBy("createdAt").startAt(starttime).endAt(endtime)
+                db.collection("BAthlog").whereEqualTo("uid",user_id).orderBy("createdAt").startAt(starttime).endAt(endtime)
                     //スタートとエンドを月初めから月最後まで設定する-日付から日付を引いて1を足す(29日なら29-29+1で一日が指定できるはず)
                     //一日ごとに件数を取得、1件あればスタンプを押す
                     //0件ならおふろに入ってないので、スタンプを押す処理を飛ばす
