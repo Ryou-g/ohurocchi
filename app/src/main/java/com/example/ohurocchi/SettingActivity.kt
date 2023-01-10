@@ -5,10 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -31,6 +28,26 @@ class SettingActivity : AppCompatActivity() {
         val background1 : Button = findViewById(R.id.background)
 
         val imageView2 = findViewById<ImageView>(R.id.imageView3)
+
+        val progressBar1: ProgressBar = findViewById(R.id.circle_progressBar)
+
+        // 水平プログレスバーの最大値を設定します
+        progressBar1.setMax(200);
+
+        //好感度を取得
+        var Faboravirity = 0
+        db.collection("NameChange").document("NameChange")
+            .get()
+            .addOnCompleteListener{ Fav ->
+                if(Fav.isSuccessful){
+                    val Fav_document = Fav.result
+                    if(Fav_document != null && Fav_document.data != null){
+                        Faboravirity = Integer.parseInt((Fav_document.data?.get("Favorability")).toString())
+                        // progress
+                        progressBar1.setProgress(Faboravirity);
+                    }
+                }
+            }
 
 
         db.collection("NameChange").document("NameChange").get()

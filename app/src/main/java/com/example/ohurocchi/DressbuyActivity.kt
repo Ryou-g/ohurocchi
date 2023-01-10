@@ -159,6 +159,26 @@ class DressbuyActivity : AppCompatActivity() {
             }
         }
 
+        val progressBar1: ProgressBar = findViewById(R.id.circle_progressBar)
+
+        // 水平プログレスバーの最大値を設定します
+        progressBar1.setMax(200);
+
+        //好感度を取得
+        var Faboravirity = 0
+        db.collection("NameChange").document("NameChange")
+            .get()
+            .addOnCompleteListener{ Fav ->
+                if(Fav.isSuccessful){
+                    val Fav_document = Fav.result
+                    if(Fav_document != null && Fav_document.data != null){
+                        Faboravirity = Integer.parseInt((Fav_document.data?.get("Favorability")).toString())
+                        // progress
+                        progressBar1.setProgress(Faboravirity);
+                    }
+                }
+            }
+
         val textView16: TextView = findViewById(R.id.textView16)
 
 
