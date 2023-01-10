@@ -115,7 +115,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:icon="@drawable/ohurohome_"
+        app:icon="@drawable/ohurohome_1"
         app:iconGravity="top"
         app:iconSize="65sp"
         app:iconTint="@color/black"
