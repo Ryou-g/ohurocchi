@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/drawable/border.xml" value="0.1435" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_bathlog.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_chara.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressbuy.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressexchange.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_dressup.xml" value="0.10326086956521739" />
-        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_mypage.xml" value="0.1796875" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_namechange.xml" value="0.11639492753623189" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/activity_setting.xml" value="0.1331521739130435" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/spinner_item.xml" value="0.1" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/layout/task_list_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/menu/month_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/xml/bg_balloon.xml" value="0.14447463768115942" />
         <entry key="..\:/Users/inada/AndroidStudioProjects/ohurocchi/app/src/main/res/xml/spinner_item.xml" value="0.1" />
       </map>
     </option>

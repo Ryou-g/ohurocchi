@@ -67,6 +67,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.425" />
 
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="173dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="400dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_balloon"
+        android:lineSpacingExtra="4sp"
+        android:padding="8dp"
+        android:text="えー、さっき食べたばっかりだよ。もう少し我慢しようよ。"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- marginLeft="-6dp"することで角丸のTextViewに`◆`を重ねている。 -->
+
+    <View
+        android:layout_width="9dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="-30dp"
+        android:background="@android:color/white"
+        android:rotation="45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="531dp"
@@ -74,10 +103,10 @@
         android:contentDescription="@string/woman"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/button1"
