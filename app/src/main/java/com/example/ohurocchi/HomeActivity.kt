@@ -23,7 +23,7 @@ import java.util.*
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
-    
+
     // ① 準備（コンポを部屋に置く・コピペOK）
     private var soundPool // 効果音を鳴らす本体（コンポ）
             : SoundPool? = null
@@ -41,8 +41,9 @@ class HomeActivity : AppCompatActivity() {
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
         val imageView10 = findViewById<ImageView>(R.id.imageView10)
         val textView23 = findViewById<TextView>(R.id.textView23)
-        val bathlog : Button = findViewById(R.id.bathlog)
         
+        val bathlog : Button = findViewById(R.id.bathlog)
+
         val db = Firebase.firestore
 
 
@@ -1040,6 +1041,26 @@ class HomeActivity : AppCompatActivity() {
                 .addOnFailureListener { e -> Log.d(TAG, "Error adding document" + e)}
 
         }
+
+        val progressBar1: ProgressBar = findViewById(R.id.circle_progressBar)
+
+        // 水平プログレスバーの最大値を設定します
+        progressBar1.setMax(200);
+
+        //好感度を取得
+        var Faboravirity = 0
+        db.collection("NameChange").document("NameChange")
+            .get()
+            .addOnCompleteListener{ Fav ->
+                if(Fav.isSuccessful){
+                    val Fav_document = Fav.result
+                    if(Fav_document != null && Fav_document.data != null){
+                        Faboravirity = Integer.parseInt((Fav_document.data?.get("Favorability")).toString())
+                        // progress
+                        progressBar1.setProgress(Faboravirity);
+                    }
+                }
+            }
 
         val textView16: TextView = findViewById(R.id.textView16)
 

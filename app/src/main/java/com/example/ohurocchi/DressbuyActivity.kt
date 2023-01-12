@@ -85,8 +85,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         adult.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.adult)
-            textView.setText("風呂メイド1");
+            imageView.setImageResource(R.drawable.coat_usually)
+            textView.setText("コート");
             textView1.setText("50pt");
             fav_point = 50
             select_costume = 1
@@ -96,8 +96,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         sexy.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.sexy)
-            textView.setText("風呂メイド2");
+            imageView.setImageResource(R.drawable.dress_usually)
+            textView.setText("ワンピース");
             textView1.setText("100pt");
             fav_point = 100
             select_costume = 2
@@ -107,8 +107,8 @@ class DressbuyActivity : AppCompatActivity() {
 
         neautral.setOnClickListener {
 
-            imageView.setImageResource(R.drawable.neautral)
-            textView.setText("風呂メイド3");
+            imageView.setImageResource(R.drawable.maid_usually)
+            textView.setText("メイド");
             textView1.setText("150pt");
             fav_point = 150
             select_costume = 3
@@ -158,6 +158,26 @@ class DressbuyActivity : AppCompatActivity() {
                 Toast.makeText(this, "好感度が不足しています！", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val progressBar1: ProgressBar = findViewById(R.id.circle_progressBar)
+
+        // 水平プログレスバーの最大値を設定します
+        progressBar1.setMax(200);
+
+        //好感度を取得
+        var Faboravirity = 0
+        db.collection("NameChange").document("NameChange")
+            .get()
+            .addOnCompleteListener{ Fav ->
+                if(Fav.isSuccessful){
+                    val Fav_document = Fav.result
+                    if(Fav_document != null && Fav_document.data != null){
+                        Faboravirity = Integer.parseInt((Fav_document.data?.get("Favorability")).toString())
+                        // progress
+                        progressBar1.setProgress(Faboravirity);
+                    }
+                }
+            }
 
         val textView16: TextView = findViewById(R.id.textView16)
 

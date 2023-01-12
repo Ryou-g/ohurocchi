@@ -3,12 +3,9 @@
         android:width="3dp"
         android:color="#f5b2b2" />
     <padding
-        android:left="2px"
-        android:top="2px"
-        android:right="2px"
-        android:bottom="2px" />
+        android:top="8dp"
+        android:bottom="8dp" />
     <corners
-
         android:topRightRadius="15dp"
         android:bottomRightRadius="15dp"
         android:bottomLeftRadius="15dp"

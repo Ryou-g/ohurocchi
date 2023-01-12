@@ -1,7 +1,5 @@
 package com.example.ohurocchi
 
-import TaskAdapter
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -9,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.EventDay
 import com.example.ohurocchi.databinding.ActivityBathlogBinding
@@ -34,7 +31,7 @@ class BathlogActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener {
             finish()
-
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         val calendarView = findViewById<View>(R.id.calendarView) as CalendarView
@@ -164,7 +161,7 @@ class BathlogActivity : AppCompatActivity() {
                             cal5.add(Calendar.SECOND, -sec)
                             cal5.add(Calendar.DATE,i-1)
                             Log.d(TAG, "i = =$i-1")
-                            events.add(EventDay(cal5, R.drawable.ohurohome))
+                            events.add(EventDay(cal5, R.drawable.ohurohome_))
                             calendarView.setEvents(events)
                         }
                     }
@@ -283,19 +280,9 @@ class BathlogActivity : AppCompatActivity() {
 
             }
 
-        val textView16: TextView = findViewById(R.id.textView16)
 
 
-        db.collection("NameChange")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-            }
+
 
 
         // ③ 読込処理(CDを入れる)

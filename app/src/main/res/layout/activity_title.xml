@@ -4,22 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/roten"
     tools:context=".TitleActivity">
 
 
-    <Button
-        android:id="@+id/btnStart"
-        style="?android:attr/borderlessButtonStyle"
+    <View
+        android:id="@+id/view3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/transparent"
-        android:text="@string/start"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:background="#9AFFFFFF"
+        android:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnStart"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".5"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".1"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:onClick="start"
+        android:text="START"
+        android:textColor="@color/black"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.691" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".35"
+        android:stateListAnimator="@android:anim/cycle_interpolator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368"
+        app:srcCompat="@drawable/ohurocchi_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
