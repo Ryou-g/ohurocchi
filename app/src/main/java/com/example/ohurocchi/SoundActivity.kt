@@ -40,7 +40,7 @@ class SoundActivity : AppCompatActivity() {
 
 
 
-        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        val btnBack: ImageButton = findViewById(R.id.btnBack5)
 
         btnBack.setOnClickListener {
             //ここから遷移用のコード

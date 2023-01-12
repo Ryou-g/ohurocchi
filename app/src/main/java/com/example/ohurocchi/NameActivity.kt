@@ -97,7 +97,7 @@ class NameActivity : AppCompatActivity() {
 
 
 
-        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        val btnBack: ImageButton = findViewById(R.id.btnBack4)
 
         btnBack.setOnClickListener {
             //ここから遷移用のコード

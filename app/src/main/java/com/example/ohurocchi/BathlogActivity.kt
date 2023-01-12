@@ -31,7 +31,7 @@ class BathlogActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener {
             finish()
-
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         val calendarView = findViewById<View>(R.id.calendarView) as CalendarView

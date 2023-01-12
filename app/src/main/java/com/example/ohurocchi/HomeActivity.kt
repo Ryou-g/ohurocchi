@@ -40,7 +40,8 @@ class HomeActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
         val imageView10 = findViewById<ImageView>(R.id.imageView10)
-        val bathlog : ImageButton = findViewById(R.id.bathlog)
+
+        val bathlog : Button = findViewById(R.id.bathlog)
 
         val db = Firebase.firestore
 

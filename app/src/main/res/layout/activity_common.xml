@@ -3,49 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+  >
 
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="299dp"
-        android:layout_height="45dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#C4FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
-
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="413dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="624dp"
-        android:background="@drawable/shape"
-        android:backgroundTint="#C4FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <View
         android:id="@+id/view8"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/circle_view"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".11"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.027"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".22" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#C4FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView2"
@@ -68,7 +59,6 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
         android:layout_marginBottom="7dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="交換所"
@@ -76,7 +66,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -93,7 +83,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.672"
+        app:layout_constraintHorizontal_bias="0.688"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -117,8 +107,12 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".09"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".043"
         android:layout_marginTop="90dp"
         android:layout_marginBottom="2dp"
         android:background="@drawable/setting_"
@@ -133,11 +127,13 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".09"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".043"
         android:layout_marginTop="90dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="2dp"
         android:background="@drawable/character_"
         android:contentDescription="@string/chara"
         android:scaleType="fitCenter"
@@ -151,9 +147,12 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".09"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".043"
         android:layout_marginTop="90dp"
         android:layout_marginBottom="2dp"
         android:background="@drawable/dressshop_"
@@ -168,8 +167,12 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".09"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".043"
         android:layout_marginTop="90dp"
         android:background="@drawable/ohurohome_"
         android:contentDescription="@string/home"
@@ -185,9 +188,8 @@
     <ProgressBar
         android:id="@+id/circle_progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_weight="1"
+        android:layout_width="95dp"
+        android:layout_height="91dp"
         android:background="@drawable/shape"
         android:max="200"
         android:min="0"
@@ -199,37 +201,46 @@
         android:indeterminate="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintHorizontal_bias="0.972"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/textView23"
-        android:layout_width="45dp"
-        android:layout_height="14dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".1"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".02"
         android:fontFamily="@font/kosugimaru_regular"
+        android:gravity="center_horizontal"
         android:text="好感度"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
         app:layout_constraintEnd_toEndOf="@+id/circle_progressBar"
-        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="@+id/circle_progressBar"
         app:layout_constraintTop_toTopOf="@+id/circle_progressBar"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_default= "percent"
+        app:layout_constraintWidth_percent= ".1"
+        app:layout_constraintHeight_default= "percent"
+        app:layout_constraintHeight_percent= ".025"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="40"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
         app:layout_constraintEnd_toEndOf="@+id/circle_progressBar"
         app:layout_constraintHorizontal_bias="0.531"
