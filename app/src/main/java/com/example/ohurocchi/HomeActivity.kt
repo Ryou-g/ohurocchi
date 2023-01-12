@@ -42,8 +42,7 @@ class HomeActivity : AppCompatActivity() {
         //imageViewの取得
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
-        val imageView10 = findViewById<ImageView>(R.id.imageView10)
-        val textView23 = findViewById<TextView>(R.id.textView23)
+        val textView23 = findViewById<TextView>(R.id.textView25)
         
         val bathlog : Button = findViewById(R.id.bathlog)
 
@@ -1152,11 +1151,6 @@ class HomeActivity : AppCompatActivity() {
         }
         // ③ 読込処理(CDを入れる)
         mp3a = soundPool!!.load(this, R.raw.voice1, 1)
-        mp = MediaPlayer.create(this,R.raw.bath)
-        mp.isLooping = true
-        mp.start()
-
-        // ③ 読込処理(CDを入れる)
         mp3b = soundPool!!.load(this, R.raw.voice2, 1)
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
