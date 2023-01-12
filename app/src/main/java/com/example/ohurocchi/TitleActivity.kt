@@ -1,6 +1,7 @@
 package com.example.ohurocchi
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ class TitleActivity : AppCompatActivity() {
     private lateinit var mp1:MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPref = getSharedPreferences("user_login_id", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title)
 
@@ -23,9 +25,19 @@ class TitleActivity : AppCompatActivity() {
         //２）ボタンを押したら次の画面へ
         btnStart.setOnClickListener {
 
-            val intent = Intent(this,HomeActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
+            //val intent = Intent(this,HomeActivity::class.java)
+            val savedText = sharedPref.getString("user_id", "none")
+            if (savedText == "none"){
+                val intent = Intent(this,AuthActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
+            }else{
+                //ログイン情報があるとき
+                val intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
+            }
+
         }
 
         mp = MediaPlayer.create(this,R.raw.bath)

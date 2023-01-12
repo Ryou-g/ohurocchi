@@ -971,13 +971,14 @@ class HomeActivity : AppCompatActivity() {
                 }
 
             }
-
+        var status = Login_status.getInstance()
         binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
                 //title = binding.button1.text.toString(),
                 title = message,
-                createdAt = fdate1
+                createdAt = fdate1,
+                uid = status.now_Login
             )
             Log.d(TAG,"インスタンス化")
 
@@ -1001,7 +1002,9 @@ class HomeActivity : AppCompatActivity() {
                             Fa = Integer.parseInt((document.data?.get("Favorability")).toString())
                             Log.d(TAG,"FA=$Fa")
 
-                            val hoge = db.collection("BAthlog").orderBy("createdAt").startAt(starttime).endAt(fdate1)
+                            //一日ごとの入浴状況を確認
+                            val user_id = status.now_Login
+                            val hoge = db.collection("BAthlog").whereEqualTo("uid",user_id).orderBy("createdAt").startAt(starttime).endAt(fdate1)
                                 .get()
                                 .addOnSuccessListener { result ->
                                     var cnt = 0
