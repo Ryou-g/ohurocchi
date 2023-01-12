@@ -30,6 +30,9 @@ class HomeActivity : AppCompatActivity() {
     private var mp3a // 効果音データ（mp3）
             = 0
 
+    private var mp3b // 効果音データ（mp3）
+            = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -980,7 +983,9 @@ class HomeActivity : AppCompatActivity() {
 
 
             // ④ 再生処理(再生ボタン)
-            soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+            //soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+
+            //soundPool!!.play(mp3b, 1f, 1f, 0, 0, 1f)
 
             //好感度を取得する
             var Fa: Int = 10
@@ -1016,6 +1021,7 @@ class HomeActivity : AppCompatActivity() {
                                                     "DocumentSnapshot added with ID: ${documentReference.id}"
                                                 )
                                                 Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
+                                                soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
                                             }
                                             .addOnFailureListener {
                                                 Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
@@ -1023,6 +1029,7 @@ class HomeActivity : AppCompatActivity() {
                                     }
                                     else {
                                         Toast.makeText(this, "本日は入浴済みです！", Toast.LENGTH_SHORT).show()
+                                        soundPool!!.play(mp3b, 1f, 1f, 0, 0, 1f)
                                     }
                                 }
                                 .addOnFailureListener{
@@ -1142,6 +1149,12 @@ class HomeActivity : AppCompatActivity() {
         }
         // ③ 読込処理(CDを入れる)
         mp3a = soundPool!!.load(this, R.raw.voice1, 1)
+        mp = MediaPlayer.create(this,R.raw.bath)
+        mp.isLooping = true
+        mp.start()
+
+        // ③ 読込処理(CDを入れる)
+        mp3b = soundPool!!.load(this, R.raw.voice2, 1)
         mp = MediaPlayer.create(this,R.raw.bath)
         mp.isLooping = true
         mp.start()
