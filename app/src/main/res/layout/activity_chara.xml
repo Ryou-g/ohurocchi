@@ -19,35 +19,35 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView17"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/shape"
         android:fontFamily="@font/kosugimaru_regular"
-        android:includeFontPadding="false"
-        android:shadowColor="#F3F0F0"
-        android:shadowDx="1"
-        android:shadowDy="1.5"
-        android:shadowRadius="5"
+        android:gravity="center_horizontal"
+        android:paddingTop="11dp"
+        android:paddingBottom="0dp"
         android:text="@string/chara"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="25dp"
         android:textStyle="bold"
+        app:backgroundTint="#C4FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".05"
-        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintHeight_percent=".055"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061"
+        app:layout_constraintVertical_bias="0.043"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".4" />
+        app:layout_constraintWidth_percent=".7" />
 
     <View
         android:id="@+id/view"
