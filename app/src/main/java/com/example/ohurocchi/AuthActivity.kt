@@ -2,6 +2,7 @@ package com.example.ohurocchi
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -80,6 +81,7 @@ class AuthActivity : AppCompatActivity() {
 
     // サインイン処理
     private fun signInWithEmailAndPassword(email: String, password: String) {
+        val sharedPref = getSharedPreferences("user_login_id", Context.MODE_PRIVATE)
         mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener{
                 task: Task<AuthResult> ->
             if(task.isSuccessful) {
@@ -89,6 +91,7 @@ class AuthActivity : AppCompatActivity() {
                 //updateUI(user)
                 val intent = Intent(this,HomeActivity::class.java)
                 startActivity(intent)
+                sharedPref.edit().putString("user_id", user?.uid.toString()).commit()
             } else {
                 Log.w(ContentValues.TAG, "signInWithEmail:failure")
                 Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
