@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class AuthActivity : AppCompatActivity() {
     val status = Login_status.getInstance()
@@ -64,23 +66,66 @@ class AuthActivity : AppCompatActivity() {
 
     // ユーザー登録処理
     private fun createUserWithEmailAndPassword(email: String, password: String) {
-        mAuth?.createUserWithEmailAndPassword(email, password)?.addOnCompleteListener{
-                task: Task<AuthResult> ->
-            if (task.isSuccessful) {
-                Log.d(ContentValues.TAG, "createUserWithEmail:success")
-                var user = mAuth?.currentUser
-                Toast.makeText(this, "登録成功", Toast.LENGTH_SHORT).show()
-                updateUI(user)
-            } else {
-                Log.w(ContentValues.TAG, "createUserWithEmail:failure")
-                Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
-                updateUI(null)
-            }
+        val db = Firebase.firestore
+        try {
+            mAuth?.createUserWithEmailAndPassword(email, password)
+                ?.addOnCompleteListener { task: Task<AuthResult> ->
+                    if (task.isSuccessful) {
+                        Log.d(ContentValues.TAG, "createUserWithEmail:success")
+                        var user = mAuth?.currentUser
+                        Toast.makeText(this, "登録成功", Toast.LENGTH_SHORT).show()
+                        updateUI(user)
+                        db.collection("NameChange").document(user?.uid.toString()).get()
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    val document = task.result
+                                    if (document != null && document.data != null) {
+                                        var Fa = -1
+                                        Fa =
+                                            Integer.parseInt((document.data?.get("Favorability")).toString())
+                                        Log.d("Faイコール", "Fa取得成功=$Fa")
+
+                                    } else {
+                                        //存在しないユーザーの新規登録処理を行う
+                                        val field_data = hashMapOf(
+                                            "Favorability" to "50",
+                                            "coat_unlock" to "True",
+                                            "dress_unlock" to "False",
+                                            "maid_unlock" to "False",
+                                            "name" to "とりっぴー",
+                                            "nowBackground" to "huro",
+                                            "nowDress" to "uniform_usually",
+                                            "nowDress_num" to "1",
+                                            "uniform_unlock" to "False"
+                                        )
+
+                                        db.collection("NameChange").document(user?.uid.toString())
+                                            .set(field_data)
+                                            .addOnSuccessListener { documentReference ->
+                                                Log.d("succ", "成功")
+                                            }
+                                        Log.d("mamamama", "新規失敗")
+                                    }
+
+                                    Log.d("addOnCompleteListener", "Succsess")
+                                } else {
+                                    Log.d("addOnCompleteListener", "error")
+                                }
+                            }
+                    } else {
+                        Log.w(ContentValues.TAG, "createUserWithEmail:failure")
+                        Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
+                }
+        }catch(e: Exception) {
+            Toast.makeText(this, "このユーザーは既に登録されています", Toast.LENGTH_SHORT).show()
         }
     }
 
     // サインイン処理
     private fun signInWithEmailAndPassword(email: String, password: String) {
+        val db = Firebase.firestore
         val sharedPref = getSharedPreferences("user_login_id", Context.MODE_PRIVATE)
         mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener{
                 task: Task<AuthResult> ->
@@ -92,6 +137,8 @@ class AuthActivity : AppCompatActivity() {
                 val intent = Intent(this,HomeActivity::class.java)
                 startActivity(intent)
                 sharedPref.edit().putString("user_id", user?.uid.toString()).commit()
+                //過去のログイン状態確認
+                Log.d("userID",user?.uid.toString())
             } else {
                 Log.w(ContentValues.TAG, "signInWithEmail:failure")
                 Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
