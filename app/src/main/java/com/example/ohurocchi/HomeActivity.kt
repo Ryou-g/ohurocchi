@@ -93,7 +93,10 @@ class HomeActivity : AppCompatActivity() {
             message = "ふろりだ"
         }
 
-        db.collection("NameChange").document("NameChange").get()
+        var status = Login_status.getInstance()
+        val doc = status.now_Login
+
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { dress ->
                 if(dress.isSuccessful){
                     val dress_document = dress.result
@@ -959,7 +962,7 @@ class HomeActivity : AppCompatActivity() {
 
             }
 
-        db.collection("NameChange").document("NameChange").get()
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
                 if(background.isSuccessful){
                     val background_document = background.result
@@ -970,7 +973,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
             }
-        var status = Login_status.getInstance()
+        //var status = Login_status.getInstance()
         binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(

@@ -46,11 +46,16 @@ class CharaActivity : AppCompatActivity(){
         val textView22: TextView = findViewById(R.id.textView22)
 
 
-        db.collection("NameChange")
+        var status = Login_status.getInstance()
+
+        val doc = status.now_Login
+
+
+        db.collection("NameChange").document(doc)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView22.text = document.data!!["Favorability"].toString()
+                if(result != null) {
+                    textView22.text = result.data!!["Favorability"].toString()
                 }
             }
             .addOnFailureListener { exception ->
@@ -62,7 +67,7 @@ class CharaActivity : AppCompatActivity(){
 
         //好感度を取得
         var Faboravirity = 0
-        db.collection("NameChange").document("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnCompleteListener{ Fav ->
                 if(Fav.isSuccessful){
@@ -81,18 +86,18 @@ class CharaActivity : AppCompatActivity(){
         val share_button = findViewById<ImageButton>(R.id.share_button)
 
 
-        db.collection("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView8.text = document.data!!["name"].toString()
+                if(result != null) {
+                    textView8.text = result.data!!["name"].toString()
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
             }
 
-        db.collection("NameChange").document("NameChange").get()
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { dress ->
                 if(dress.isSuccessful){
                     val dress_document = dress.result
@@ -151,7 +156,7 @@ class CharaActivity : AppCompatActivity(){
 
             }
 
-        db.collection("NameChange").document("NameChange").get()
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
                 if(background.isSuccessful){
                     val background_document = background.result
