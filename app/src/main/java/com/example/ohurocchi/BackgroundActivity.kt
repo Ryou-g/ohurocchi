@@ -72,10 +72,13 @@ class BackgroundActivity : AppCompatActivity() {
             textView.text = "洋式風呂"
             acceptflag = "daiyokujo"
         }
+        var status = Login_status.getInstance()
+
+        val doc = status.now_Login
 
         //適用ボタン押下時処理
         acceptButton.setOnClickListener {
-            db.collection("NameChange").document("NameChange").update("nowBackground",acceptflag)
+            db.collection("NameChange").document(doc).update("nowBackground",acceptflag)
             Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
 
         }

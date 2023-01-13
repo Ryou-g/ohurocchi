@@ -270,7 +270,11 @@ class BathlogActivity : AppCompatActivity() {
         //}
         val imageView2 = findViewById<ImageView>(R.id.imageView8)
 
-        db.collection("NameChange").document("NameChange").get()
+        var status = Login_status.getInstance()
+
+        val doc = status.now_Login
+
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
                 if(background.isSuccessful){
                     val background_document = background.result
