@@ -31,12 +31,16 @@ class SettingActivity : AppCompatActivity() {
 
         val progressBar1: ProgressBar = findViewById(R.id.circle_progressBar)
 
+        var status = Login_status.getInstance()
+
+        val doc = status.now_Login
+
         // 水平プログレスバーの最大値を設定します
         progressBar1.setMax(200);
 
         //好感度を取得
         var Faboravirity = 0
-        db.collection("NameChange").document("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnCompleteListener{ Fav ->
                 if(Fav.isSuccessful){
@@ -49,10 +53,6 @@ class SettingActivity : AppCompatActivity() {
                 }
             }
 
-
-        var status = Login_status.getInstance()
-
-        val doc = status.now_Login
 
         db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
@@ -69,11 +69,11 @@ class SettingActivity : AppCompatActivity() {
         val textView16: TextView = findViewById(R.id.textView16)
 
 
-        db.collection("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
+                if(result != null) {
+                    textView16.text = result.data!!["Favorability"].toString()
                 }
             }
             .addOnFailureListener { exception ->

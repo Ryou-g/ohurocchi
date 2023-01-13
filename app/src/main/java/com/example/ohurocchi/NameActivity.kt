@@ -28,7 +28,10 @@ class NameActivity : AppCompatActivity() {
 
         val imageView2 = findViewById<ImageView>(R.id.imageView7)
 
-        db.collection("NameChange").document("NameChange").get()
+        var status = Login_status.getInstance()
+        val doc = status.now_Login
+
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
                 if(background.isSuccessful){
                     val background_document = background.result
@@ -49,7 +52,7 @@ class NameActivity : AppCompatActivity() {
             var nowDress = 0
             var nowBack = ""
             var Fav = db.collection("NameChange")
-                .document("NameChange")
+                .document(doc)
                 .get()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -76,7 +79,7 @@ class NameActivity : AppCompatActivity() {
                             )
 
                             //セットした情報を基にデータを更新する
-                            db.collection("NameChange").document("NameChange").update("name",sName)
+                            db.collection("NameChange").document(doc).update("name",sName)
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "名前の変更が完了しました！", Toast.LENGTH_SHORT).show()
                                     etName.text.clear()
