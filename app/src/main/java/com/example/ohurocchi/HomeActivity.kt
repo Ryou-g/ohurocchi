@@ -44,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
         val textView23 = findViewById<TextView>(R.id.textView25)
-        
+
         val bathlog : Button = findViewById(R.id.bathlog)
 
         val db = Firebase.firestore
@@ -1183,4 +1183,3 @@ class HomeActivity : AppCompatActivity() {
         mp.release() //解放
     }
 }
-
