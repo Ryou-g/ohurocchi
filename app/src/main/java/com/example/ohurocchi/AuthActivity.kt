@@ -56,8 +56,8 @@ class AuthActivity : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
         Log.i(ContentValues.TAG, String.format("update ui user=%s", currentUser?.email.toString()))
         Log.i(ContentValues.TAG, String.format("update ui user=%s", currentUser?.uid.toString()))
-        val mes = findViewById<TextView>(R.id.message)
-        mes.text = status.now_Login
+        //val mes = findViewById<TextView>(R.id.message)
+        //mes.text = status.now_Login
         Log.d("nowLogin",status.now_Login)
         //(findViewById<TextView>(R.id.lblUser) as TextView).text = currentUser?.email.toString()
     }

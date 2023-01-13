@@ -71,6 +71,7 @@
         android:text="えー、さっき食べたばっかりだよ。もう少し我慢しようよ。"
         android:textColor="@android:color/black"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,6 +142,7 @@
 
     <Button
         android:id="@+id/bathlog"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/circle_view"
@@ -152,12 +154,12 @@
         android:scaleType="centerCrop"
         android:text="@string/bathlog"
         android:textColor="@color/black"
-        android:textSize="11.5dp"
+        android:textSize="12dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:icon="@drawable/bathlog"
         app:iconGravity="top"
-        app:iconSize="30sp"
+        app:iconSize="35sp"
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
