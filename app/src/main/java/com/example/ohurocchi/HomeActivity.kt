@@ -73,6 +73,7 @@ class HomeActivity : AppCompatActivity() {
         val date2 = cal1.time
         val starttime = sd.format(date2)
 
+        //ユーザー分別処理
         var status = Login_status.getInstance()
         val doc = status.now_Login
 
@@ -98,8 +99,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
-
-        db.collection("NameChange").document("NameChange").get()
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { dress ->
                 if(dress.isSuccessful){
                     val dress_document = dress.result
