@@ -124,11 +124,12 @@ class DressbuyActivity : AppCompatActivity() {
             fav_point = 200
             select_costume = 4
         }
-
+        var status = Login_status.getInstance()
+        val doc = status.now_Login
         //現在の好感度を取得
         var Fav = 0
         db.collection("NameChange")
-            .document("NameChange")
+            .document(doc)
             .get()
             .addOnCompleteListener{ namechange ->
                 if(namechange.isSuccessful){
@@ -166,7 +167,7 @@ class DressbuyActivity : AppCompatActivity() {
 
         //好感度を取得
         var Faboravirity = 0
-        db.collection("NameChange").document("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnCompleteListener{ Fav ->
                 if(Fav.isSuccessful){
@@ -182,11 +183,11 @@ class DressbuyActivity : AppCompatActivity() {
         val textView16: TextView = findViewById(R.id.textView16)
 
 
-        db.collection("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
+                if(result != null) {
+                    textView16.text = result.data!!["Favorability"].toString()
                 }
             }
             .addOnFailureListener { exception ->

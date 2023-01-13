@@ -78,11 +78,17 @@ class DressupActivity : AppCompatActivity() {
             nowDress_num = 4
         }
 
+
         //適用ボタン押下時処理
+        var status = Login_status.getInstance()
+
+        val doc = status.now_Login
+
         acceptButton.setOnClickListener {
+
             var dress = ""
             db.collection("NameChange")
-                .document("NameChange")
+                .document(doc)
                 .get()
                 .addOnCompleteListener{changedress ->
                     if(changedress.isSuccessful){
@@ -100,7 +106,8 @@ class DressupActivity : AppCompatActivity() {
                             }
                             Log.d(TAG,"dress=$dress")
                             if(dress == "True"){
-                                db.collection("NameChange").document("NameChange").update("nowDress",acceptflag,"nowDress_num",nowDress_num)
+                                //val doc = status.now_Login
+                                db.collection("NameChange").document(doc).update("nowDress",acceptflag,"nowDress_num",nowDress_num)
                                 Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
                             }else{
                                 Toast.makeText(this, "衣装をアンロックしてください！", Toast.LENGTH_SHORT).show()

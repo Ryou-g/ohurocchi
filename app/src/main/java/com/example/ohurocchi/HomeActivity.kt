@@ -39,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         //imageViewの取得
         val imageView = findViewById<ImageView>(R.id.imageView)
         val imageView2 = findViewById<ImageView>(R.id.imageView2)
@@ -72,6 +73,10 @@ class HomeActivity : AppCompatActivity() {
         val date2 = cal1.time
         val starttime = sd.format(date2)
 
+        //ユーザー分別処理
+        var status = Login_status.getInstance()
+        val doc = status.now_Login
+
         Log.d(TAG,"hour=$hour")
         Log.d(TAG,"hour=$min")
         Log.d(TAG,"hour=$sec")
@@ -93,7 +98,8 @@ class HomeActivity : AppCompatActivity() {
             message = "ふろりだ"
         }
 
-        db.collection("NameChange").document("NameChange").get()
+
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { dress ->
                 if(dress.isSuccessful){
                     val dress_document = dress.result
@@ -959,7 +965,8 @@ class HomeActivity : AppCompatActivity() {
 
             }
 
-        db.collection("NameChange").document("NameChange").get()
+
+        db.collection("NameChange").document(doc).get()
             .addOnCompleteListener { background ->
                 if(background.isSuccessful){
                     val background_document = background.result
@@ -970,7 +977,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
             }
-        var status = Login_status.getInstance()
+
         binding.button1.setOnClickListener {
             // Bathlogをインスタンス化
             val bathlog = Bathlog(
@@ -990,7 +997,7 @@ class HomeActivity : AppCompatActivity() {
             //好感度を取得する
             var Fa: Int = 10
             var Fav = db.collection("NameChange")
-                .document("NameChange")
+                .document(doc)
                 .get()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -1013,7 +1020,7 @@ class HomeActivity : AppCompatActivity() {
                                     }
                                     if(cnt == 0){
                                         Fa += 5
-                                        db.collection("NameChange").document("NameChange").update("Favorability",Fa)
+                                        db.collection("NameChange").document(doc).update("Favorability",Fa)
                                         Log.d(TAG,"FA2=$Fa")
                                         db.collection("BAthlog")
                                             .add(bathlog)
@@ -1058,7 +1065,7 @@ class HomeActivity : AppCompatActivity() {
 
         //好感度を取得
         var Faboravirity = 0
-        db.collection("NameChange").document("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnCompleteListener{ Fav ->
                 if(Fav.isSuccessful){
@@ -1074,11 +1081,11 @@ class HomeActivity : AppCompatActivity() {
         val textView16: TextView = findViewById(R.id.textView16)
 
 
-        db.collection("NameChange")
+        db.collection("NameChange").document(doc)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    textView16.text = document.data!!["Favorability"].toString()
+                if(result != null) {
+                    textView16.text = result.data!!["Favorability"].toString()
                 }
             }
             .addOnFailureListener { exception ->
