@@ -15,6 +15,7 @@ class TitleActivity : AppCompatActivity() {
     private lateinit var mp1:MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val status = Login_status.getInstance()
         val sharedPref = getSharedPreferences("user_login_id", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title)
@@ -26,13 +27,17 @@ class TitleActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
 
             //val intent = Intent(this,HomeActivity::class.java)
-            val savedText = sharedPref.getString("user_id", "none")
+            var savedText = sharedPref.getString("user_id", "none")
+            //savedText = "none"
             if (savedText == "none"){
                 val intent = Intent(this,AuthActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
             }else{
                 //ログイン情報があるとき
+                if (savedText != null) {
+                    status.now_Login = savedText
+                }
                 val intent = Intent(this,HomeActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //フェードイン・フェードアウト
