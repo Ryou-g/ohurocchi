@@ -23,7 +23,6 @@ class SettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setting)
 
         val namechange : Button = findViewById(R.id.namechange)
-        val sound : Button = findViewById(R.id.sound)
         val dressup : Button = findViewById(R.id.dressup)
         val background1 : Button = findViewById(R.id.background)
 
@@ -86,11 +85,6 @@ class SettingActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        sound.setOnClickListener {
-            val intent = Intent(applicationContext,SoundActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }
         dressup.setOnClickListener {
             val intent = Intent(applicationContext,DressupActivity::class.java)
             startActivity(intent)
