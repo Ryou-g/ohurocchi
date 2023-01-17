@@ -34,7 +34,12 @@ class AuthActivity : AppCompatActivity() {
             var email = (this.findViewById<EditText>(R.id.editTextTextEmailAddress) as EditText).text.toString()
             var password = (this.findViewById<EditText>(R.id.editTextTextPassword) as EditText).text.toString()
             Log.i(ContentValues.TAG, String.format("create email=%s, password%s", email, password))
-            createUserWithEmailAndPassword(email, password )
+            if((email != "") && (password != "")){
+                createUserWithEmailAndPassword(email, password )
+            }else{
+                Toast.makeText(this, "未入力の項目があります", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         // サインインボタン
@@ -43,7 +48,12 @@ class AuthActivity : AppCompatActivity() {
             var email = (this.findViewById<EditText>(R.id.editTextTextEmailAddress) as EditText).text.toString()
             var password = (this.findViewById<EditText>(R.id.editTextTextPassword) as EditText).text.toString()
             Log.i(ContentValues.TAG, String.format("signin email=%s, password%s", email, password))
-            signInWithEmailAndPassword(email, password)
+            if((email != "") && (password != "")){
+                signInWithEmailAndPassword(email, password)
+            }else{
+                Toast.makeText(this, "未入力の項目があります", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 
