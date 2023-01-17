@@ -118,9 +118,9 @@ class DressbuyActivity : AppCompatActivity() {
 
         sick.setOnClickListener {
 
-            imageView.setImageResource(R.drawable._34554)
-            textView.setText("準備中");
-            textView1.setText("???pt");
+            imageView.setImageResource(R.drawable.uniform_usually)
+            textView.setText("制服");
+            textView1.setText("200pt");
             fav_point = 200
             select_costume = 4
         }
