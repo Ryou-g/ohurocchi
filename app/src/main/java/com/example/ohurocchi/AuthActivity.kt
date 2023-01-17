@@ -102,7 +102,7 @@ class AuthActivity : AppCompatActivity() {
                                             "coat_unlock" to "True",
                                             "dress_unlock" to "False",
                                             "maid_unlock" to "False",
-                                            "name" to "とりっぴー",
+                                            "name" to "セバスちゃん",
                                             "nowBackground" to "huro",
                                             "nowDress" to "uniform_usually",
                                             "nowDress_num" to "1",

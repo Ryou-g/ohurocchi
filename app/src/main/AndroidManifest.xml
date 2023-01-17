@@ -29,10 +29,6 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SoundActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".NameActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
@@ -53,7 +49,7 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SettingActivity"
             android:exported="true"
