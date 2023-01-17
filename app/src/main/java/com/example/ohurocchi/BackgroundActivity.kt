@@ -41,7 +41,7 @@ class BackgroundActivity : AppCompatActivity() {
         imageButton14.setOnClickListener {
 
             imageView.setImageResource(R.drawable.wafu)
-            textView.text = "バスルーム"
+            textView.text = "浴室"
             acceptflag = "wafu"
 
         }
@@ -60,7 +60,7 @@ class BackgroundActivity : AppCompatActivity() {
         imageButton16.setOnClickListener {
 
             imageView.setImageResource(R.drawable.huro)
-            textView.text = "浴室"
+            textView.text = "バスルーム"
             acceptflag = "huro"
         }
 

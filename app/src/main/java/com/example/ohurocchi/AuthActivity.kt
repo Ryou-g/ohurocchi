@@ -89,7 +89,7 @@ class AuthActivity : AppCompatActivity() {
                 var user = mAuth?.currentUser
                 status.now_Login = user?.uid.toString()
                 //updateUI(user)
-                val intent = Intent(this,HomeActivity::class.java)
+                val intent = Intent(this,SplashActivity::class.java)
                 startActivity(intent)
                 sharedPref.edit().putString("user_id", user?.uid.toString()).commit()
             } else {
