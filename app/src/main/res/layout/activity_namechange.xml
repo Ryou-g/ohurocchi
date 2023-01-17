@@ -114,7 +114,7 @@
         android:fontFamily="@font/kosugimaru_regular"
         android:hint="@string/name1"
         android:inputType="textPersonName"
-        android:maxLength="5"
+        android:maxLength="8"
         android:maxLines="1"
         android:minHeight="48dp"
         android:textColor="@color/black"
