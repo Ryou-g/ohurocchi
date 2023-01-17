@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -22,6 +23,9 @@ class AuthActivity : AppCompatActivity() {
     val status = Login_status.getInstance()
     private var mAuth: FirebaseAuth? = null
     @SuppressLint("MissingInflatedId")
+
+    private lateinit var mp: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
@@ -55,6 +59,10 @@ class AuthActivity : AppCompatActivity() {
             }
 
         }
+        mp = MediaPlayer.create(this,R.raw.bath)
+        mp.isLooping = true
+        mp.start()
+
     }
 
     override fun onStart() {
@@ -155,5 +163,23 @@ class AuthActivity : AppCompatActivity() {
                 updateUI(null)
             }
         }
+    }
+
+    //６）再開
+    override fun onResume() {
+        super.onResume()
+        mp.start()
+    }
+    //５）一時停止
+    override fun onPause() {
+        super.onPause()
+        mp.pause()
+    }
+
+    //７）終了・メモリの解放
+    override fun onDestroy() {
+        super.onDestroy()
+        mp.stop() //終了・停止
+        mp.release() //解放
     }
 }
