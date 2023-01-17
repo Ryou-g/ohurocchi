@@ -25,8 +25,8 @@ class DressbuyActivity : AppCompatActivity() {
         val xchange_button = findViewById<Button>(R.id.button)
 
         //ここからホーム画面遷移のコード
-        val imageButton3: ImageButton = findViewById(R.id.imageButton3)
-        imageButton3.setOnClickListener {
+        val Button_1: Button = findViewById(R.id.Button_1)
+        Button_1.setOnClickListener {
             //ここから遷移用のコード
             val intent =
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
@@ -35,8 +35,8 @@ class DressbuyActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここから衣装配布画面遷移のコード
-        val imageButton2: ImageButton = findViewById(R.id.imageButton2)
-        imageButton2.setOnClickListener {
+        val Button_2: Button = findViewById(R.id.Button_2)
+        Button_2.setOnClickListener {
             //ここから遷移用のコード
             val intent = Intent(
                 this,
@@ -47,8 +47,8 @@ class DressbuyActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここからキャラ画面遷移のコード
-        val imageButton: ImageButton = findViewById(R.id.imageButton)
-        imageButton.setOnClickListener {
+        val Button_3: Button = findViewById(R.id.Button_3)
+        Button_3.setOnClickListener {
             //ここから遷移用のコード
             val intent = Intent(
                 this,
@@ -59,8 +59,8 @@ class DressbuyActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
         //ここから設定画面遷移のコード
-        val imageButton4: ImageButton = findViewById(R.id.imageButton4)
-        imageButton4.setOnClickListener {
+        val Button_4: Button = findViewById(R.id.Button_4)
+        Button_4.setOnClickListener {
             //ここから遷移用のコード
             val intent =
                 Intent(this, SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
