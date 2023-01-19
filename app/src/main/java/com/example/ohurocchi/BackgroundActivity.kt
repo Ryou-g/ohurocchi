@@ -79,7 +79,7 @@ class BackgroundActivity : AppCompatActivity() {
         //適用ボタン押下時処理
         acceptButton.setOnClickListener {
             db.collection("NameChange").document(doc).update("nowBackground",acceptflag)
-            Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "切り替え成功！", Toast.LENGTH_SHORT).show()
 
         }
 
