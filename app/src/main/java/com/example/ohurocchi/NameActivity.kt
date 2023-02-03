@@ -112,6 +112,7 @@ class NameActivity : AppCompatActivity() {
         }
         // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.setting)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
     }

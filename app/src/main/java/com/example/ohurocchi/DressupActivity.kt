@@ -124,6 +124,7 @@ class DressupActivity : AppCompatActivity() {
 
         // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.dress_buy)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
     }

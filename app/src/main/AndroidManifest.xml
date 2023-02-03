@@ -32,6 +32,10 @@
             android:name=".NameActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CreditActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".TitleActivity"
@@ -70,13 +74,6 @@
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
-
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-    </activity>
-
         <activity
             android:name=".AuthActivity"
             android:exported="true"

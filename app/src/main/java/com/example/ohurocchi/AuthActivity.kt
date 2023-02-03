@@ -60,6 +60,7 @@ class AuthActivity : AppCompatActivity() {
 
         }
         mp = MediaPlayer.create(this,R.raw.bath)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
 

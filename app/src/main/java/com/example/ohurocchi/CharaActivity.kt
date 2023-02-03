@@ -210,6 +210,7 @@ class CharaActivity : AppCompatActivity(){
         }
 
         mp = MediaPlayer.create(this,R.raw.chara)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
         share_button.setOnClickListener() {

@@ -70,6 +70,7 @@ class DressbuyActivity : AppCompatActivity() {
         }
 
         mp = MediaPlayer.create(this,R.raw.dress_buy)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
 

@@ -25,6 +25,7 @@ class SettingActivity : AppCompatActivity() {
         val namechange : Button = findViewById(R.id.namechange)
         val dressup : Button = findViewById(R.id.dressup)
         val background1 : Button = findViewById(R.id.background)
+        val credit : Button = findViewById(R.id.credit)
 
         val imageView2 = findViewById<ImageView>(R.id.imageView3)
 
@@ -96,6 +97,12 @@ class SettingActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
+        credit.setOnClickListener {
+            val intent = Intent(applicationContext,CreditActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+
         //ここからホーム画面遷移のコード
         val Button_1: Button = findViewById(R.id.Button_1)
         Button_1.setOnClickListener {
@@ -141,6 +148,7 @@ class SettingActivity : AppCompatActivity() {
         }
         // ③ 読込処理(CDを入れる)
         mp = MediaPlayer.create(this,R.raw.setting)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
     }

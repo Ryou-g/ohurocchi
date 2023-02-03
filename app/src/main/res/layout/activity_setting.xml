@@ -43,6 +43,7 @@
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".7" />
 
+
     <include
         android:id="@+id/include3"
         layout="@layout/activity_common"
@@ -50,11 +51,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view5"
@@ -77,7 +77,6 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="252dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/namechange"
         android:textColor="@color/black"
@@ -89,17 +88,18 @@
         app:layout_constraintHeight_percent=".06"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:layout_constraintVertical_bias="0.756"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".7" />
+        app:layout_constraintWidth_percent=".7"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/dressup"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="392dp"
+        android:layout_marginBottom="444dp"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/dressup"
         android:textColor="@color/black"
@@ -109,20 +109,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent=".06"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".7" />
+        app:layout_constraintWidth_percent=".7"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/background"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_default= "percent"
-        app:layout_constraintWidth_percent= ".7"
-        app:layout_constraintHeight_default= "percent"
-        app:layout_constraintHeight_percent= ".06"
         android:fontFamily="@font/kosugimaru_regular"
         android:text="@string/background"
         android:textColor="@color/black"
@@ -130,8 +129,37 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".06"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dressup"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.043"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".7"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/credit"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="276dp"
+        android:fontFamily="@font/kosugimaru_regular"
+        android:text="クレジット"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".06"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".7"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -67,7 +67,6 @@
         android:background="@drawable/bg_balloon"
         android:lineSpacingExtra="4sp"
         android:padding="8dp"
-        android:text="えー、さっき食べたばっかりだよ。もう少し我慢しようよ。"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"

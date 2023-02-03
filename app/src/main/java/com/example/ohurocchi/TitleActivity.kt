@@ -46,7 +46,9 @@ class TitleActivity : AppCompatActivity() {
         }
 
         mp = MediaPlayer.create(this,R.raw.bath)
+        mp.setVolume(0.4F,0.4F)
         mp1 = MediaPlayer.create(this,R.raw.title)
+        mp1.setVolume(1F,1F)
         mp.isLooping = true
         mp.start()
         mp1.start()

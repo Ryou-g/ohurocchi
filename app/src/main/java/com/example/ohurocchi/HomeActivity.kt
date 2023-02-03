@@ -24,14 +24,30 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var mp: MediaPlayer
 
-    // ① 準備（コンポを部屋に置く・コピペOK）
-    private var soundPool // 効果音を鳴らす本体（コンポ）
-            : SoundPool? = null
-    private var mp3a // 効果音データ（mp3）
-            = 0
-
-    private var mp3b // 効果音データ（mp3）
-            = 0
+    // Voiceデータ（mp3）
+    private lateinit var mp3a: MediaPlayer
+    private lateinit var mp3b: MediaPlayer
+    private lateinit var mp3c: MediaPlayer
+    private lateinit var mp3d: MediaPlayer
+    private lateinit var mp3e: MediaPlayer
+    private lateinit var mp3f: MediaPlayer
+    private lateinit var mp3g: MediaPlayer
+    private lateinit var mp3h: MediaPlayer
+    private lateinit var mp3i: MediaPlayer
+    private lateinit var mp3j: MediaPlayer
+    private lateinit var mp3k: MediaPlayer
+    private lateinit var mp3l: MediaPlayer
+    private lateinit var mp3m: MediaPlayer
+    private lateinit var mp3n: MediaPlayer
+    private lateinit var mp3o: MediaPlayer
+    private lateinit var mp3p: MediaPlayer
+    private lateinit var mp3q: MediaPlayer
+    private lateinit var mp3r: MediaPlayer
+    private lateinit var mp3s: MediaPlayer
+    private lateinit var mp3t: MediaPlayer
+    private lateinit var mp3u: MediaPlayer
+    private lateinit var mp3v: MediaPlayer
+    private lateinit var mp3w: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -151,39 +167,51 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.coat_highest)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
 
                                 }else if(fdate7 >= fdate11 && fdate7 < fdate13) {
                                     imageView.setImageResource(R.drawable.coat_highest)
                                     if( random == 1){
                                         textView23.setText("ね、また今度イルミネーション見に行こうよ！")
+                                        mp3f.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
 
                                 }else if(fdate7 >= fdate13) {
                                     imageView.setImageResource(R.drawable.coat_highest)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if (random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(fdate7 in fdate15..fdate9){
                                     imageView.setImageResource(R.drawable.coat_highest)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if (random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }
                             }else if(Fav >= 100){
@@ -219,34 +247,43 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.coat_usually)
                                     if (random == 1) {
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if (random == 2) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if (random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(fdate7 >= fdate11 && fdate7 < fdate13) {
                                     imageView.setImageResource(R.drawable.coat_usually)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(fdate7 >= fdate13){
                                     imageView.setImageResource(R.drawable.coat_usually)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
 
                                 }else if(fdate7 in fdate15..fdate9){
@@ -254,12 +291,15 @@ class HomeActivity : AppCompatActivity() {
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }
 
@@ -298,36 +338,45 @@ class HomeActivity : AppCompatActivity() {
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(fdate7 >= fdate11 && fdate7 < fdate13){
                                     imageView.setImageResource(R.drawable.coat_bad)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(fdate7 >= fdate13){
                                     imageView.setImageResource(R.drawable.coat_bad)
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
 
                                 }else if(fdate7 in fdate15..fdate9){
@@ -335,12 +384,15 @@ class HomeActivity : AppCompatActivity() {
                                     if( random == 1){
                                         Log.d(TAG, "skin1=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         Log.d(TAG, "skin2=$random")
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         Log.d(TAG, "skin3=$random")
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }
 
@@ -359,38 +411,50 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.coat_terrible)
                                     if( random == 1){
                                         textView23.setText("おはよー")
+                                        mp3i.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
 
                                 }else if(date7 >= date9 && date7 < date10 ){
                                     imageView.setImageResource(R.drawable.coat_terrible)
                                     if( random == 1){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.coat_terrible)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }else if(date7 in date11..date8) {
                                     imageView.setImageResource(R.drawable.coat_terrible)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 3) {
                                         textView23.setText("最近寒いねー、風邪引かないように気をつけないと")
+                                        mp3e.start()
                                     }
                                 }
 
@@ -409,37 +473,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.dress_highest)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("今度の休みピクニック行かない？")
+                                        mp3l.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.dress_highest)
                                     if( random == 1){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 2){
                                         textView23.setText("今度の休みピクニック行かない？")
+                                        mp3l.start()
                                     } else if(random == 3) {
                                         textView23.setText("ね、今年の夏海行こうよ！")
+                                        mp3m.start()
                                     }
                                 }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_highest)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("今から花火買って一緒にやろうよ！")
+                                        mp3n.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8) {
                                     imageView.setImageResource(R.drawable.dress_highest)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
 
@@ -456,38 +532,50 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.dress_usually)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     }
 
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.dress_usually)
                                     if( random == 1){
                                         textView23.setText("風が気持ちいいねー、眠たくなっちゃう")
+                                        mp3o.start()
                                     } else if(random == 2){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         textView23.setText("風が気持ちいいねー、眠たくなっちゃう")
+                                        mp3o.start()
                                     }
                                 }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_usually)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.dress_usually)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
                             }else if(Fav >= 50){
@@ -503,38 +591,50 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.dress_bad)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.dress_bad)
                                     if( random == 1){
                                         textView23.setText("気温がちょうどいいからお出かけしたいねー")
+                                        mp3p.start()
                                     } else if(random == 2){
                                         textView23.setText("気温がちょうどいいからお出かけしたいねー")
+                                        mp3p.start()
                                     } else if(random == 3) {
                                         textView23.setText("気温がちょうどいいからお出かけしたいねー")
+                                        mp3p.start()
                                     }
 
                                 }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_bad)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.dress_bad)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
 
@@ -551,37 +651,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.dress_terrible)
                                     if( random == 1){
                                         textView23.setText("おはよー")
+                                        mp3i.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.dress_terrible)
                                     if( random == 1){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date10) {
                                     imageView.setImageResource(R.drawable.dress_terrible)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }else if(date7 in date11..date8) {
                                     imageView.setImageResource(R.drawable.dress_terrible)
                                     if (random == 1) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 2) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if (random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }
                             }
@@ -598,37 +710,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.maid_highest)
                                     if( random == 1){
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.maid_highest)
                                     if( random == 1){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_highest)
                                     if( random == 1){
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.maid_highest)
                                     if( random == 1){
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     } else if(random == 2){
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     } else if(random == 3) {
                                         textView23.setText("お帰りなさいませ、ご主人様")
+                                        mp3q.start()
                                     }
                                 }
                                 //imageView10.setImageResource(R.drawable.e1300_1)
@@ -644,37 +768,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.maid_usually)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.maid_usually)
                                     if( random == 1){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 2){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         textView23.setText("メイドの真似はちょっと...")
+                                        mp3r.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_usually)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.maid_usually)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
 
@@ -690,37 +826,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.maid_bad)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.maid_bad)
                                     if( random == 1){
                                         textView23.setText("メイド服なんてめったに着ないから新鮮だね")
+                                        mp3s.start()
                                     } else if(random == 2){
                                         textView23.setText("メイド服なんてめったに着ないから新鮮だね")
+                                        mp3s.start()
                                     } else if(random == 3) {
                                         textView23.setText("メイド服なんてめったに着ないから新鮮だね")
+                                        mp3s.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_bad)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.maid_bad)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
                             }else{
@@ -735,37 +883,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.maid_terrible)
                                     if( random == 1){
                                         textView23.setText("おはよー")
+                                        mp3i.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよー")
+                                        mp3i.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.maid_terrible)
                                     if( random == 1){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.maid_terrible)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.maid_terrible)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }
                             }
@@ -783,8 +943,10 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.uniform_highest)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 3) {
                                         textView23.setText("今日お弁当作ってきたから一緒に食べよ！")
                                     }
@@ -792,29 +954,38 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.uniform_highest)
                                     if( random == 1){
                                         textView23.setText("前より雰囲気良くなったかも！")
+                                        mp3d.start()
                                     } else if(random == 2){
                                         textView23.setText("今日お弁当作ってきたから一緒に食べよ！")
+                                        mp3t.start()
                                     } else if(random == 3) {
                                         textView23.setText("放課後遊ばない？")
+                                        mp3u.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_highest)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
 
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.uniform_highest)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
                             }else if(Fav >= 100){
@@ -829,37 +1000,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.uniform_usually)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.uniform_usually)
                                     if( random == 1){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 2){
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近いい感じじゃない？")
+                                        mp3h.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_usually)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.uniform_usually)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
 
@@ -875,37 +1058,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.uniform_bad)
                                     if( random == 1){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 2){
                                         textView23.setText("おはよう！　今日もがんばろー！")
+                                        mp3c.start()
                                     } else if(random == 3) {
                                         textView23.setText("ちゃんと朝ごはん食べた？")
+                                        mp3v.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.uniform_bad)
                                     if( random == 1){
                                         textView23.setText("眠いけど授業中に寝ちゃダメだよ？")
+                                        mp3w.start()
                                     } else if(random == 2){
                                         textView23.setText("眠いけど授業中に寝ちゃダメだよ？")
+                                        mp3w.start()
                                     } else if(random == 3) {
                                         textView23.setText("眠いけど授業中に寝ちゃダメだよ？")
+                                        mp3w.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_bad)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.uniform_bad)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、お風呂に入ってゆっくり休んでね")
+                                        mp3g.start()
                                     }
                                 }
 
@@ -921,37 +1116,49 @@ class HomeActivity : AppCompatActivity() {
                                     imageView.setImageResource(R.drawable.uniform_terrible)
                                     if( random == 1){
                                         textView23.setText("おはよー")
+                                        mp3i.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date9 && date7 < date10){
                                     imageView.setImageResource(R.drawable.uniform_terrible)
                                     if( random == 1){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 2){
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     } else if(random == 3) {
                                         textView23.setText("最近ちゃんとお風呂入ってる？")
+                                        mp3j.start()
                                     }
                                 }else if(date7 >= date10){
                                     imageView.setImageResource(R.drawable.uniform_terrible)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }else if(date7 in date11..date8){
                                     imageView.setImageResource(R.drawable.uniform_terrible)
                                     if( random == 1){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 2){
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     } else if(random == 3) {
                                         textView23.setText("１日お疲れさま～、ちゃんとお風呂に入りなよ？")
+                                        mp3k.start()
                                     }
                                 }
 
@@ -1030,7 +1237,7 @@ class HomeActivity : AppCompatActivity() {
                                                     "DocumentSnapshot added with ID: ${documentReference.id}"
                                                 )
                                                 Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
-                                                soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
+                                                mp3a.start()
                                             }
                                             .addOnFailureListener {
                                                 Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
@@ -1038,7 +1245,7 @@ class HomeActivity : AppCompatActivity() {
                                     }
                                     else {
                                         Toast.makeText(this, "本日は入浴済みです！", Toast.LENGTH_SHORT).show()
-                                        soundPool!!.play(mp3b, 1f, 1f, 0, 0, 1f)
+                                        mp3b.start()
                                     }
                                 }
                                 .addOnFailureListener{
@@ -1143,23 +1350,56 @@ class HomeActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
 
-        // ② 初期化（電源を入れる・コピペOK）
-        soundPool = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            SoundPool(5, AudioManager.STREAM_MUSIC, 0)
-        } else {
-            val attr = AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .build()
-            SoundPool.Builder()
-                .setAudioAttributes(attr)
-                .setMaxStreams(5)
-                .build()
-        }
         // ③ 読込処理(CDを入れる)
-        mp3a = soundPool!!.load(this, R.raw.voice1, 1)
-        mp3b = soundPool!!.load(this, R.raw.voice2, 1)
+        mp3a = MediaPlayer.create(this, R.raw.sugoi)
+        mp3b = MediaPlayer.create(this, R.raw.are)
+        mp3c = MediaPlayer.create(this, R.raw.hiten_ohayo)
+        mp3d = MediaPlayer.create(this, R.raw.hunniki)
+        mp3e = MediaPlayer.create(this, R.raw.samui_kaze)
+        mp3f = MediaPlayer.create(this, R.raw.irumi)
+        mp3g = MediaPlayer.create(this, R.raw.itinitiotukare)
+        mp3h = MediaPlayer.create(this, R.raw.iikanji)
+        mp3i = MediaPlayer.create(this, R.raw.ohayo)
+        mp3j = MediaPlayer.create(this, R.raw.hurohaiiteru)
+        mp3k = MediaPlayer.create(this, R.raw.otukare_cyanto)
+        mp3l = MediaPlayer.create(this, R.raw.picnic)
+        mp3m = MediaPlayer.create(this, R.raw.sea)
+        mp3n = MediaPlayer.create(this, R.raw.hanabi)
+        mp3o = MediaPlayer.create(this, R.raw.kazekimoti)
+        mp3p = MediaPlayer.create(this, R.raw.odekake)
+        mp3q = MediaPlayer.create(this, R.raw.gosyujinnsama)
+        mp3r = MediaPlayer.create(this, R.raw.meidonomane)
+        mp3s = MediaPlayer.create(this, R.raw.sinnsenn)
+        mp3t = MediaPlayer.create(this, R.raw.obenntou)
+        mp3u = MediaPlayer.create(this, R.raw.houkago)
+        mp3v = MediaPlayer.create(this, R.raw.asagohann)
+        mp3w = MediaPlayer.create(this, R.raw.netyadame)
+
+        mp3a.setVolume(1F,1F)
+        mp3b.setVolume(1F,1F)
+        mp3c.setVolume(1F,1F)
+        mp3d.setVolume(1F,1F)
+        mp3e.setVolume(1F,1F)
+        mp3f.setVolume(1F,1F)
+        mp3g.setVolume(1F,1F)
+        mp3h.setVolume(1F,1F)
+        mp3i.setVolume(1F,1F)
+        mp3j.setVolume(1F,1F)
+        mp3k.setVolume(1F,1F)
+        mp3l.setVolume(1F,1F)
+        mp3m.setVolume(1F,1F)
+        mp3n.setVolume(1F,1F)
+        mp3o.setVolume(1F,1F)
+        mp3p.setVolume(1F,1F)
+        mp3q.setVolume(1F,1F)
+        mp3r.setVolume(1F,1F)
+        mp3s.setVolume(1F,1F)
+        mp3t.setVolume(1F,1F)
+        mp3u.setVolume(1F,1F)
+        mp3v.setVolume(1F,1F)
+        mp3w.setVolume(1F,1F)
         mp = MediaPlayer.create(this,R.raw.bath)
+        mp.setVolume(0.4F,0.4F)
         mp.isLooping = true
         mp.start()
     }
@@ -1169,11 +1409,57 @@ class HomeActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mp.start()
+        mp3a.start()
+        mp3b.start()
+        mp3c.start()
+        mp3d.start()
+        mp3e.start()
+        mp3f.start()
+        mp3g.start()
+        mp3h.start()
+        mp3i.start()
+        mp3j.start()
+        mp3k.start()
+        mp3l.start()
+        mp3m.start()
+        mp3n.start()
+        mp3o.start()
+        mp3p.start()
+        mp3q.start()
+        mp3r.start()
+        mp3s.start()
+        mp3t.start()
+        mp3u.start()
+        mp3v.start()
+        mp3w.start()
     }
     //５）一時停止
     override fun onPause() {
         super.onPause()
         mp.pause()
+        mp3a.pause()
+        mp3b.pause()
+        mp3c.pause()
+        mp3d.pause()
+        mp3e.pause()
+        mp3f.pause()
+        mp3g.pause()
+        mp3h.pause()
+        mp3i.pause()
+        mp3j.pause()
+        mp3k.pause()
+        mp3l.pause()
+        mp3m.pause()
+        mp3n.pause()
+        mp3o.pause()
+        mp3p.pause()
+        mp3q.pause()
+        mp3r.pause()
+        mp3s.pause()
+        mp3t.pause()
+        mp3u.pause()
+        mp3v.pause()
+        mp3w.pause()
     }
 
     //７）終了・メモリの解放
@@ -1181,5 +1467,73 @@ class HomeActivity : AppCompatActivity() {
         super.onDestroy()
         mp.stop() //終了・停止
         mp.release() //解放
+        mp3a.stop()
+        mp3a.release()
+
+        mp3b.stop()
+        mp3b.release()
+
+        mp3c.stop()
+        mp3c.release()
+
+        mp3d.stop()
+        mp3d.release()
+
+        mp3e.stop()
+        mp3e.release()
+
+        mp3f.stop()
+        mp3f.release()
+
+        mp3g.stop()
+        mp3g.release()
+
+        mp3h.stop()
+        mp3h.release()
+
+        mp3i.stop()
+        mp3i.release()
+
+        mp3j.stop()
+        mp3j.release()
+
+        mp3k.stop()
+        mp3k.release()
+
+        mp3l.stop()
+        mp3l.release()
+
+        mp3m.stop()
+        mp3m.release()
+
+        mp3n.stop()
+        mp3n.release()
+
+        mp3o.stop()
+        mp3o.release()
+
+        mp3p.stop()
+        mp3p.release()
+
+        mp3q.stop()
+        mp3q.release()
+
+        mp3r.stop()
+        mp3r.release()
+
+        mp3s.stop()
+        mp3s.release()
+
+        mp3t.stop()
+        mp3t.release()
+
+        mp3u.stop()
+        mp3u.release()
+
+        mp3v.stop()
+        mp3v.release()
+
+        mp3w.stop()
+        mp3w.release()
     }
 }
