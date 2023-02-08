@@ -103,8 +103,8 @@
 
     <Button
         android:id="@+id/Button_1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/futter_view"
         android:backgroundTint="@null"
         android:elevation="1dp"
@@ -128,15 +128,15 @@
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent=".17"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/Button_2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/futter_view"
         android:backgroundTint="@null"
         android:elevation="1dp"
@@ -167,8 +167,8 @@
 
     <Button
         android:id="@+id/Button_3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/futter_view"
         android:backgroundTint="@null"
         android:elevation="1dp"
@@ -199,8 +199,8 @@
 
     <Button
         android:id="@+id/Button_4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/futter_view"
         android:backgroundTint="@null"
         android:elevation="1dp"

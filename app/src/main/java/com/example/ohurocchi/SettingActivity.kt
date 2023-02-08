@@ -26,6 +26,7 @@ class SettingActivity : AppCompatActivity() {
         val dressup : Button = findViewById(R.id.dressup)
         val background1 : Button = findViewById(R.id.background)
         val credit : Button = findViewById(R.id.credit)
+        val alarm : Button = findViewById(R.id.alarm)
 
         val imageView2 = findViewById<ImageView>(R.id.imageView3)
 
@@ -99,6 +100,11 @@ class SettingActivity : AppCompatActivity() {
 
         credit.setOnClickListener {
             val intent = Intent(applicationContext,CreditActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+        alarm.setOnClickListener {
+            val intent = Intent(applicationContext,AlarmActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
