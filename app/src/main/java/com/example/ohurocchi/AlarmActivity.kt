@@ -15,7 +15,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class AlarmActivity : AppCompatActivity() {
+class AlarmActivity : AppCompatActivity(){
 
     // ① 準備（コンポを部屋に置く・コピペOK）
     private lateinit var mp: MediaPlayer
@@ -55,14 +55,25 @@ class AlarmActivity : AppCompatActivity() {
         text_et.setOnClickListener {
             showTimePickerDialog()
         }
-        var number : Int = text_et.text.toString().toIntOrNull()?: 10
+
         //アラームを設定するボタン
         val buttonAlarm: Button = findViewById(R.id.buttonAlarm)
         buttonAlarm.setOnClickListener {
             val calendar = java.util.Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
-            // 10sec
-            calendar.add(java.util.Calendar.SECOND, number)
+
+            var number : String = text_et.text.toString()
+            Log.d("TAG", number)
+            val HH : String = number.toString().take(2)
+            val hh : Int = HH.toInt()
+            Log.d("TAG", HH)
+            val MM : String = number.toString().takeLast(2)
+            val mm : Int = MM.toInt()
+
+            calendar.set(java.util.Calendar.HOUR_OF_DAY, hh)
+            calendar.set(java.util.Calendar.MINUTE, mm)
+            calendar.set(java.util.Calendar.SECOND, 0)
+
             val intent = Intent(applicationContext, AlarmNotification::class.java)
             intent.putExtra("RequestCode", requestCode)
             pending = PendingIntent.getBroadcast(

@@ -1,5 +1,6 @@
 package com.example.ohurocchi
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -13,6 +14,7 @@ import java.util.*
 
 class AlarmNotification : BroadcastReceiver() {
     // データを受信した
+    @SuppressLint("MissingPermission")
     override fun onReceive(context: Context, intent: Intent) {
         val requestCode = intent.getIntExtra("RequestCode", 0)
         val pendingIntent = PendingIntent.getActivity(
@@ -27,7 +29,7 @@ class AlarmNotification : BroadcastReceiver() {
         val dataFormat = SimpleDateFormat("HH:mm:ss", Locale.JAPAN)
         val cTime = dataFormat.format(currentTime)
 
-        // メッセージ　+ 11:22:331
+        // メッセージ
         val message = "お風呂の時間です！ $cTime"
 
 
