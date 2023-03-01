@@ -24,6 +24,7 @@ class DressupActivity : AppCompatActivity() {
     private var buttonse = 0
     private var choice = 0
     private var decision = 0
+    private var cancel = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup)
@@ -40,13 +41,14 @@ class DressupActivity : AppCompatActivity() {
         soundPool = SoundPool.Builder()
             .setAudioAttributes(audioAttributes)
             // ストリーム数に応じて
-            .setMaxStreams(3)
+            .setMaxStreams(4)
             .build()
 
         // 効果音をロードしておく
         buttonse = soundPool.load(this, R.raw.button_se, 1)
         choice = soundPool.load(this, R.raw.choice, 1)
         decision = soundPool.load(this, R.raw.decision, 1)
+        cancel = soundPool.load(this, R.raw.cancel, 1)
 
         // load が終わったか確認する場合
         soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
@@ -134,9 +136,6 @@ class DressupActivity : AppCompatActivity() {
         val doc = status.now_Login
 
         acceptButton.setOnClickListener {
-            // 効果音 の再生
-            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
-            soundPool.play(decision, 0.3f, 0.3f, 0, 0, 1.0f)
             var dress = ""
             db.collection("NameChange")
                 .document(doc)
@@ -160,8 +159,14 @@ class DressupActivity : AppCompatActivity() {
                                 //val doc = status.now_Login
                                 db.collection("NameChange").document(doc).update("nowDress",acceptflag,"nowDress_num",nowDress_num)
                                 Toast.makeText(this, "着せ替え成功！", Toast.LENGTH_SHORT).show()
+                                // 効果音 の再生
+                                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                                soundPool.play(decision, 0.3f, 0.3f, 0, 0, 1.0f)
                             }else{
                                 Toast.makeText(this, "衣装をアンロックしてください！", Toast.LENGTH_SHORT).show()
+                                // 効果音 の再生
+                                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                                soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
                             }
                         }
                     }
