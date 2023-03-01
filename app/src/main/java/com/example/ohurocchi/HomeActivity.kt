@@ -28,6 +28,8 @@ class HomeActivity : AppCompatActivity() {
     // SE
     private lateinit var soundPool: SoundPool
     private var buttonse = 0
+    private var bathbtn = 0
+    private var cancel = 0
 
     // Voiceデータ（mp3）
     private lateinit var mp3a: MediaPlayer
@@ -72,11 +74,13 @@ class HomeActivity : AppCompatActivity() {
         soundPool = SoundPool.Builder()
             .setAudioAttributes(audioAttributes)
             // ストリーム数に応じて
-            .setMaxStreams(2)
+            .setMaxStreams(3)
             .build()
 
         // 効果音をロードしておく
         buttonse = soundPool.load(this, R.raw.button_se, 1)
+        cancel = soundPool.load(this, R.raw.cancel, 0)
+        bathbtn = soundPool.load(this, R.raw.bathbtn, 0)
 
 
         // load が終わったか確認する場合
@@ -1225,15 +1229,6 @@ class HomeActivity : AppCompatActivity() {
                 uid = status.now_Login
             )
             Log.d(TAG,"インスタンス化")
-            // 効果音 の再生
-            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
-            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
-
-
-            // ④ 再生処理(再生ボタン)
-            //soundPool!!.play(mp3a, 1f, 1f, 0, 0, 1f)
-
-            //soundPool!!.play(mp3b, 1f, 1f, 0, 0, 1f)
 
             //好感度を取得する
             var Fa: Int = 10
@@ -1272,6 +1267,9 @@ class HomeActivity : AppCompatActivity() {
                                                 )
                                                 Toast.makeText(this, "お風呂に入りました！", Toast.LENGTH_SHORT).show()
                                                 mp3a.start()
+                                                // 効果音 の再生
+                                                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                                                soundPool.play(bathbtn, 0.3f, 0.3f, 0, 0, 1.0f)
                                             }
                                             .addOnFailureListener {
                                                 Toast.makeText(this, "エラーが出ました", Toast.LENGTH_SHORT).show()
@@ -1280,6 +1278,9 @@ class HomeActivity : AppCompatActivity() {
                                     else {
                                         Toast.makeText(this, "本日は入浴済みです！", Toast.LENGTH_SHORT).show()
                                         mp3b.start()
+                                        // 効果音 の再生
+                                        // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                                        soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
                                     }
                                 }
                                 .addOnFailureListener{
