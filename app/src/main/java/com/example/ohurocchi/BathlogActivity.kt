@@ -1,6 +1,7 @@
 package com.example.ohurocchi
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.SoundPool
@@ -63,10 +64,13 @@ class BathlogActivity : AppCompatActivity() {
         val btnBack: ImageButton = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
+
+            //ここから遷移用のコード
+            val intent = Intent(this,HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
+            startActivity(intent)
             // 効果音 の再生
             // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
             soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
-            finish()
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
