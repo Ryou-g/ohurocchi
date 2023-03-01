@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -24,24 +26,60 @@ class AuthActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     @SuppressLint("MissingInflatedId")
 
+    // BGM
     private lateinit var mp: MediaPlayer
+
+    // SE
+    private lateinit var soundPool: SoundPool
+    private var decision = 0
+    private var cancel = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
+
+        val audioAttributes = AudioAttributes.Builder()
+            // USAGE_MEDIA
+            // USAGE_GAME
+            .setUsage(AudioAttributes.USAGE_GAME)
+            // CONTENT_TYPE_MUSIC
+            // CONTENT_TYPE_SPEECH, etc.
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setAudioAttributes(audioAttributes)
+            // ストリーム数に応じて
+            .setMaxStreams(2)
+            .build()
+
+        // 効果音をロードしておく
+        decision = soundPool.load(this, R.raw.decision, 1)
+        cancel = soundPool.load(this, R.raw.cancel, 1)
+
+        // load が終わったか確認する場合
+        soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
+            Log.d("debug", "sampleId=$sampleId")
+            Log.d("debug", "status=$status")
+        }
 
         mAuth = FirebaseAuth.getInstance()
 
         // ユーザー登録ボタン
         var btnCreate: Button = findViewById<Button>(R.id.signup) as Button
         btnCreate.setOnClickListener{
+
             var email = (this.findViewById<EditText>(R.id.editTextTextEmailAddress) as EditText).text.toString()
             var password = (this.findViewById<EditText>(R.id.editTextTextPassword) as EditText).text.toString()
             Log.i(ContentValues.TAG, String.format("create email=%s, password%s", email, password))
             if((email != "") && (password != "")){
                 createUserWithEmailAndPassword(email, password )
+
             }else{
                 Toast.makeText(this, "未入力の項目があります", Toast.LENGTH_SHORT).show()
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
             }
 
         }
@@ -49,13 +87,18 @@ class AuthActivity : AppCompatActivity() {
         // サインインボタン
         var btnSignIn: Button = findViewById<Button>(R.id.login) as Button
         btnSignIn.setOnClickListener{
+
             var email = (this.findViewById<EditText>(R.id.editTextTextEmailAddress) as EditText).text.toString()
             var password = (this.findViewById<EditText>(R.id.editTextTextPassword) as EditText).text.toString()
             Log.i(ContentValues.TAG, String.format("signin email=%s, password%s", email, password))
             if((email != "") && (password != "")){
                 signInWithEmailAndPassword(email, password)
+
             }else{
                 Toast.makeText(this, "未入力の項目があります", Toast.LENGTH_SHORT).show()
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
             }
 
         }
@@ -93,6 +136,9 @@ class AuthActivity : AppCompatActivity() {
                         Log.d(ContentValues.TAG, "createUserWithEmail:success")
                         var user = mAuth?.currentUser
                         Toast.makeText(this, "登録成功", Toast.LENGTH_SHORT).show()
+                        // 効果音 の再生
+                        // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                        soundPool.play(decision, 0.3f, 0.3f, 0, 0, 1.0f)
                         updateUI(user)
                         db.collection("NameChange").document(user?.uid.toString()).get()
                             .addOnCompleteListener { task ->
@@ -134,11 +180,17 @@ class AuthActivity : AppCompatActivity() {
                     } else {
                         Log.w(ContentValues.TAG, "createUserWithEmail:failure")
                         Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                        // 効果音 の再生
+                        // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                        soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
                         updateUI(null)
                     }
                 }
         }catch(e: Exception) {
             Toast.makeText(this, "このユーザーは既に登録されています", Toast.LENGTH_SHORT).show()
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
         }
     }
 
@@ -158,9 +210,15 @@ class AuthActivity : AppCompatActivity() {
                 sharedPref.edit().putString("user_id", user?.uid.toString()).commit()
                 //過去のログイン状態確認
                 Log.d("userID",user?.uid.toString())
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(decision, 0.3f, 0.3f, 0, 0, 1.0f)
             } else {
                 Log.w(ContentValues.TAG, "signInWithEmail:failure")
                 Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
                 updateUI(null)
             }
         }

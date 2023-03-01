@@ -3,16 +3,25 @@ package com.example.ohurocchi
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
+import android.media.AudioAttributes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.media.MediaPlayer
+import android.media.SoundPool
+import android.util.Log
 import android.widget.ImageView
 
 class TitleActivity : AppCompatActivity() {
-    //５）mpを横断的に使えるようにここに書く
+    // BGM
     private lateinit var mp:MediaPlayer
+
+    // Title_call
     private lateinit var mp1:MediaPlayer
+
+    // SE
+    private lateinit var soundPool: SoundPool
+    private var titlestart = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val status = Login_status.getInstance()
@@ -20,12 +29,39 @@ class TitleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title)
 
+        val audioAttributes = AudioAttributes.Builder()
+            // USAGE_MEDIA
+            // USAGE_GAME
+            .setUsage(AudioAttributes.USAGE_GAME)
+            // CONTENT_TYPE_MUSIC
+            // CONTENT_TYPE_SPEECH, etc.
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setAudioAttributes(audioAttributes)
+            // ストリーム数に応じて
+            .setMaxStreams(2)
+            .build()
+
+        // 効果音をロードしておく
+        titlestart = soundPool.load(this, R.raw.title_start, 1)
+
+
+        // load が終わったか確認する場合
+        soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
+            Log.d("debug", "sampleId=$sampleId")
+            Log.d("debug", "status=$status")
+        }
+
         //１）Viewの取得
         val btnStart :Button =findViewById(R.id.btnStart)
 
         //２）ボタンを押したら次の画面へ
         btnStart.setOnClickListener {
-
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(titlestart, 0.3f, 0.3f, 0, 0, 1.0f)
             //val intent = Intent(this,HomeActivity::class.java)
             var savedText = sharedPref.getString("user_id", "none")
             //savedText = "none"

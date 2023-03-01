@@ -3,7 +3,9 @@ package com.example.ohurocchi
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,13 +19,40 @@ class CharaActivity : AppCompatActivity(){
 
     private var db = Firebase.firestore
 
-    // ① 準備（コンポを部屋に置く・コピペOK）
-
+    // BGM
     private lateinit var mp: MediaPlayer
 
+    // SE
+    private lateinit var soundPool: SoundPool
+    private var buttonse = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chara)
+
+        val audioAttributes = AudioAttributes.Builder()
+            // USAGE_MEDIA
+            // USAGE_GAME
+            .setUsage(AudioAttributes.USAGE_GAME)
+            // CONTENT_TYPE_MUSIC
+            // CONTENT_TYPE_SPEECH, etc.
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setAudioAttributes(audioAttributes)
+            // ストリーム数に応じて
+            .setMaxStreams(2)
+            .build()
+
+        // 効果音をロードしておく
+        buttonse = soundPool.load(this, R.raw.button_se, 1)
+
+
+        // load が終わったか確認する場合
+        soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
+            Log.d("debug", "sampleId=$sampleId")
+            Log.d("debug", "status=$status")
+        }
 
         val circleprogressBar :ProgressBar = findViewById(R.id.circle_progressBar)
         circleprogressBar.visibility = View.INVISIBLE
@@ -172,6 +201,9 @@ class CharaActivity : AppCompatActivity(){
             val intent =
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             //ここまで
         }
@@ -184,6 +216,9 @@ class CharaActivity : AppCompatActivity(){
                 DressbuyActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -196,6 +231,9 @@ class CharaActivity : AppCompatActivity(){
                 CharaActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -205,6 +243,9 @@ class CharaActivity : AppCompatActivity(){
             //ここから遷移用のコード
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -214,6 +255,9 @@ class CharaActivity : AppCompatActivity(){
         mp.isLooping = true
         mp.start()
         share_button.setOnClickListener() {
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
 
             showShareChooser()
         }

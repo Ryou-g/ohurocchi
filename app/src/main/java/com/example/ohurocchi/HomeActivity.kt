@@ -22,7 +22,12 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    // BGM
     private lateinit var mp: MediaPlayer
+
+    // SE
+    private lateinit var soundPool: SoundPool
+    private var buttonse = 0
 
     // Voiceデータ（mp3）
     private lateinit var mp3a: MediaPlayer
@@ -54,6 +59,31 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val audioAttributes = AudioAttributes.Builder()
+            // USAGE_MEDIA
+            // USAGE_GAME
+            .setUsage(AudioAttributes.USAGE_GAME)
+            // CONTENT_TYPE_MUSIC
+            // CONTENT_TYPE_SPEECH, etc.
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setAudioAttributes(audioAttributes)
+            // ストリーム数に応じて
+            .setMaxStreams(2)
+            .build()
+
+        // 効果音をロードしておく
+        buttonse = soundPool.load(this, R.raw.button_se, 1)
+
+
+        // load が終わったか確認する場合
+        soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
+            Log.d("debug", "sampleId=$sampleId")
+            Log.d("debug", "status=$status")
+        }
 
 
         //imageViewの取得
@@ -1195,6 +1225,9 @@ class HomeActivity : AppCompatActivity() {
                 uid = status.now_Login
             )
             Log.d(TAG,"インスタンス化")
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
 
 
             // ④ 再生処理(再生ボタン)
@@ -1304,6 +1337,9 @@ class HomeActivity : AppCompatActivity() {
         bathlog.setOnClickListener {
             val intent = Intent(applicationContext,BathlogActivity::class.java)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
@@ -1314,6 +1350,9 @@ class HomeActivity : AppCompatActivity() {
             val intent =
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
@@ -1326,6 +1365,9 @@ class HomeActivity : AppCompatActivity() {
                 DressbuyActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) //アニメーション
         }
@@ -1338,6 +1380,9 @@ class HomeActivity : AppCompatActivity() {
                 CharaActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }
@@ -1347,6 +1392,9 @@ class HomeActivity : AppCompatActivity() {
             //ここから遷移用のコード
             val intent = Intent(this,SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)//アニメーション
         }

@@ -3,7 +3,9 @@ package com.example.ohurocchi
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -13,13 +15,47 @@ import com.google.firebase.ktx.Firebase
 
 class DressbuyActivity : AppCompatActivity() {
 
-    // ① 準備（コンポを部屋に置く・コピペOK）
-
+    // BGM
     private lateinit var mp: MediaPlayer
+
+    // SE
+    private lateinit var soundPool: SoundPool
+    private var buttonse = 0
+    private var choice = 0
+    private var cancel = 0
+    private var decision = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressexchange)
+
+        val audioAttributes = AudioAttributes.Builder()
+            // USAGE_MEDIA
+            // USAGE_GAME
+            .setUsage(AudioAttributes.USAGE_GAME)
+            // CONTENT_TYPE_MUSIC
+            // CONTENT_TYPE_SPEECH, etc.
+            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setAudioAttributes(audioAttributes)
+            // ストリーム数に応じて
+            .setMaxStreams(4)
+            .build()
+
+        // 効果音をロードしておく
+        buttonse = soundPool.load(this, R.raw.button_se, 1)
+        choice = soundPool.load(this, R.raw.choice, 1)
+        decision = soundPool.load(this, R.raw.decision, 1)
+        cancel = soundPool.load(this, R.raw.cancel, 1)
+
+        // load が終わったか確認する場合
+        soundPool.setOnLoadCompleteListener{ soundPool, sampleId, status ->
+            Log.d("debug", "sampleId=$sampleId")
+            Log.d("debug", "status=$status")
+        }
+
         val db = Firebase.firestore
 
         val xchange_button = findViewById<Button>(R.id.button)
@@ -31,6 +67,9 @@ class DressbuyActivity : AppCompatActivity() {
             val intent =
                 Intent(this, HomeActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -43,6 +82,9 @@ class DressbuyActivity : AppCompatActivity() {
                 DressbuyActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -55,6 +97,9 @@ class DressbuyActivity : AppCompatActivity() {
                 CharaActivity::class.java
             )    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -65,6 +110,9 @@ class DressbuyActivity : AppCompatActivity() {
             val intent =
                 Intent(this, SettingActivity::class.java)    //intentインスタンスの生成(第二引数は遷移先のktファイル名)
             startActivity(intent)
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(buttonse, 0.3f, 0.3f, 0, 0, 1.0f)
             //ここまで
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
@@ -85,6 +133,9 @@ class DressbuyActivity : AppCompatActivity() {
         var select_costume = 0
 
         adult.setOnClickListener {
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(choice, 0.3f, 0.3f, 0, 0, 1.0f)
 
             imageView.setImageResource(R.drawable.coat_usually)
             textView.setText("コート");
@@ -96,6 +147,9 @@ class DressbuyActivity : AppCompatActivity() {
         val sexy = findViewById<ImageButton>(R.id.sexy)
 
         sexy.setOnClickListener {
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(choice, 0.3f, 0.3f, 0, 0, 1.0f)
 
             imageView.setImageResource(R.drawable.dress_usually)
             textView.setText("ワンピース");
@@ -107,6 +161,9 @@ class DressbuyActivity : AppCompatActivity() {
         val neautral = findViewById<ImageButton>(R.id.neautral)
 
         neautral.setOnClickListener {
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(choice, 0.3f, 0.3f, 0, 0, 1.0f)
 
             imageView.setImageResource(R.drawable.maid_usually)
             textView.setText("メイド");
@@ -118,6 +175,9 @@ class DressbuyActivity : AppCompatActivity() {
         val sick = findViewById<ImageButton>(R.id.sick)
 
         sick.setOnClickListener {
+            // 効果音 の再生
+            // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+            soundPool.play(choice, 0.3f, 0.3f, 0, 0, 1.0f)
 
             imageView.setImageResource(R.drawable.uniform_usually)
             textView.setText("制服");
@@ -154,10 +214,15 @@ class DressbuyActivity : AppCompatActivity() {
                     db.collection("NameChange").document("NameChange").update("uniform_unlock","True")
                 }
                 Toast.makeText(this, "交換成功！", Toast.LENGTH_SHORT).show()
-
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(decision, 0.3f, 0.3f, 0, 0, 1.0f)
             }else{
                 //ポイントが不足していることをトーストで表示
                 Toast.makeText(this, "好感度が不足しています！", Toast.LENGTH_SHORT).show()
+                // 効果音 の再生
+                // play(ロードしたID, 左音量, 右音量, 優先度, ループ, 再生速度)
+                soundPool.play(cancel, 0.3f, 0.3f, 0, 0, 1.0f)
             }
         }
 
